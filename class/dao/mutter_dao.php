@@ -12,10 +12,14 @@ class MutterDAO extends AbstractDAO{
   public function execute(){
     $sql = "";
     $sql .= "SELECT ";
-    $sql .= "M_USER.user_id, ";
-    $sql .= "* FROM T_MUTTER";
+    $sql .= "T_MUTTER.MUTTER_ID";
+    $sql .= ", T_MUTTER.USER_ID";
+    $sql .= ", T_MUTTER.MUTTER_TITLE";
+    $sql .= ", T_MUTTER.MUTTER_DETAIL";
+    $sql .= ", T_MUTTER.MUTTER_DATE";
+    $sql .= ", T_MUTTER.MUTTER_IMG";
 
-    $sql .= "FROM T_MUTTER";
+    $sql .= " FROM T_MUTTER";
 
 
     $list = $this->sqlToList($sql);

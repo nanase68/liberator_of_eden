@@ -26,7 +26,7 @@ class MutterSelectModel{
 
   public function exeDao(){
     $this->mutter_select_dao->accessDB();
-    $this->data_ary = $this->mutter_select_dao->getDataAry();
+    $this->data_ary = $this->mutter_select_dao->getReturnAry();
   }
 
   public function makeHtml(){

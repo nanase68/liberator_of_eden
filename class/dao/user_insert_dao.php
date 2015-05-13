@@ -15,12 +15,12 @@ class UserInsertDAO extends AbstractDAO{
   }
 
   public function putUser(){
-    $this->setData("user_id" , "cute");
-    $this->setData("user_name" , "キュートさん");
-    $this->setData("user_email" , "cute@anonymous.com");
-    $this->setData("user_pass_tmp" , "hogehoge");
-    $this->setData("user_pass" , md5($this->getData("user_pass_tmp")));
-    $this->setData("user_last_login" , $time = date("Y")."-".date("n")."-".date("d")." ". date("H").":". date("i").":". date("s"));
+    $this->setInputAry("user_id" , "cute");
+    $this->setInputAry("user_name" , "キュートさん");
+    $this->setInputAry("user_email" , "cute@anonymous.com");
+    $this->setInputAry("user_pass_tmp" , "hogehoge");
+    $this->setInputAry("user_pass" , md5($this->getInputAry("user_pass_tmp")));
+    $this->setInputAry("user_last_login" , $time = date("Y")."-".date("n")."-".date("d")." ". date("H").":". date("i").":". date("s"));
   }
 
   public function execute(){

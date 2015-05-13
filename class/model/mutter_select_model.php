@@ -1,12 +1,12 @@
 <?php
-require_once(dirname(__FILE__) . '/../dao/mutter_dao.php');
+require_once(dirname(__FILE__) . '/../dao/mutter_select_dao.php');
 
-class MutterModel{
-  private $mutter_dao; //クラスインスタンス
+class MutterSelectModel{
+  private $mutter_select_dao; //クラスインスタンス
   private $data_ary = "";
 
   function __construct(){
-    $this->mutter_dao = new MutterDao;
+    $this->mutter_select_dao = new MutterSelectDao;
   }
 
   public function printHtml(){
@@ -21,12 +21,12 @@ class MutterModel{
     //何らかの方法でuserを取得
     $user = "root";
 
-    $this->mutter_dao->setUserId($user);
+    $this->mutter_select_dao->setUserId($user);
   }
 
   public function exeDao(){
-    $this->mutter_dao->accessDB();
-    $this->data_ary = $this->mutter_dao->getDataAry();
+    $this->mutter_select_dao->accessDB();
+    $this->data_ary = $this->mutter_select_dao->getDataAry();
   }
 
   public function makeHtml(){
@@ -42,5 +42,5 @@ class MutterModel{
   }
 }
 
-$mutter_model = new MutterModel;
-echo($mutter_model->printHtml());
+$mutter_select_model = new MutterSelectModel;
+echo($mutter_select_model->printHtml());

@@ -1,5 +1,5 @@
 <?php
-require_once('../../common/connection.php');
+require_once(dirname(__FILE__) . '/../../common/connection.php');
 
 // TempretMethod パターン
 

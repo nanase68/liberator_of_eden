@@ -1,5 +1,5 @@
 <?php
-require("common/connect.php");
+require("./connection.php");
 try{
     //auto_incrementが適応されているIDの場合は $user_id = "NULL";でNULLを代入する
     $user_id = "root";

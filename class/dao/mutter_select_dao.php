@@ -1,7 +1,7 @@
 <?php
-require_once('./abstract_dao.php');
+require_once(dirname(__FILE__) . '/abstract_dao.php');
 
-class MutterDAO extends AbstractDAO{
+class MutterSelectDAO extends AbstractDAO{
   private $user_id = "";
   private $data_ary = "";
 
@@ -28,17 +28,15 @@ class MutterDAO extends AbstractDAO{
   }
 
   public function setUserId($user_id){
-    print_r($user_id);
     $this->user_id = $user_id;
   }
   public function getDataAry(){
     return $this->data_ary;
   }
+  public function getTable(){
+    return $this->table;
+  }
+  public function getColumnAry(){
+    return $this->column_ary;
+  }
 }
-
-
-$mutter = new MutterDAO;
-$mutter->setUserId("root");
-$mutter->accessDB();
-print_r($mutter->getDataAry());
-

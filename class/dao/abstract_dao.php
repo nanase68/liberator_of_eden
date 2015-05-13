@@ -42,7 +42,7 @@ abstract class AbstractDAO{
   /*
    * $table テーブル名は大文字でなければいけない
    */
-  public function makeSql($table, $column_ary){
+  public function makeSelectSql($table, $column_ary){
     $sql = "";
     $sql .= "SELECT ";
 
@@ -56,16 +56,17 @@ abstract class AbstractDAO{
     return($sql);
   }
 
-  public function sqlToList($sql){
+  public function exeSql($sql){
     $st = DBX::getPdo()->query($sql);
     $st->execute();
 
-    $list = array();
+    $ary = array();
     while($row = $st->fetch(PDO::FETCH_ASSOC)){
-      $list[] = $row;
+      $ary[] = $row;
     }
-    return($list);
+    return($ary);
   }
+
 
 
 

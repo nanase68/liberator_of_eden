@@ -2,12 +2,7 @@
 require_once('./abstract_dao.php');
 
 class MutterDAO extends AbstractDAO{
-  private $mutter_id;
-  private $user_id;
-  private $mutter_title;
-  private $mutter_detail;
-  private $mutter_date;
-  private $mutter_img;
+  private $dataAry = "";
 
   private $table = "T_MUTTER";
   private $column_ary = array(
@@ -20,14 +15,20 @@ class MutterDAO extends AbstractDAO{
   );
 
   public function execute(){
-    $sql = $this->makeSql($this->table, $this->column_ary);
+    $sql = $this->makeSelectSql($this->table, $this->column_ary);
 
-    $list = $this->sqlToList($sql);
-    print_r($list);
+    $ary = $this->exeSql($sql);
+
+    $this->dataAry = $ary;
   }
 
+  public function getDataAry(){
+    return $this->dataAry;
+  }
 }
 
 
 $mutter = new MutterDAO;
 $mutter->accessDB();
+print_r($mutter->getDataAry());
+

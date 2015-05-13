@@ -92,18 +92,18 @@ abstract class AbstractDAO{
   }
 
   public function exeInsertSql($sql, $column_ary){
-    $st = DBX::getPdo()->query($sql);
-    $st = $dbh->prepare($sql);
+    $st = DBX::getPdo()->prepare($sql);
     
     //基本的にPDO::PARAM_STR 
     //"NULL"を代入する場合もPDO::PARAM_STR
     //たまにPDO::PARAM_INTも使用するが変数の型に注意
-    foreach($column_ary as $value){
-      $st -> bindParam(":$value", $this->__get($value), PDO::PARAM_STR);
+    foreach($this->getColumnAry() as $value){
+      $st -> bindParam(":$value", $this->getData($value), PDO::PARAM_STR);
     }
    
+    $st -> execute();
     //コミットすると適用される
-    $dbh -> commit();
+    DBX::getPdo() -> commit();
   }
 
 

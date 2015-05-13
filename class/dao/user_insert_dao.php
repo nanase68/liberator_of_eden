@@ -2,32 +2,16 @@
 require_once(dirname(__FILE__) . '/abstract_dao.php');
 
 class UserInsertDAO extends AbstractDAO{
-  private $data_ary = array();
-
-  private $table = "M_USER";
-  private $column_ary = array(
-    "user_id",
-    "user_name",
-    "user_email",
-    "user_pass_tmp",
-    "user_pass",
-    "user_last_login",
-  );
-
-  public function setData($key, $value){
-    if(!is_null($key)){
-      $this->data_ary[$key] = $value;
-    } else {
-      exit('keyの値がnull');
-    }
-  }
-
-  public function getData($key){
-    if (array_key_exists($key, $this->data_ary)) {
-      return $this->data_ary[$key];
-    } else {
-      return NULL;
-    }
+  function __construct(){
+    $this->setTable("M_USER");
+    $this->setColumnAry(array(
+      "user_id",
+      "user_name",
+      "user_email",
+      "user_pass_tmp",
+      "user_pass",
+      "user_last_login",
+    ));
   }
 
   public function putUser(){
@@ -40,16 +24,9 @@ class UserInsertDAO extends AbstractDAO{
   }
 
   public function execute(){
-    $sql = $this->makeInsertSql($this->table, $this->column_ary);
+    $sql = $this->makeInsertSql($this->getTable(), $this->getColumnAry());
 
-    $this->exeInsertSql($sql, $this->column_ary);
-  }
-
-  public function getTable(){
-    return $this->table;
-  }
-  public function getColumnAry(){
-    return $this->column_ary;
+    $this->exeInsertSql($sql, $this->getColumnAry());
   }
 }
 

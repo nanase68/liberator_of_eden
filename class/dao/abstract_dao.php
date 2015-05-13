@@ -26,6 +26,39 @@ require_once(dirname(__FILE__) . '/../../common/connection.php');
  * ↑のような感じでクエリを実行して自分の変数に結果を格納する
  */
 abstract class AbstractDAO{
+  private $data_ary = array();
+
+  private $table;
+  private $column_ary;
+  public function setTable($arg){
+    $this->table = $arg;
+  }
+  public function getTable(){
+    return $this->table;
+  }
+  public function setColumnAry($arg){
+    $this->column_ary = $arg;
+  }
+  public function getColumnAry(){
+    return $this->column_ary;
+  }
+
+  public function setData($key, $value){
+    if(!is_null($key)){
+      $this->data_ary[$key] = $value;
+    } else {
+      exit('keyの値がnull');
+    }
+  }
+
+  public function getData($key){
+    if (array_key_exists($key, $this->data_ary)) {
+      return $this->data_ary[$key];
+    } else {
+      return NULL;
+    }
+  }
+
   public function accessDB(){
     try{
       DBX::connect();

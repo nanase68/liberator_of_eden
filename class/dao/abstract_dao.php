@@ -7,25 +7,26 @@ require_once(dirname(__FILE__) . '/../../common/connection.php');
  * Abstract クラス
  *
  * 使い方：
- * AbstractDAOを継承したクラス内でexecute()を定義し、
- * データベースにアクセスしたいタイミングでaccessDBを呼び出す。
- *
- * execute()内では、
- * $sqlを作り、
-  function execute(){
-    $sql = "SELECT * FROM staff";
-
-    $st = DBX::getPdo()->query($sql);
-    $st->execute();
-
-    $list = array();
-    while($row = $st->fetch(PDO::FETCH_ASSOC)){
-      $list[] = $row;
-    }
-  }
- * ↑のような感じでクエリを実行して自分の変数に結果を格納する
+ * AbstractDAOを継承したクラス内で
+ * コンストラクタで$tableと$column_aryを指定する。
+ * execute()を定義し、
+ * データベースにアクセスしたいタイミングでaccessDB()を呼び出す。
  */
 abstract class AbstractDAO{
+  // SQLの実行に必要な値を入れるための配列
+  private $input_ary = array();
+  // SQLの結果を入れるための配列
+  private $return_ary = array();
+
+  // SQLのテーブル名をコンストラクタで指定する必要がある
+  // テーブル名は大文字でなければいけない
+  private $table;
+  // SQLの列名をコンストラクタで指定する必要がある
+  private $column_ary;
+
+  // 抽象クラスを実装する必要がある
+  abstract protected function execute();
+
   public function accessDB(){
     try{
       DBX::connect();
@@ -39,9 +40,6 @@ abstract class AbstractDAO{
     }
   }
 
-  /*
-   * $table テーブル名は大文字でなければいけない
-   */
   public function makeSelectSql($table, $column_ary){
     $sql = "";
     $sql .= "SELECT ";
@@ -98,7 +96,7 @@ abstract class AbstractDAO{
     //"NULL"を代入する場合もPDO::PARAM_STR
     //たまにPDO::PARAM_INTも使用するが変数の型に注意
     foreach($this->getColumnAry() as $value){
-      $st -> bindParam(":$value", $this->getData($value), PDO::PARAM_STR);
+      $st -> bindParam(":$value", $this->getInputAry($value), PDO::PARAM_STR);
     }
    
     $st -> execute();
@@ -106,13 +104,41 @@ abstract class AbstractDAO{
     DBX::getPdo() -> commit();
   }
 
-
-
-
-
-
-  abstract protected function execute();
-
+  /*
+   * getter / setter
+   */
+  public function setInputAry($key, $value){
+    if(!is_null($key)){
+      $this->input_ary[$key] = $value;
+    } else {
+      exit('keyの値がnull');
+    }
+  }
+  public function getInputAry($key){
+    if (array_key_exists($key, $this->input_ary)) {
+      return $this->input_ary[$key];
+    } else {
+      return NULL;
+    }
+  }
+  public function setReturnAry($arg){
+    $this->return_ary = $arg;
+  }
+  public function getReturnAry(){
+    return $this->return_ary;
+  }
+  public function setTable($arg){
+    $this->table = $arg;
+  }
+  public function getTable(){
+    return $this->table;
+  }
+  public function setColumnAry($arg){
+    $this->column_ary = $arg;
+  }
+  public function getColumnAry(){
+    return $this->column_ary;
+  }
 }
 
 class DBX{

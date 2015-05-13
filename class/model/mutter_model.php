@@ -9,7 +9,7 @@ class MutterModel{
     $this->mutter_dao = new MutterDao;
   }
 
-  public function ctrlHtml(){
+  public function printHtml(){
     $this->userId();
     $this->exeDao();
     return($this->makeHtml());
@@ -43,4 +43,4 @@ class MutterModel{
 }
 
 $mutter_model = new MutterModel;
-echo($mutter_model->ctrlHtml());
+echo($mutter_model->printHtml());

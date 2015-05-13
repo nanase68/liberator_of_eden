@@ -22,7 +22,7 @@ class MutterDAO extends AbstractDAO{
       $sql .= " WHERE " . "user_id=" . "'$this->user_id'";
     }
 
-    $ary = $this->exeSql($sql);
+    $ary = $this->exeSelectSql($sql);
 
     $this->data_ary = $ary;
   }

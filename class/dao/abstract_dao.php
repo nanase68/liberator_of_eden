@@ -56,7 +56,31 @@ abstract class AbstractDAO{
     return($sql);
   }
 
-  public function exeSql($sql){
+  public function makeInsertSql($table, $column_ary){
+    $sql = "";
+    $sql .= "INSERT ";
+    $sql .= "INTO " . DBNAME . ".$table"; 
+    $sql .= " (";
+    for($i=0; $i < count($column_ary); $i++){
+      if($i > 0){
+        $sql .= ", ";
+      }
+      $sql .= $column_ary[$i];
+    }
+    $sql .= ")";
+    $sql .= " VALUES";
+    $sql .= " (";
+    for($i=0; $i < count($column_ary); $i++){
+      if($i > 0){
+        $sql .= ", ";
+      }
+      $sql .= ":" .$column_ary[$i];
+    }
+    $sql .= ")";
+    return($sql);
+  }
+
+  public function exeSelectSql($sql){
     $st = DBX::getPdo()->query($sql);
     $st->execute();
 
@@ -66,6 +90,23 @@ abstract class AbstractDAO{
     }
     return($ary);
   }
+
+  public function exeInsertSql($sql, $column_ary){
+    $st = DBX::getPdo()->query($sql);
+    $st = $dbh->prepare($sql);
+    
+    //基本的にPDO::PARAM_STR 
+    //"NULL"を代入する場合もPDO::PARAM_STR
+    //たまにPDO::PARAM_INTも使用するが変数の型に注意
+    foreach($column_ary as $value){
+      $st -> bindParam(":$value", $this->__get($value), PDO::PARAM_STR);
+    }
+   
+    //コミットすると適用される
+    $dbh -> commit();
+  }
+
+
 
 
 

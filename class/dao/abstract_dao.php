@@ -15,9 +15,13 @@ require_once('../../common/connection.php');
   function execute(){
     $sql = "SELECT * FROM staff";
 
-    $state = DBX::$pdo->query($sql);
+    $st = DBX::getPdo()->query($sql);
+    $st->execute();
 
-    $this->list = $state->fetchAll(PDO::FETCH_ASSOC);
+    $list = array();
+    while($row = $st->fetch(PDO::FETCH_ASSOC)){
+      $list[] = $row;
+    }
   }
  * ↑のような感じでクエリを実行して自分の変数に結果を格納する
  */

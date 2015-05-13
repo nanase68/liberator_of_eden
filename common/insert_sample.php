@@ -1,5 +1,5 @@
 <?php
-require_once("../../common/connection.php");
+require_once("./connection.php");
 
 try {
     //参考:: http://detail.chiebukuro.yahoo.co.jp/qa/question_detail/q14108830479

@@ -9,26 +9,22 @@ class MutterDAO extends AbstractDAO{
   private $mutter_date;
   private $mutter_img;
 
+  private $table = "T_MUTTER";
+  private $column_ary = array(
+    "mutter_id",
+    "user_id",
+    "mutter_title",
+    "mutter_detail",
+    "mutter_date",
+    "mutter_img",
+  );
+
   public function execute(){
-    $sql = "";
-    $sql .= "SELECT ";
-    $sql .= "T_MUTTER.MUTTER_ID";
-    $sql .= ", T_MUTTER.USER_ID";
-    $sql .= ", T_MUTTER.MUTTER_TITLE";
-    $sql .= ", T_MUTTER.MUTTER_DETAIL";
-    $sql .= ", T_MUTTER.MUTTER_DATE";
-    $sql .= ", T_MUTTER.MUTTER_IMG";
-
-    $sql .= " FROM T_MUTTER";
-
+    $sql = $this->makeSql($this->table, $this->column_ary);
 
     $list = $this->sqlToList($sql);
     print_r($list);
   }
-
-
-
-
 
 }
 

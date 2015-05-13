@@ -39,6 +39,23 @@ abstract class AbstractDAO{
     }
   }
 
+  /*
+   * $table テーブル名は大文字でなければいけない
+   */
+  public function makeSql($table, $column_ary){
+    $sql = "";
+    $sql .= "SELECT ";
+
+    for($i=0; $i < count($column_ary); $i++){
+      if($i > 0){
+        $sql .= ", ";
+      }
+      $sql .= $table . "." . $column_ary[$i];
+    }
+    $sql .= " FROM " . $table;
+    return($sql);
+  }
+
   public function sqlToList($sql){
     $st = DBX::getPdo()->query($sql);
     $st->execute();

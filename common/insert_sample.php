@@ -3,9 +3,6 @@ require_once("./connection.php");
 
 try {
     //参考:: http://detail.chiebukuro.yahoo.co.jp/qa/question_detail/q14108830479
-    //if (!isset($_GET['name'], $_GET['id']) || !is_string($name = $_GET['name']) || !is_string($id = $_GET['id'])) {
-    //    throw new Exception('invalid GET parameters');
-    //} 
 
     $user_id = "ping";
     $user_name = "pingさん";
@@ -16,6 +13,7 @@ try {
 
     $dbh = new PDO(DSN, USER, PASS);
     $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    $dbh -> beginTransaction();
     $dbh -> query("SET NAMES utf8");
 
     $sql = "INSERT INTO next_c.M_USER ";
@@ -34,10 +32,10 @@ try {
     $st -> bindParam(":USER_PASS", $user_pass, PDO::PARAM_STR);
     $st -> bindParam(":USER_PASS_TMP", $user_pass_tmp, PDO::PARAM_STR);
     $st -> bindParam(":USER_LAST_LOGIN", $time, PDO::PARAM_STR);
-    var_dump($st);
     
 
     $st->execute();#array($name, $id));
+    $dbh -> commit();
 
 } catch (Exception $e){
     echo 'エラー: ' . $e->getMessage();

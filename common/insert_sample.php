@@ -1,29 +1,26 @@
 <?php
-require("common/connect.php");
-try{
-    //auto_incrementが適応されているIDの場合は $user_id = "NULL";でNULLを代入する
-    $user_id = "root";
-    $user_name = "ルートさん";
+require_once("../../common/connection.php");
+
+try {
+    //参考:: http://detail.chiebukuro.yahoo.co.jp/qa/question_detail/q14108830479
+    //if (!isset($_GET['name'], $_GET['id']) || !is_string($name = $_GET['name']) || !is_string($id = $_GET['id'])) {
+    //    throw new Exception('invalid GET parameters');
+    //} 
+
+    $user_id = "ping";
+    $user_name = "pingさん";
     $user_email = "root@anonymous.com";
     $user_pass_tmp = "hogehoge"; 
     $user_pass = md5($user_pass_tmp);
     $user_last_login = $time = date("Y")."-".date("n")."-".date("d")." ". date("H").":". date("i").":". date("s");
 
-
-
     $dbh = new PDO(DSN, USER, PASS);
-    $dbh -> setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    $dbh -> beginTransaction();
+    $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     $dbh -> query("SET NAMES utf8");
-    
-    
-    //複数個の値をINSERTする場合は↓
-    //$sql = "INSERT INTO next_c.M_USER (USER_ID, USER_NAME, USER_EMAIL, USER_PASS, USER_PASS_TMP, USER_LAST_LOGIN) VALUES (?, ?, ?, ?, ?, ?)";
-    //↑の使い方はGoogleさんに聞いて
-    
+
     $sql = "INSERT INTO next_c.M_USER ";
     $sql .= "(USER_ID, USER_NAME, USER_EMAIL, USER_PASS, USER_PASS_TMP, USER_LAST_LOGIN) ";
-    $sql .= "VALUES (:USER_ID, :USER_NAME, :USER_PASS, :USER_PASS_TMP, :USER_LAST_LOGIN)";
+    $sql .= "VALUES (:USER_ID, :USER_NAME, :USER_EMAIL, :USER_PASS, :USER_PASS_TMP, :USER_LAST_LOGIN)";
     //:USER_ID.....はバインド変数なので""は必要ない
     $st = $dbh->prepare($sql);
     
@@ -37,11 +34,13 @@ try{
     $st -> bindParam(":USER_PASS", $user_pass, PDO::PARAM_STR);
     $st -> bindParam(":USER_PASS_TMP", $user_pass_tmp, PDO::PARAM_STR);
     $st -> bindParam(":USER_LAST_LOGIN", $time, PDO::PARAM_STR);
+    var_dump($st);
     
-    //コミットすると適用される
-    $dbh -> commit();
-} catch (PDOException $e) {
-    echo $e;
-    exit;
+
+    $st->execute();#array($name, $id));
+
+} catch (Exception $e){
+    echo 'エラー: ' . $e->getMessage();
 }
+
 ?>

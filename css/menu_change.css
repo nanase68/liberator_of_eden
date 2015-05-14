@@ -1,0 +1,35 @@
+aside{
+	border: 0;
+	position: fixed;
+	top: 50px;
+	float: left;
+	width: 100%;
+	margin: 0;
+	background: rgba(0,0,0,0.2);
+	z-index: 1;
+}
+
+aside nav dl{
+	width: 100%;
+	display: table;
+}
+aside nav dt{
+	display: none;
+	margin: 0;
+	font-size: 18px;
+	text-indent: 0px;
+}
+aside nav dd{
+	display: table-cell;
+	text-indent: 15px;
+}
+aside nav dd a{
+	text-align: center;
+	height: 50px;
+	line-height: 50px;
+	display: block;
+	width: 200px;
+}
+#content_wrapper{
+	margin-left: 0;
+}

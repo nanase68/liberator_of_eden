@@ -1,0 +1,248 @@
+
+#haguruma{
+	position: fixed;
+	bottom: -140px;
+	right: -140px;
+	height: 280px;
+	width: 280px;
+	border-radius: 150px;
+}
+
+#haguruma:hover{
+}
+
+#haguruma:active{
+}
+
+.haguruma{
+	height: 100px;
+	width: 100px;
+	position: fixed;
+}
+
+.haguruma01{
+	bottom: -50px;
+	right: -50px;
+	background: url("../images/haguruma/haguruma01.png");
+	background-size:cover;
+}
+.haguruma02{
+	height: 110px;
+	width: 110px;
+	bottom: 35px;
+	right: -50px;
+	background: url("../images/haguruma/haguruma02.png");
+	background-size:cover;
+}
+.haguruma03{
+	height: 110px;
+	width: 110px;
+	bottom: -25px;
+	right: 30px;
+	background: url("../images/haguruma/haguruma03.png");
+	background-size:cover;
+}
+.haguruma04{
+	height: 280px;
+	width: 280px;
+	bottom: -120px;
+	right: -120px;
+
+	background: url("../images/haguruma/haguruma04.png");
+	background-size:cover;
+	opacity: 0.4;
+}
+
+.haguruma05{
+	height: 280px;
+	width: 280px;
+	bottom: -140px;
+	right: -70px;
+
+	background: url("../images/haguruma/haguruma05.png");
+	background-size:cover;
+	opacity: 0.2;
+}
+
+.haguruma06{
+	height: 280px;
+	width: 280px;
+	bottom: -70px;
+	right: -140px;
+
+	background: url("../images/haguruma/haguruma06.png");
+	background-size:cover;
+	opacity: 0.2;
+}
+.haguruma07{
+	height: 50px;
+	width: 50px;
+	bottom: 0px;
+	right: 0px;
+
+	background: url("../images/haguruma/haguruma05.png");
+	background-size:cover;
+	opacity: 1;
+}
+#haguruma_wrap{
+	position: fixed;
+	height: 360px;
+	width: 360px;
+	bottom: -180px;
+	right: 190px;
+	
+}
+#haguruma_wrap > div{
+	position: fixed;
+	height: 100px;
+	width: 100px;
+	bottom: -80px;
+	right: 50px;
+}
+
+
+.spin_infinite {
+/* keyframes に任意の名前を付ける */
+	-moz-animation-name: 'rotate1';
+	-webkit-animation-name: 'rotate1';
+	animation-name: 'rotate1';
+	-goog-ms-animation-name: 'rotate1'; 
+ 
+ /* 1動作(ここでは1回転)あたりの秒数 */
+	-moz-animation-duration: 20s;
+	-webkit-animation-duration: 20s;
+	animation-duration: 20s;
+	-goog-ms-animation-duration: 20s;
+ 
+/* 動作の向き、初期値はnormal 、逆再生は alternate */
+	-moz-animation-direction: normal;
+	-webkit-animation-direction: normal;
+	animation-direction: normal;
+	-goog-ms-animation-direction: normal;
+	
+/* 動き方 linear, ease, easein, ease-out, ease-in-out */
+	-moz-animation-timing-function: linear;
+	-webkit-animation-timing-function: linear;
+	animation-timing-function: linear;
+	-goog-ms-animation-timing-function: linear;
+	
+/* 動作 (ここでは回転) の回数を数値で指定、無限ループは infinite */
+	-moz-animation-iteration-count: infinite;
+	-webkit-animation-iteration-count: infinite;
+	animation-iteration-count: infinite;
+	-goog-ms-animation-iteration-count: infinite;
+}
+.spin_infiniteX {
+/* keyframes に任意の名前を付ける */
+	-moz-animation-name: 'rotate2';
+	-webkit-animation-name: 'rotate2';
+	animation-name: 'rotate2';
+	-goog-ms-animation-name: 'rotate2'; 
+ 
+ /* 1動作(ここでは1回転)あたりの秒数 */
+	-moz-animation-duration: 20s;
+	-webkit-animation-duration: 20s;
+	animation-duration: 20s;
+	-goog-ms-animation-duration: 20s;
+ 
+/* 動作の向き、初期値はnormal 、逆再生は alternate */
+	-moz-animation-direction: normal;
+	-webkit-animation-direction: normal;
+	animation-direction: normal;
+	-goog-ms-animation-direction: normal;
+	
+/* 動き方 linear, ease, easein, ease-out, ease-in-out */
+	-moz-animation-timing-function: linear;
+	-webkit-animation-timing-function: linear;
+	animation-timing-function: linear;
+	-goog-ms-animation-timing-function: linear;
+	
+/* 動作 (ここでは回転) の回数を数値で指定、無限ループは infinite */
+	-moz-animation-iteration-count: infinite;
+	-webkit-animation-iteration-count: infinite;
+	animation-iteration-count: infinite;
+	-goog-ms-animation-iteration-count: infinite;
+}
+
+
+
+.spin_infiniteFast {
+/* keyframes に任意の名前を付ける */
+	-moz-animation-name: 'rotate3';
+	-webkit-animation-name: 'rotate3';
+	animation-name: 'rotate3';
+	-goog-ms-animation-name: 'rotate3'; 
+ 
+ /* 1動作(ここでは1回転)あたりの秒数 */
+	-moz-animation-duration: 5s;
+	-webkit-animation-duration: 5s;
+	animation-duration: 5s;
+	-goog-ms-animation-duration: 5s;
+ 
+/* 動作の向き、初期値はnormal 、逆再生は alternate */
+	-moz-animation-direction: normal;
+	-webkit-animation-direction: normal;
+	animation-direction: normal;
+	-goog-ms-animation-direction: normal;
+	
+/* 動き方 linear, ease, easein, ease-out, ease-in-out */
+	-moz-animation-timing-function: ease-in-out;
+	-webkit-animation-timing-function: ease-in-out;
+	animation-timing-function: ease-in-out;
+	-goog-ms-animation-timing-function: ease-in-out;
+	
+/* 動作 (ここでは回転) の回数を数値で指定、無限ループは infinite */
+	-moz-animation-iteration-count: 1;
+	-webkit-animation-iteration-count: 1;
+	animation-iteration-count: 1;
+	-goog-ms-animation-iteration-count: 1;
+}
+
+@-webkit-keyframes 'rotate1' {
+	from {
+	/* 最初の回転角 */
+		-moz-transform: rotate(0deg);
+		-webkit-transform: rotate(0deg);
+		transform: rotate(0deg);
+		-goog-ms-transform: rotate(0deg);
+	}
+	/* 1動作の最後 ( 1duration 後) の回転角 */
+	to {
+		-moz-transform: rotate(-360deg);
+		-webkit-transform: rotate(-360deg);
+		transform: rotate(-360deg);
+		-goog-ms-transform: rotate(-360deg);
+	}
+}
+@-webkit-keyframes 'rotate2' {
+	from {
+	/* 最初の回転角 */
+		-moz-transform: rotate(0deg);
+		-webkit-transform: rotate(0deg);
+		transform: rotate(0deg);
+		-goog-ms-transform: rotate(0deg);
+	}
+	/* 1動作の最後 ( 1duration 後) の回転角 */
+	to {
+		-moz-transform: rotate(360deg);
+		-webkit-transform: rotate(360deg);
+		transform: rotate(360deg);
+		-goog-ms-transform: rotate(360deg);
+	}
+}
+@-webkit-keyframes 'rotate3' {
+	from {
+	/* 最初の回転角 */
+		-moz-transform: rotate(0deg);
+		-webkit-transform: rotate(0deg);
+		transform: rotate(0deg);
+		-goog-ms-transform: rotate(0deg);
+	}
+	/* 1動作の最後 ( 1duration 後) の回転角 */
+	to {
+		-moz-transform: rotate(-360deg);
+		-webkit-transform: rotate(-360deg);
+		transform: rotate(-360deg);
+		-goog-ms-transform: rotate(-360deg);
+	}
+}

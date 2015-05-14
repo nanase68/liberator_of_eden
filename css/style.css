@@ -1,0 +1,438 @@
+@charset "utf-8";
+
+
+/*---------- reset>> ----------*/
+html, body, article, section, nav, aside, h1, h2, h3, h4, h5, h6, header, footer, address, p, hr, pre, blockquote, ol, ul, li, dl, dt, dd, figure, figcaption, div, main, a, em, strong, small, s, cite, q, dfn, abbr, data, time, code, var, samp, kbd, sub, sup, i, b, u, mark, ruby, rb, rt, rtc, rp, bdi, bdo, span, br, wbr, ins, del, img, iframe, embed, object, param, video, audio, source, track, map, area, table, caption, colgroup, col, tbody, thead, tfoot, tr, td, th, form, label, input, button, select, datalist, optgroup, option, textarea, keygen, output, progress, meter, fieldset, legend, canvas {
+border:0;
+margin:0;
+outline:0;
+padding:0;
+background:transparent;
+font:inherit;
+font-family:inherit;
+font-size:100%;
+font-style:inherit;
+font-weight:inherit;
+text-decoration:none;
+vertical-align:baseline;
+}
+
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+
+html{
+	overflow-y: scroll;
+	font-family: 'Open Sans Condensed','Helvetica','Arial',sans-serif;
+	-webkit-font-smoothing: subpixel-antialiased;
+	letter-spacing: 1px;
+	font-weight: normal;
+}
+
+blockquote, q {
+	quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+
+input, textarea,{
+	margin: 0;
+	padding: 0;
+}
+
+ol, ul{
+	list-style:none;
+}
+
+table{
+	border-collapse: collapse; 
+	border-spacing:0;
+}
+
+caption, th{
+	text-align: left;
+}
+
+a:focus {
+	outline:none;
+}
+
+.clearfix:after {
+	content: "."; 
+	display: block;
+	clear: both;
+	height: 0;
+	visibility: hidden;
+}
+
+.clearfix {
+	min-height: 1px;
+}
+
+* html .clearfix {
+	height: 1px;
+	/*\*//*/
+	height: auto;
+	overflow: hidden;
+	/**/
+}
+
+.both{
+	clear:both;
+}
+
+.inline_block {
+	display: inline-block;
+	*display: inline;
+	*zoom: 1;
+}
+/*---------- <<reset ----------*/
+
+
+/*---------- >>style ----------*/
+@font-face {
+	font-family: 'ChoGokuBoso';
+	src: url("../fonts/chogokubosogothic_5.ttf");
+}
+@font-face {
+	font-family: 'Logotypejp';
+	src: url("../fonts/logotypejp_mp_b_1.ttf");
+}
+
+@font-face {
+	font-family: 'Bradley_Hand_ITC';
+	src: url("../fonts/Bradley_Hand_ITC.ttf");
+}
+@font-face {
+	font-family: 'KozMinPro-ExtraLight';
+	src: url("../fonts/KozMinPro/KozMinPro-ExtraLight.otf");
+}
+@font-face {
+	font-family: 'KozMinPro-Regular';
+	src: url("../fonts/KozMinPro/KozMinPro-Regular.otf");
+}
+
+
+html, body{
+	color: #e5e5ef;
+	font:inherit;
+	height: 100%;
+}
+html {
+/*	font-size:62.5%;*/
+	font-size: 14px;
+}
+body{
+	font-family: KozMinPro-Regular;
+	background: #000;
+/*	-moz-background-size:cover;
+	background-size:cover;*/
+}
+a{
+	color: #e5e5ef;
+	text-decoration: none;
+}
+a:hover{
+	color: #fff;
+	background: rgba(255,255,255,0.1);
+}
+h1{
+
+}
+h2{
+
+}
+h3{
+	font-size: 24px;
+	padding: 20px 0 10px 20px;
+}
+h4{
+	font-size: 20px;
+	border-bottom: 1px solid #fff;
+	text-align: center;
+	margin: 10px 0 0 0;
+}
+
+
+#wrapper{/*
+	width: 100%;
+	min-width: 960px;*/
+	min-height: 100%;
+	margin: 0 auto;
+	
+	position: relative;
+
+	background: url("../images/background.png");
+	background-attachment: fixed;
+	background-position: top cover;
+	background-size:cover;
+	background-repeat: no-repeat;
+}
+
+article:first-child{
+	position: fixed;
+	
+}
+
+header{
+	position: fixed;
+	height: 50px;
+	width: 100%;
+	background: rgba(0,0,0,0.2);
+	z-index: 999;
+}
+
+header h1{
+	margin: 0 0 0 100px;
+	font-size: 20px;
+	line-height: 50px;
+	width: 400px;
+	float: left;
+}
+header h1 span{
+	font-family: Bradley_Hand_ITC;
+	margin-left: 10px;
+	font-size: 20px;
+	width: 300px;
+}
+header > #login{
+	display: block;
+	padding: 0 20px;
+	float: right;
+	height: 50px;
+	line-height: 50px;
+}
+
+
+#main_content{
+/*	min-width: 700px;*/
+}
+#content_wrapper{
+}
+
+
+#main_content section{
+	margin-top: 20px;
+	padding: 20px 0px 0 0;
+	position:relative;
+	float:left;
+	overflow:hidden;
+	display: block;
+}
+#main_content #con01{
+	margin: 50px 0 0 0;
+}
+
+
+
+@media (min-width: 1024px){
+	#main_content section:nth-child(even){
+/*		border:0;*/
+	}
+}
+
+.top_image{
+	width: 150px;
+	height: 150px;
+	float: left;
+	padding: 20px;
+}
+.top_image img{
+	max-height: 150px;
+	max-width: 150px;
+}
+.top_phrase{
+	float: left;
+	width: 400px;
+	font-size: 12px;
+}
+.top_phrase p{
+	margin: 20px 0 0 0;
+}
+.uploader{
+	display: block;
+	font-size: 10px;
+	padding: 10px 0;
+	line-height: 14px;
+	text-align: center;
+}
+.uploader a{
+	font-size: 12px;
+	display: inline;
+}
+
+.micro_content{
+	width: 180px;
+	float: left;
+	margin: 10px 0 0 15px;
+	padding: 15px 0 0 0;
+/*	background: rgba(0,0,0,0.2);*/
+/*	border: 1px solid rgba(0,0,0,0.1);*/
+}
+.micro_content img{
+	margin: 0 0 0 15px;
+	max-width: 150px;
+	max-height: 150px;
+}
+
+.micro_content_txt{
+	margin: 0 0 0 15px;
+	width: 150px;
+	height: 150px;
+	display: block;
+	margin-bottom: 4px;
+}
+
+
+
+footer{
+	clear: left;
+	background: rgba(0,0,0,0.2);
+}
+footer p{
+	text-align: center;
+	height: 100px;
+	line-height: 100px;
+}
+
+
+
+
+.haguruma01{
+	height: 100px;
+	width: 100px;
+	position: fixed;
+	bottom: -50px;
+	right: -50px;
+}
+.haguruma02{
+	height: 100px;
+	width: 100px;
+	position: fixed;
+	bottom: 35px;
+	right: -50px;
+}
+.haguruma03{
+	height: 120px;
+	width: 120px;
+	position: fixed;
+	bottom: -25px;
+	right: 25px;
+}
+.haguruma04{
+	height: 120px;
+	width: 120px;
+	position: fixed;
+	bottom: 100px;
+	right: -50px;
+}
+
+.spin_infinite {
+/* keyframes に任意の名前を付ける */
+	-moz-animation-name: 'rotate1';
+	-webkit-animation-name: 'rotate1';
+	animation-name: 'rotate1';
+	-goog-ms-animation-name: 'rotate1'; 
+ 
+ /* 1動作(ここでは1回転)あたりの秒数 */
+	-moz-animation-duration: 20s;
+	-webkit-animation-duration: 20s;
+	animation-duration: 20s;
+	-goog-ms-animation-duration: 20s;
+ 
+/* 動作の向き、初期値はnormal 、逆再生は alternate */
+	-moz-animation-direction: normal;
+	-webkit-animation-direction: normal;
+	animation-direction: normal;
+	-goog-ms-animation-direction: normal;
+	
+/* 動き方 linear, ease, easein, ease-out, ease-in-out */
+	-moz-animation-timing-function: linear;
+	-webkit-animation-timing-function: linear;
+	animation-timing-function: linear;
+	-goog-ms-animation-timing-function: linear;
+	
+/* 動作 (ここでは回転) の回数を数値で指定、無限ループは infinite */
+	-moz-animation-iteration-count: infinite;
+	-webkit-animation-iteration-count: infinite;
+	animation-iteration-count: infinite;
+	-goog-ms-animation-iteration-count: infinite;
+}
+.spin_infiniteX {
+/* keyframes に任意の名前を付ける */
+	-moz-animation-name: 'rotate2';
+	-webkit-animation-name: 'rotate2';
+	animation-name: 'rotate2';
+	-goog-ms-animation-name: 'rotate2'; 
+ 
+ /* 1動作(ここでは1回転)あたりの秒数 */
+	-moz-animation-duration: 20s;
+	-webkit-animation-duration: 20s;
+	animation-duration: 20s;
+	-goog-ms-animation-duration: 20s;
+ 
+/* 動作の向き、初期値はnormal 、逆再生は alternate */
+	-moz-animation-direction: normal;
+	-webkit-animation-direction: normal;
+	animation-direction: normal;
+	-goog-ms-animation-direction: normal;
+	
+/* 動き方 linear, ease, easein, ease-out, ease-in-out */
+	-moz-animation-timing-function: linear;
+	-webkit-animation-timing-function: linear;
+	animation-timing-function: linear;
+	-goog-ms-animation-timing-function: linear;
+	
+/* 動作 (ここでは回転) の回数を数値で指定、無限ループは infinite */
+	-moz-animation-iteration-count: infinite;
+	-webkit-animation-iteration-count: infinite;
+	animation-iteration-count: infinite;
+	-goog-ms-animation-iteration-count: infinite;
+}
+
+@-webkit-keyframes 'rotate1' {
+	from {
+	/* 最初の回転角 */
+		-moz-transform: rotate(0deg);
+		-webkit-transform: rotate(0deg);
+		transform: rotate(0deg);
+		-goog-ms-transform: rotate(0deg);
+	}
+	/* 1動作の最後 ( 1duration 後) の回転角 */
+	to {
+		-moz-transform: rotate(-360deg);
+		-webkit-transform: rotate(-360deg);
+		transform: rotate(-360deg);
+		-goog-ms-transform: rotate(-360deg);
+	}
+}
+@-webkit-keyframes 'rotate2' {
+	from {
+	/* 最初の回転角 */
+		-moz-transform: rotate(0deg);
+		-webkit-transform: rotate(0deg);
+		transform: rotate(0deg);
+		-goog-ms-transform: rotate(0deg);
+	}
+	/* 1動作の最後 ( 1duration 後) の回転角 */
+	to {
+		-moz-transform: rotate(360deg);
+		-webkit-transform: rotate(360deg);
+		transform: rotate(360deg);
+		-goog-ms-transform: rotate(360deg);
+	}
+}
+
+
+
+
+
+/*---------- <<style ----------*/
+.clear{
+	clear: both;
+}

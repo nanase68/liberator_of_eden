@@ -12,13 +12,16 @@ class ThemeRankingDAO extends AbstractDAO{
             GROUP BY T_THEME.THEME_ID
             ORDER BY FAVORITES DESC";
 
+    //20件のデータを取得
+    $sql .= " LIMIT 20";
+
     $ary = $this->exeSelectSql($sql);
 
     $this->setReturnAry($ary);
   }
 }
 
-$mutter = new ThemeRankingDAO;
-$mutter->accessDB();
-print_r($mutter->getReturnAry());
+//$mutter = new ThemeRankingDAO;
+//$mutter->accessDB();
+//print_r($mutter->getReturnAry());
 

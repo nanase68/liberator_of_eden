@@ -19,6 +19,9 @@ class ThemeResponseRankingDAO extends AbstractDAO{
     $sql .= " GROUP BY T_THEME_RESPONSE.THEME_RESPONSE_ID
             ORDER BY STARS DESC";
 
+    //20件のデータを取得
+    //$sql .= " LIMIT 20";
+
     $ary = $this->exeSelectSql($sql);
 
     $this->setReturnAry($ary);

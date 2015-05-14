@@ -13,13 +13,16 @@ class MutterRankingDAO extends AbstractDAO{
             GROUP BY T_MUTTER.MUTTER_ID
             ORDER BY FAVORITES DESC";
 
+    //20件のデータを取得
+    $sql .= " LIMIT 20";
+
     $ary = $this->exeSelectSql($sql);
 
     $this->setReturnAry($ary);
   }
 }
 
-$mutter = new MutterRankingDAO;
-$mutter->accessDB();
-print_r($mutter->getReturnAry());
+//$mutter = new MutterRankingDAO;
+//$mutter->accessDB();
+//print_r($mutter->getReturnAry());
 

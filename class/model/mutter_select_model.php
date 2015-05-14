@@ -15,7 +15,7 @@ class MutterSelectModel{
     return($this->makeHtml());
   }
 
-  public function userId(){
+  private function userId(){
     $user = "";
 
     //何らかの方法でuserを取得
@@ -24,12 +24,12 @@ class MutterSelectModel{
     $this->mutter_select_dao->setUserId($user);
   }
 
-  public function exeDao(){
+  private function exeDao(){
     $this->mutter_select_dao->accessDB();
     $this->data_ary = $this->mutter_select_dao->getReturnAry();
   }
 
-  public function makeHtml(){
+  private function makeHtml(){
     $html = "";
     foreach($this->data_ary as $row){
       $html .= "<div class='mutter_base'>";

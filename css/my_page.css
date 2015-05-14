@@ -1,0 +1,70 @@
+select, input, textarea, button { 
+     vertical-align:middle; 
+     position:relative; 
+     margin: 0 4px 2px 0;
+     *margin-right:3px; 
+     top:-1px;  
+}
+
+input { 
+     height: 16px; 
+     line-height: 16px; 
+}
+
+button, input[type="button"] {
+     overflow:visible; 
+     height:22px;
+     padding:0 3px;
+}
+
+select {
+     height: 20px;
+     line-height: 20px;
+}
+
+input[type="checkbox"],input[type="radio"] { 
+     border:none; 
+     top:-2px;
+     top:0\9;
+     margin-right:2px; 
+     margin-right: 0\9; 
+}
+
+#wrapper #my_content{
+	margin-top: 50px;
+	padding-top: 50px;
+	display: block;
+	height: 100%;
+	width: 100%;
+	background: rgba(255,255,255,0.1);
+}
+
+#my_content form{
+	width: 700px;
+	margin: 20px;
+	margin: 0 0 0 50px;
+
+}
+#my_content form > div{
+	width: 100%;
+	margin: 0 auto;
+}
+input{
+	overflow:visible;
+	position: relative;
+	vertical-align: center;
+}
+
+#my_content form input[type="text"]{
+	height: 50px;
+	width: 600px;
+	font-size: 25px;
+	background: rgba(255,255,255,0.9);
+	font-family: KozMinPro-Regular;
+}
+#my_content form input[type="submit"]{
+	height: 56px;
+	width: 80px;
+	background: rgba(255,255,255,0.9);
+	border: none;
+}

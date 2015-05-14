@@ -1,0 +1,31 @@
+aside{
+	border-right: 1px solid rgba(255,255,255,0.2);
+	position: fixed;
+	top: 50px;
+	width: 200px;
+	height: 100%;
+}
+aside nav dl{
+	width: 200px;
+	display: inline;
+}
+aside nav dt{
+	display: block;
+	margin: 25px 0 0 0;
+	font-size: 18px;
+	text-indent: 10px;
+}
+aside nav dd{
+	text-indent: 15px;
+	display: inline;
+}
+aside nav dd a{
+	text-align: left;
+	height: 30px;
+	line-height: 30px;
+	display: block;
+	width: 200px;
+}
+#content_wrapper{
+	margin-left: 200px;
+}

@@ -11,6 +11,11 @@ require_once(dirname(__FILE__) . '/../../common/connection.php');
  * コンストラクタで$tableと$column_aryを指定する。
  * execute()を定義し、
  * データベースにアクセスしたいタイミングでaccessDB()を呼び出す。
+ *
+ * @access public
+ * @author shima
+ * @category 
+ * @package dao
  */
 abstract class AbstractDAO{
   // SQLの実行に必要な値を入れるための配列

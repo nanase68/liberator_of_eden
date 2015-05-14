@@ -19,6 +19,7 @@ class MutterSelectModel{
     $user = "";
 
     //何らかの方法でuserを取得
+    //common/get_user.phpを使う
     $user = "root";
 
     $this->mutter_select_dao->setUserId($user);
@@ -32,15 +33,16 @@ class MutterSelectModel{
   private function makeHtml(){
     $html = "";
     foreach($this->data_ary as $row){
-      $html .= "<div class='mutter_base'>";
-      $html .= $row["mutter_title"];
-      
+      $html .= "<div class='micro_content'>";
+      if(empty($row['mutter_img'])){
+        $html .= "<p class='micro_content_txt'>${row['mutter_detail']}</p>";
+      } else {
+        $html .= "<img src='./images/sample.png'>";
+      }
+      $html .= "<p class='uploader'>${row['mutter_title']}</p>";
       $html .= "</div>";
-
+      $html .= "\n";
     }
     return($html);
   }
 }
-
-$mutter_select_model = new MutterSelectModel;
-echo($mutter_select_model->printHtml());

@@ -44,15 +44,6 @@ $mutter_select_model = new MutterSelectModel;
 <?php
 echo($mutter_select_model->printHtml());
 ?>
-				<div class="micro_content">
-					<img src="./images/sample.png">
-					<p class="uploader">SAMPLE: <a href="#">BattoMan</a></p>
-				</div>
-				
-				<div class="micro_content">
-					<img src="./images/sample.png">
-					<p class="uploader">SAMPLE: <a href="#">BattoMan</a></p>
-				</div>
 				<div class="clear"></div>
 			</section>
 			<div class="clear"></div>

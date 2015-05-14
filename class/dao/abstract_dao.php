@@ -40,7 +40,7 @@ abstract class AbstractDAO{
     }
   }
 
-  public function makeSelectSql($table, $column_ary){
+  protected function makeSelectSql($table, $column_ary){
     $sql = "";
     $sql .= "SELECT ";
 
@@ -54,7 +54,7 @@ abstract class AbstractDAO{
     return($sql);
   }
 
-  public function makeInsertSql($table, $column_ary){
+  protected function makeInsertSql($table, $column_ary){
     $sql = "";
     $sql .= "INSERT ";
     $sql .= "INTO " . DBNAME . ".$table"; 
@@ -78,7 +78,7 @@ abstract class AbstractDAO{
     return($sql);
   }
 
-  public function exeSelectSql($sql){
+  protected function exeSelectSql($sql){
     $st = DBX::getPdo()->query($sql);
     $st->execute();
 
@@ -89,7 +89,7 @@ abstract class AbstractDAO{
     return($ary);
   }
 
-  public function exeInsertSql($sql, $column_ary){
+  protected function exeInsertSql($sql, $column_ary){
     $st = DBX::getPdo()->prepare($sql);
     
     //基本的にPDO::PARAM_STR 

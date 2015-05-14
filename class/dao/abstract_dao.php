@@ -101,7 +101,7 @@ abstract class AbstractDAO{
     //"NULL"を代入する場合もPDO::PARAM_STR
     //たまにPDO::PARAM_INTも使用するが変数の型に注意
     foreach($this->getColumnAry() as $value){
-      $st -> bindParam(":$value", $this->getInputAry($value), PDO::PARAM_STR);
+      $st -> bindParam(":$value", $this->popInputAry($value), PDO::PARAM_STR);
     }
    
     $st -> execute();

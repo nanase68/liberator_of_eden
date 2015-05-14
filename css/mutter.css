@@ -1,0 +1,44 @@
+#ranking_wrapper{
+	width: 100%;
+}
+
+#ranking{
+	width: 100%;
+	max-width: 960px;
+}
+#ranking h5{
+	font-size: 18px;
+	text-indent: 20px;
+}
+#ranking h5 a{
+	padding: 0 20px;
+}
+
+.ranking_content{
+	padding: 20px;
+	border-radius: 5px;
+	background: rgba(255,255,255,0.2);
+	margin: 0 auto;
+	margin-top: 20px;
+	width: 850px;
+	display: block;
+}
+
+.image_area{
+	width: 200px;
+	height: 200px;
+	float: left;
+	text-align: center;
+}
+.image_area img{
+	margin: 0 auto;
+	max-height: 200px;
+	max-width: 200px;
+}
+
+.content_area{
+	float: left;
+	background: rgba(0,0,0,0.2);
+	border: 1px solid rgba(0,0,0,0.2);
+	min-width: 500px;
+}

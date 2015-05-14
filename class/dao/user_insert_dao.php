@@ -1,5 +1,6 @@
 <?php
 require_once(dirname(__FILE__) . '/abstract_dao.php');
+require_once(dirname(__FILE__) . '../../common/common.php');
 
 class UserInsertDAO extends AbstractDAO{
   function __construct(){
@@ -15,12 +16,12 @@ class UserInsertDAO extends AbstractDAO{
   }
 
   public function putUser(){
-    $this->setInputAry("user_id" , "cute");
-    $this->setInputAry("user_name" , "キュートさん");
-    $this->setInputAry("user_email" , "cute@anonymous.com");
-    $this->setInputAry("user_pass_tmp" , "hogehoge");
-    $this->setInputAry("user_pass" , md5($this->getInputAry("user_pass_tmp")));
-    $this->setInputAry("user_last_login" , $time = date("Y")."-".date("n")."-".date("d")." ". date("H").":". date("i").":". date("s"));
+    $this->putInputAry("user_id" , "cute");
+    $this->putInputAry("user_name" , "キュートさん");
+    $this->putInputAry("user_email" , "cute@anonymous.com");
+    $this->putInputAry("user_pass_tmp" , "hogehoge");
+    $this->putInputAry("user_pass" , md5($this->popInputAry("user_pass_tmp")));
+    $this->putInputAry("user_last_login" , NOWTIME);
   }
 
   public function execute(){

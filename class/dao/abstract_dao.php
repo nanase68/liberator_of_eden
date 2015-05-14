@@ -112,19 +112,25 @@ abstract class AbstractDAO{
   /*
    * getter / setter
    */
-  public function setInputAry($key, $value){
+  public function putInputAry($key, $value){
     if(!is_null($key)){
       $this->input_ary[$key] = $value;
     } else {
       exit('keyの値がnull');
     }
   }
-  public function getInputAry($key){
+  public function popInputAry($key){
     if (array_key_exists($key, $this->input_ary)) {
       return $this->input_ary[$key];
     } else {
       return NULL;
     }
+  }
+  public function setInputAry($arg){
+    $this->input_ary = $arg;
+  }
+  public function getInputAry($arg){
+    return $this->input_ary;
   }
   public function setReturnAry($arg){
     $this->return_ary = $arg;

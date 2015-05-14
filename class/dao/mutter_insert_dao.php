@@ -1,19 +1,19 @@
 <?php
 require_once(dirname(__FILE__) . '/abstract_dao.php');
-require_once(dirname(__FILE__) . '../../common/common.php');
+require_once(dirname(__FILE__) . '/../../common/common.php');
 
-class MutterSelectDAO extends AbstractDAO{
+class MutterInsertDAO extends AbstractDAO{
   private $user_id = "";
 
   function __construct(){
     $this->setTable("T_MUTTER");
     $this->setColumnAry(array(
-      "mutter_id",
+      // "mutter_id",
       "user_id",
-      "mutter_title",
+      // "mutter_title",
       "mutter_detail",
       "mutter_date",
-      "mutter_img",
+      // "mutter_img",
     ));
   }
 

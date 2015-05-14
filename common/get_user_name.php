@@ -6,3 +6,6 @@ if(isset($_SESSION['user_id'])){
     $user_name = $_SESSOIN['user_id'];
   }
 }
+
+//stub
+$user_name = 'root';

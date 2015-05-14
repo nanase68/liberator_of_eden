@@ -1,0 +1,45 @@
+#login_wrapper{
+	width: 100%;
+}
+
+#login{
+	width: 100%;
+	max-width: 960px;
+}
+
+.login_content{
+	padding: 20px;
+	border-radius: 5px;
+	background: rgba(255,255,255,0.2);
+	margin: 0 auto;
+	margin-top: 20px;
+	width: 850px;
+	display: block;
+}
+.login_content div{
+	width: 100%;
+	display: table;
+	padding: 20px;
+}
+.login_content label{
+	width: 100px;
+	display: block;
+	display: table-cell;
+}
+.login_content input[type="text"],
+.login_content input[type="password"]{
+	height: 30px;
+	width: 200px;
+	border-radius: 5px;
+	border: 1px solid #888;
+	font-size: 14px;
+	text-indent: 5px;
+}
+.login_content input[type="submit"]{
+	width: 200px;
+	height: 30px;
+	margin-left: 100px;
+	border-radius: 5px;
+	border: 1px solid #888;
+	font-family: KozMinPro-Regular;
+}

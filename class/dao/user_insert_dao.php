@@ -6,10 +6,10 @@ class UserInsertDAO extends AbstractDAO{
   function __construct(){
     $this->setTable("M_USER");
     $this->setColumnAry(array(
-      // "user_id",
+      "user_id",
       "user_name",
       "user_email",
-      "user_pass_tmp",
+      // "user_pass_tmp",
       "user_pass",
       "user_last_login",
     ));

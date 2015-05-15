@@ -6,7 +6,7 @@
 				
 				<div id="login">
 					<div class="login_content">
-						<form action="#" method="POST">
+						<form action="login.php" method="POST">
 							
 							<div>
 								<label for="l_id">ログインID</label>

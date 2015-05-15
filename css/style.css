@@ -2,7 +2,7 @@
 
 
 /*---------- reset>> ----------*/
-html, body, article, section, nav, aside, h1, h2, h3, h4, h5, h6, header, footer, address, p, hr, pre, blockquote, ol, ul, li, dl, dt, dd, figure, figcaption, div, main, a, em, strong, small, s, cite, q, dfn, abbr, data, time, code, var, samp, kbd, sub, sup, i, b, u, mark, ruby, rb, rt, rtc, rp, bdi, bdo, span, br, wbr, ins, del, img, iframe, embed, object, param, video, audio, source, track, map, area, table, caption, colgroup, col, tbody, thead, tfoot, tr, td, th, form, label, input, button, select, datalist, optgroup, option, textarea, keygen, output, progress, meter, fieldset, legend, canvas {
+html, body, article, section, nav, aside, h1, h2, h3, h4, h5, h6, header, footer, address, p, hr, pre, blockquote, ol, ul, li, dl, dt, dd, figure, figcaption, div, main, a, em, strong, small, s, cite, q, dfn, abbr, data, time, code, var, samp, kbd, sub, sup, i, b, u, mark, ruby, rb, rt, rtc, rp, bdi, bdo, span, br, wbr, ins, del, img, iframe, embed, object, param, video, audio, source, track, map, area, table, caption, colgroup, col, tbody, thead, tfoot, tr, td, th, form, label, button, select, datalist, optgroup, option, textarea, keygen, output, progress, meter, fieldset, legend, canvas {
 border:0;
 margin:0;
 outline:0;
@@ -121,17 +121,22 @@ a:focus {
 html, body{
 	color: #e5e5ef;
 	font:inherit;
-	height: 100%;
 }
 html {
 /*	font-size:62.5%;*/
 	font-size: 14px;
+	background: #000;
 }
+
 body{
 	font-family: KozMinPro-Regular;
-	background: #000;
 /*	-moz-background-size:cover;
 	background-size:cover;*/
+	background: url("../images/kado_black_min.png");
+	min-height: 100%;
+	background-repeat: no-repeat; 
+	background-attachment: fixed;
+	background-position: top left;
 }
 a{
 	color: #e5e5ef;
@@ -145,10 +150,11 @@ h1{
 
 }
 h2{
-
+	font-size: 24px;
+	padding: 20px;
 }
 h3{
-	font-size: 24px;
+	font-size: 20px;
 	padding: 20px 0 10px 20px;
 }
 h4{
@@ -158,15 +164,17 @@ h4{
 	margin: 10px 0 0 0;
 }
 
+h5{
+	font-size: 18px;
+	border-bottom: 1px solid rgba(255,255,255,0.3);
+	margin: 10px 0 0 0;
+}
 
-#wrapper{/*
-	width: 100%;
-	min-width: 960px;*/
+
+#wrapper{
 	min-height: 100%;
 	margin: 0 auto;
-	
 	position: relative;
-
 	background: url("../images/background.png");
 	background-attachment: fixed;
 	background-position: top cover;
@@ -176,7 +184,7 @@ h4{
 
 article:first-child{
 	position: fixed;
-	
+	height: 50px;
 }
 
 header{
@@ -291,8 +299,11 @@ header > #login{
 
 
 footer{
-	clear: left;
+	position: absolute;
+	bottom: 0;
+	width: 100%;
 	background: rgba(0,0,0,0.2);
+	
 }
 footer p{
 	text-align: center;
@@ -302,137 +313,41 @@ footer p{
 
 
 
-
-.haguruma01{
-	height: 100px;
-	width: 100px;
-	position: fixed;
-	bottom: -50px;
-	right: -50px;
-}
-.haguruma02{
-	height: 100px;
-	width: 100px;
-	position: fixed;
-	bottom: 35px;
-	right: -50px;
-}
-.haguruma03{
-	height: 120px;
-	width: 120px;
-	position: fixed;
-	bottom: -25px;
-	right: 25px;
-}
-.haguruma04{
-	height: 120px;
-	width: 120px;
-	position: fixed;
-	bottom: 100px;
-	right: -50px;
-}
-
-.spin_infinite {
-/* keyframes に任意の名前を付ける */
-	-moz-animation-name: 'rotate1';
-	-webkit-animation-name: 'rotate1';
-	animation-name: 'rotate1';
-	-goog-ms-animation-name: 'rotate1'; 
- 
- /* 1動作(ここでは1回転)あたりの秒数 */
-	-moz-animation-duration: 20s;
-	-webkit-animation-duration: 20s;
-	animation-duration: 20s;
-	-goog-ms-animation-duration: 20s;
- 
-/* 動作の向き、初期値はnormal 、逆再生は alternate */
-	-moz-animation-direction: normal;
-	-webkit-animation-direction: normal;
-	animation-direction: normal;
-	-goog-ms-animation-direction: normal;
+#main_content{
+	min-height: 100%;
 	
-/* 動き方 linear, ease, easein, ease-out, ease-in-out */
-	-moz-animation-timing-function: linear;
-	-webkit-animation-timing-function: linear;
-	animation-timing-function: linear;
-	-goog-ms-animation-timing-function: linear;
-	
-/* 動作 (ここでは回転) の回数を数値で指定、無限ループは infinite */
-	-moz-animation-iteration-count: infinite;
-	-webkit-animation-iteration-count: infinite;
-	animation-iteration-count: infinite;
-	-goog-ms-animation-iteration-count: infinite;
-}
-.spin_infiniteX {
-/* keyframes に任意の名前を付ける */
-	-moz-animation-name: 'rotate2';
-	-webkit-animation-name: 'rotate2';
-	animation-name: 'rotate2';
-	-goog-ms-animation-name: 'rotate2'; 
- 
- /* 1動作(ここでは1回転)あたりの秒数 */
-	-moz-animation-duration: 20s;
-	-webkit-animation-duration: 20s;
-	animation-duration: 20s;
-	-goog-ms-animation-duration: 20s;
- 
-/* 動作の向き、初期値はnormal 、逆再生は alternate */
-	-moz-animation-direction: normal;
-	-webkit-animation-direction: normal;
-	animation-direction: normal;
-	-goog-ms-animation-direction: normal;
-	
-/* 動き方 linear, ease, easein, ease-out, ease-in-out */
-	-moz-animation-timing-function: linear;
-	-webkit-animation-timing-function: linear;
-	animation-timing-function: linear;
-	-goog-ms-animation-timing-function: linear;
-	
-/* 動作 (ここでは回転) の回数を数値で指定、無限ループは infinite */
-	-moz-animation-iteration-count: infinite;
-	-webkit-animation-iteration-count: infinite;
-	animation-iteration-count: infinite;
-	-goog-ms-animation-iteration-count: infinite;
-}
-
-@-webkit-keyframes 'rotate1' {
-	from {
-	/* 最初の回転角 */
-		-moz-transform: rotate(0deg);
-		-webkit-transform: rotate(0deg);
-		transform: rotate(0deg);
-		-goog-ms-transform: rotate(0deg);
-	}
-	/* 1動作の最後 ( 1duration 後) の回転角 */
-	to {
-		-moz-transform: rotate(-360deg);
-		-webkit-transform: rotate(-360deg);
-		transform: rotate(-360deg);
-		-goog-ms-transform: rotate(-360deg);
-	}
-}
-@-webkit-keyframes 'rotate2' {
-	from {
-	/* 最初の回転角 */
-		-moz-transform: rotate(0deg);
-		-webkit-transform: rotate(0deg);
-		transform: rotate(0deg);
-		-goog-ms-transform: rotate(0deg);
-	}
-	/* 1動作の最後 ( 1duration 後) の回転角 */
-	to {
-		-moz-transform: rotate(360deg);
-		-webkit-transform: rotate(360deg);
-		transform: rotate(360deg);
-		-goog-ms-transform: rotate(360deg);
-	}
 }
 
 
 
+#moon{
+	background: url("../images/moon_min.png");
+	z-index: 0;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 150px;
+	height: 150px;
+}
 
 
 /*---------- <<style ----------*/
 .clear{
 	clear: both;
+}
+.bottom{
+	padding-bottom: 100px;
+}
+
+h5 {
+	max-width: 500px;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
+h5 a{
+	max-width: 500px;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
 }

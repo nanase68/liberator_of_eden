@@ -1,4 +1,4 @@
-	<article id="main_content">
+	<article id="main_content" class="bottom">
 		<div id="content_wrapper">
 			<section class="item" id="con01">
 				<h3>今週の一押しフレーズ</h3>
@@ -97,5 +97,6 @@
 				</div>
 				<div class="clear"></div>
 			</section>
+			<div class="clear"></div>
 		</div>
 	</article>

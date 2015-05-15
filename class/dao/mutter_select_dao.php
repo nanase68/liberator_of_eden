@@ -8,7 +8,7 @@ class MutterSelectDAO extends AbstractDAO{
     $this->setTable("T_MUTTER");
     $this->setColumnAry(array(
       "mutter_id",
-      "user_id",
+      "user_id",  
       "mutter_title",
       "mutter_detail",
       "mutter_date",

@@ -1,5 +1,5 @@
 <?php
-require_once(dirname(__FILE__) . '/../class/model/mutter_select_model.php');
+require_once(dirname(__FILE__) . '/../class/model/my_mutters_select_model.php');
 require_once(dirname(__FILE__) . '/../class/model/mutter_insert_model.php');
 $mutter_select_model = new MutterSelectModel;
 $mutter_insert_model = new MutterInsertModel;
@@ -12,7 +12,7 @@ if(isset($_POST['mutter_detail'])){
   $mutter_insert_model->printHtml();
 }
 ?>
-	<article id="main_content">
+  <article id="main_content" class="bottom">
 		<div id="content_wrapper">
 			<section id="my_content">
 				<h2>マイページ</h2>

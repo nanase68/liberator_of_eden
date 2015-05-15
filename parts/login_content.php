@@ -1,4 +1,4 @@
-	<article id="main_content" class="bottom">
+<article id="main_content" class="bottom">
 		<div id="content_wrapper">
 			<section id="login_wrapper">
 				
@@ -6,7 +6,7 @@
 				
 				<div id="login">
 					<div class="login_content">
-						<form action="#" method="POST">
+						<form action="login.php" method="POST">
 							
 							<div>
 								<label for="l_id">ログインID</label>

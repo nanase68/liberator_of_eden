@@ -2,14 +2,13 @@
 require_once(dirname(__FILE__) . '/../../common/common.php');
 require_once(dirname(__FILE__) . '/../dao/user_insert_dao.php');
 require_once(dirname(__FILE__) . '/../dao/sign_up_dao.php');
+require_once(dirname(__FILE__) . '/sign_up_check_model.php');
 
 class SignUpModel{
-  private $select_dao; //クラスインスタンス
   private $insert_dao; //クラスインスタンス
   private $data_ary = "";
 
   function __construct(){
-    $this->select_dao = new SignUpDao;
     $this->insert_dao = new UserInsertDao;
   }
 
@@ -17,27 +16,25 @@ class SignUpModel{
     $this->exeDao();
     return($this->makeHtml());
   }
+
   public function checkParam($name, $email){
-
-
+    $model = new SignUpCheckModel;
+    if(($model->checkUserName($name) == true) && ($model->checkuserEmail($email) == true)){
+      // check通過
+    } else {
+      // checkアウト
+    }
   }
 
   public function putParam(){
     $user_ary = array();
 
-    //common/get_user.php
-    global $user_name;
+    $user_ary['user_id'] = $user_id;
     $user_ary['user_name'] = $user_name;
-    $user_ary['user_email'] = 'test';
-    $user_ary['user_pass_tmp'] = '';
-    $user_ary['user_pass'] = '';
+    $user_ary['user_email'] = $user_email;
+    $user_ary['user_pass_tmp'] = NULL;
+    $user_ary['user_pass'] = md5($user_pass);
     $user_ary['user_last_login'] = NOW_TIME;
-
-    // $user_ary['user_name'] = $user_;
-    // $user_ary['user_email'] = ;
-    // $user_ary['user_pass_tmp'] = ;
-    // $user_ary['user_pass'] = ;
-    // $user_ary['user_last_login'] = ;
 
     $this->insert_dao->setInputAry($user_ary);
   }
@@ -53,6 +50,6 @@ class SignUpModel{
   }
 }
 
-$m = new SignUpModel;
-$m->putParam();
-$m->printHtml();
+// $m = new SignUpModel;
+// $m->putParam();
+// $m->printHtml();

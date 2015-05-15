@@ -2,9 +2,9 @@
 // このモデルはユーザーサイドのajaxからのPOSTで起動する
 $model = new SignUpCheckModel;
 
-if(isset($_POST['user_name'])){
+if(isset($_POST['user_id'])){
   // ajaxからpostされる
-  $return = $model->checkUserName($_POST['user_name']);
+  $return = $model->checkUserId($_POST['user_id']);
   echo($return);
 } else if(isset($_POST['user_email'])){
   // ajaxからpostされる
@@ -13,11 +13,11 @@ if(isset($_POST['user_name'])){
 }
 
 class SignUpCheckModel{
-  public function checkUserName($user_name){
-    require_once(dirname(__FILE__) . '/../dao/check_user_name_dao.php');
+  public function checkUserId($user_id){
+    require_once(dirname(__FILE__) . '/../dao/check_user_id_dao.php');
 
-    $dao = new CheckUserNameDao;
-    $dao->setUserName($user_name);
+    $dao = new CheckUserIdDao;
+    $dao->setUserId($user_id);
     $dao->accessDB();
     $return_ary = $dao->getReturnAry();
 

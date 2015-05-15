@@ -1,3 +1,13 @@
-<img src="./images/haguruma/haguruma01.png" class="spin_infinite haguruma01">
-<img src="./images/haguruma/haguruma02.png" class="spin_infinite haguruma02">
-<img src="./images/haguruma/haguruma03.png" class="spin_infiniteX haguruma03">
+<div id="haguruma" class="">
+	<div class="haguruma haguruma01 spin_infinite"></div>
+	<div class="haguruma haguruma02 spin_infinite"></div>
+	<div class="haguruma haguruma03 spin_infiniteX"></div>
+	<div class="haguruma haguruma04 spin_infiniteX"></div>
+	<div class="haguruma haguruma05 spin_infinite"></div>
+	<div class="haguruma haguruma06 spin_infiniteX"></div>
+</div>
+<div id="haguruma_wrap" class="spin_infiniteFast">
+	<div class="spin_infiniteFast">
+		<div class="haguruma haguruma07 spin_infiniteX"></div>
+	</div>
+</div>

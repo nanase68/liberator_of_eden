@@ -15,6 +15,6 @@
 	<?php require("./parts/ranking_content.php");?>
 	<?php require("./parts/common_footer.php");?>
 </div>
-<?php require("./parts/common_haguruma.php");?>
+<?php //require("./parts/common_haguruma.php");?>
 </body>
 </html>

@@ -20,7 +20,7 @@
 							</a>
 						</div>
 						<div class="content_area">
-							<h5><a href="#">タイトル</a></h5>
+							<h5><a href="#">ｴﾀｰﾅﾙ.ｱﾌﾞﾌｨﾆｽ</a></h5>
 							
 							<a href="my_page.php" class="content_area_user">
 								<img src="./images/batman.jpg">

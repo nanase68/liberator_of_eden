@@ -1,11 +1,7 @@
-#ranking_wrapper{
+#mutter_wrapper{
 	width: 100%;
 }
 
-#ranking{
-	width: 100%;
-	max-width: 960px;
-}
 #ranking h5{
 	font-size: 18px;
 	text-indent: 20px;
@@ -14,7 +10,7 @@
 	padding: 0 20px;
 }
 
-.ranking_content{
+.mutter_content{
 	padding: 20px;
 	border-radius: 5px;
 	background: rgba(255,255,255,0.2);
@@ -22,6 +18,7 @@
 	margin-top: 20px;
 	width: 850px;
 	display: block;
+	margin-bottom: 20px;
 }
 
 .image_area{
@@ -40,5 +37,32 @@
 	float: left;
 	background: rgba(0,0,0,0.2);
 	border: 1px solid rgba(0,0,0,0.2);
-	min-width: 500px;
+	min-width: 600px;
+	padding: 10px;
+	
+}
+.content_area p{
+	width: 600px;
+}
+
+.content_area_user{
+	display: table;
+	height: 25px;
+	padding: 10px 20px;
+}
+
+.content_area_user img{
+	width: 25px;
+	height: 25px;
+	display: table-cell;
+}
+.content_area_user span{
+	display: table-cell;
+	vertical-align: middle;
+	font-size: 12px;
+}
+
+#start{
+	width: 100px;
+	
 }

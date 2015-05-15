@@ -1,6 +1,4 @@
 <?php require("./common/common.php")?>
-<?php require("./class/model/login_model.php")?>
-
 <!DOCTYPE html>
 <html lang="ja">
 <head>

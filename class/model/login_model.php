@@ -8,6 +8,8 @@ if(isset($_POST["login_id"]) && isset($_POST["login_pass"])){
 	$user_id = $_POST["login_id"];
 	$user_pass = $_POST["login_pass"];
 
+	$user_pass=md5($user_pass);
+
 	//入力値をデータベースにアクセスし、IDとPASSが一致するものがあるか確認
 	$login = new LoginDAO;
 	$login -> setUserId($user_id);

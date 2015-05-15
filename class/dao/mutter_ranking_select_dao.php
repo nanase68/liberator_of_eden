@@ -24,7 +24,7 @@ class MutterRankingDAO extends AbstractDAO{
   }
 }
 
-$mutter = new MutterRankingDAO;
-$mutter->accessDB();
-print_r($mutter->getReturnAry());
+//$mutter = new MutterRankingDAO;
+//$mutter->accessDB();
+//print_r($mutter->getReturnAry());
 

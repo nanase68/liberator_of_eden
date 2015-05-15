@@ -35,7 +35,7 @@ class LoginDAO extends AbstractDAO{
   }
 }
 
-$login = new LoginDAO;
-$login->setUserId("5");
-$login->accessDB();
-print_r($login->getReturnAry());
+//$login = new LoginDAO;
+//$login->setUserId("5");
+//$login->accessDB();
+//print_r($login->getReturnAry());

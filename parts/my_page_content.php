@@ -1,5 +1,5 @@
 <?php
-require_once(dirname(__FILE__) . '/../class/model/mutter_select_model.php');
+require_once(dirname(__FILE__) . '/../class/model/my_mutters_select_model.php');
 require_once(dirname(__FILE__) . '/../class/model/mutter_insert_model.php');
 $mutter_select_model = new MutterSelectModel;
 $mutter_insert_model = new MutterInsertModel;

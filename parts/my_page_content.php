@@ -12,7 +12,7 @@ if(isset($_POST['mutter_detail'])){
   $mutter_insert_model->printHtml();
 }
 ?>
-	<article id="main_content">
+  <article id="main_content" class="bottom">
 		<div id="content_wrapper">
 			<section id="my_content">
 				<h2>マイページ</h2>

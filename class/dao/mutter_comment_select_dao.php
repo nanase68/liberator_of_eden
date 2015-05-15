@@ -1,5 +1,5 @@
 <?php
-require_once('./abstract_dao.php');
+require_once(dirname(__FILE__) . './abstract_dao.php');
 
 class MutterCommentDAO extends AbstractDAO{
   private $mutter_comment_id = "";

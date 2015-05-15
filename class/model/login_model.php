@@ -1,7 +1,7 @@
 <?php
 session_start();//セッションを開始
 
-require_once ('/class/dao/login_select_dao.php');
+require_once (dirname(__FILE__) . '/../dao/login_select_dao.php');
 
 if(isset($_POST["login_id"]) && isset($_POST["login_pass"])){
 	//ログインDAOから受け取った値（ユーザが入力した値）を変数に登録

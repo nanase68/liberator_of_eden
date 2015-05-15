@@ -1,4 +1,3 @@
-<?php require("./class/model/login_model.php")?>
 <article id="main_content" class="bottom">
 		<div id="content_wrapper">
 			<section id="login_wrapper">

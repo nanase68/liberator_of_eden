@@ -4,6 +4,8 @@ aside{
 	top: 50px;
 	width: 200px;
 	height: 100%;
+	z-index: 999;
+	background: none;
 }
 aside nav dl{
 	width: 200px;

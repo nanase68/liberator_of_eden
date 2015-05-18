@@ -1,4 +1,5 @@
 <?php
+ini_set( 'display_errors', 1 );
 // このモデルはユーザーサイドのajaxからのPOSTで起動する
 $model = new SignUpCheckModel;
 
@@ -22,9 +23,9 @@ class SignUpCheckModel{
     $return_ary = $dao->getReturnAry();
 
     if(empty($return_ary)){
-      return(false);
+      return("false");
     } else {
-      return(true);
+      return("true");
     }
   }
 
@@ -37,9 +38,10 @@ class SignUpCheckModel{
     $return_ary = $dao->getReturnAry();
 
     if(empty($return_ary)){
-      return(false);
+      return("false");
     } else {
-      return(true);
+      return("true");
     }
   }
 }
+?>

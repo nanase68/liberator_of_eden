@@ -1,7 +1,6 @@
 <?php
 require_once(dirname(__FILE__) . '/../../common/common.php');
 require_once(dirname(__FILE__) . '/../dao/user_insert_dao.php');
-require_once(dirname(__FILE__) . '/../dao/sign_up_dao.php');
 require_once(dirname(__FILE__) . '/sign_up_check_model.php');
 
 class SignUpModel{
@@ -17,16 +16,21 @@ class SignUpModel{
     return($this->makeHtml());
   }
 
-  public function checkParam($name, $email){
+  private function checkParam($id, $email, $pass){
     $check_model = new SignUpCheckModel;
-    if(($check_model->checkUserName($name) == true) && ($check_model->checkuserEmail($email) == true)){
-      // check通過
-    } else {
-      // checkアウト
+    // 重複チェック
+    if(($check_model->checkUserId($id) == false) || ($check_model->checkuserEmail($email) == false)){
+      Common::goToError();
+    }
+
+    // 文字数チェック
+    if(strlen($pass) < 8){
+      Common::goToError();
     }
   }
 
   public function putParam($user_id, $user_name, $user_email, $user_pass){
+    $this->checkParam($user_id, $user_email, $user_pass);
     $user_ary = array();
 
     $user_ary['user_id'] = $user_id;

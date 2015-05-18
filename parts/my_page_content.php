@@ -1,7 +1,7 @@
 <?php
-require_once(dirname(__FILE__) . '/../class/model/my_mutters_select_model.php');
+require_once(dirname(__FILE__) . '/../class/model/my_page_mutters_select_model.php');
 require_once(dirname(__FILE__) . '/../class/model/mutter_insert_model.php');
-$mutter_select_model = new MutterSelectModel;
+$my_page_mutters_select_model = new MyPageMuttersSelectModel;
 $mutter_insert_model = new MutterInsertModel;
 // if((isset($_POST['mutter_title'])) && (isset($_POST['mutter_detail']))){
 if(isset($_POST['mutter_detail'])){
@@ -52,7 +52,7 @@ if(isset($_POST['mutter_detail'])){
 			<section class="item">
         <h3>投稿した呟き</h3>
 <?php
-echo($mutter_select_model->printHtml());
+echo($my_page_mutters_select_model->printHtml());
 ?>
 				<div class="clear"></div>
 			</section>

@@ -1,5 +1,5 @@
 <?php
-include(dirname(__FILE__) . '/../../common/get_user_name.php');
+require_once(dirname(__FILE__) . '/../../common/get_user_id.php');
 require_once(dirname(__FILE__) . '/../../common/common.php');
 require_once(dirname(__FILE__) . '/../dao/mutter_insert_dao.php');
 
@@ -19,9 +19,9 @@ class MutterInsertModel{
   public function putParam($detail){
     $mutter_ary = array();
 
-    //common/get_user.php
-    global $user_name;
-    $mutter_ary['user_id'] = $user_name;
+    //common/get_id.php
+    global $user_id_from_session;
+    $mutter_ary['user_id'] = $user_id_from_session;
     // $mutter_ary['mutter_title'] = $title;
     $mutter_ary['mutter_detail'] = $detail;
     $mutter_ary['mutter_date'] = NOW_TIME;

@@ -1,7 +1,7 @@
 <?php
 require_once(dirname(__FILE__) . '/abstract_dao.php');
 
-class MutterSelectDAO extends AbstractDAO{
+class MyPageMuttersSelectDAO extends AbstractDAO{
   private $user_id = "";
 
   function __construct(){

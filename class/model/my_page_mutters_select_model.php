@@ -1,12 +1,13 @@
 <?php
-require_once(dirname(__FILE__) . '/../dao/mutter_select_dao.php');
+require_once(dirname(__FILE__) . '/../../common/get_user_id.php');
+require_once(dirname(__FILE__) . '/../dao/my_page_mutters_select_dao.php');
 
-class MutterSelectModel{
-  private $mutter_select_dao; //クラスインスタンス
+class MyPageMuttersSelectModel{
+  private $dao; //クラスインスタンス
   private $data_ary = "";
 
   function __construct(){
-    $this->mutter_select_dao = new MutterSelectDao;
+    $this->dao = new MyPageMuttersSelectDao;
   }
 
   public function printHtml(){
@@ -18,16 +19,15 @@ class MutterSelectModel{
   private function userId(){
     $user = "";
 
-    //何らかの方法でuserを取得
-    //common/get_user.phpを使う
-    $user = "root";
+    //common/get_id.php
+    global $user_id_from_session;
 
-    $this->mutter_select_dao->setUserId($user);
+    $this->dao->setUserId($user_id_from_session);
   }
 
   private function exeDao(){
-    $this->mutter_select_dao->accessDB();
-    $this->data_ary = $this->mutter_select_dao->getReturnAry();
+    $this->dao->accessDB();
+    $this->data_ary = $this->dao->getReturnAry();
   }
 
   private function makeHtml(){
@@ -37,6 +37,7 @@ class MutterSelectModel{
       if(empty($row['mutter_img'])){
         $html .= "<p class='micro_content_txt'>${row['mutter_detail']}</p>";
       } else {
+        // :TODO スタブ
         $html .= "<img src='./images/sample.png'>";
       }
       $html .= "<p class='uploader'>${row['mutter_title']}</p>";

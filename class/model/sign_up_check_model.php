@@ -23,9 +23,9 @@ class SignUpCheckModel{
     $return_ary = $dao->getReturnAry();
 
     if(empty($return_ary)){
-      return("false");
+      return("ok");
     } else {
-      return("true");
+      return("ng");
     }
   }
 
@@ -38,9 +38,9 @@ class SignUpCheckModel{
     $return_ary = $dao->getReturnAry();
 
     if(empty($return_ary)){
-      return("false");
+      return("ok");
     } else {
-      return("true");
+      return("ng");
     }
   }
 }

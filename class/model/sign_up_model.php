@@ -19,7 +19,7 @@ class SignUpModel{
   private function checkParam($id, $email, $pass){
     $check_model = new SignUpCheckModel;
     // 重複チェック
-    if(($check_model->checkUserId($id) == false) || ($check_model->checkuserEmail($email) == false)){
+    if(($check_model->checkUserId($id) == "ng") || ($check_model->checkuserEmail($email) == "ng")){
       Common::goToError();
     }
 

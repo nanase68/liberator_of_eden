@@ -14,7 +14,9 @@ define("JS_PATH", "http://www3268uf.sakura.ne.jp/next_c/js/");
 
 class Common{
   public static function goToError(){
-    header('Locatioin: ' . dirname(__FILE__) . '/../error.php');
+    header('Location: ' . 'http://www3268uf.sakura.ne.jp/next_c/error.php');
+    // ローカル環境だとheader先として適正でない表現
+    // header('Location: ' . dirname(__FILE__) . '/../error.php');
     exit();
   }
 }

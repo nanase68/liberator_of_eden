@@ -1,7 +1,17 @@
+<?php
+require_once(dirname(__FILE__) . '/../class/model/sign_up_model.php');
+
+// 投稿ボタンを押されてリダイレクト
+if((isset($_POST['user_id'])) && (isset($_POST['user_name'])) && (isset($_POST['user_email'])) && (isset($_POST['user_pass']))){
+  $sign_up_model = new SignUpModel;
+  $sign_up_model->putParam($_POST['user_id'], $_POST['user_name'], $_POST['user_email'], $_POST['user_pass']);
+  $sign_up_model->printHtml();
+}
+?>
 	<article id="main_content" class="bottom">
 		<div id="content_wrapper">
 			<section id="sign_up_wrapper">
-				
+
 				<h2>ログインページ</h2>
 				
 				<div id="sign_up">

@@ -1,10 +1,11 @@
 <?php
 require_once(dirname(__FILE__) . '/../class/model/my_page_mutters_select_model.php');
-require_once(dirname(__FILE__) . '/../class/model/mutter_insert_model.php');
 $my_page_mutters_select_model = new MyPageMuttersSelectModel;
-$mutter_insert_model = new MutterInsertModel;
+
 // if((isset($_POST['mutter_title'])) && (isset($_POST['mutter_detail']))){
 if(isset($_POST['mutter_detail'])){
+  require_once(dirname(__FILE__) . '/../class/model/mutter_insert_model.php');
+  $mutter_insert_model = new MutterInsertModel;
   //投稿ボタンを押されてリダイレクト
   // $title = $_POST['mutter_title'];
   $detail = $_POST['mutter_detail'];

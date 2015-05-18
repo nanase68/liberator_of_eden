@@ -183,8 +183,10 @@ h5{
 }
 
 article:first-child{
-	position: fixed;
 	height: 50px;
+}
+#wrapper article:first-child div section:first-child{
+	margin-top: 100px;
 }
 
 header{
@@ -192,14 +194,13 @@ header{
 	height: 50px;
 	width: 100%;
 	background: rgba(0,0,0,0.2);
-	z-index: 999;
 }
 
 header h1{
 	margin: 0 0 0 100px;
 	font-size: 20px;
 	line-height: 50px;
-	width: 400px;
+	width: 320px;
 	float: left;
 }
 header h1 span{
@@ -215,7 +216,14 @@ header > #login{
 	height: 50px;
 	line-height: 50px;
 }
+header > #header_sign_up{
+	display: block;
+	padding: 0 20px;
+	float: right;
+	height: 50px;
+	line-height: 50px;
 
+}
 
 #main_content{
 /*	min-width: 700px;*/
@@ -225,7 +233,7 @@ header > #login{
 
 
 #main_content section{
-	margin-top: 20px;
+	margin-top: 70px;
 	padding: 20px 0px 0 0;
 	position:relative;
 	float:left;

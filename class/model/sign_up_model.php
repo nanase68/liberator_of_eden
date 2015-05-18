@@ -18,15 +18,15 @@ class SignUpModel{
   }
 
   public function checkParam($name, $email){
-    $model = new SignUpCheckModel;
-    if(($model->checkUserName($name) == true) && ($model->checkuserEmail($email) == true)){
+    $check_model = new SignUpCheckModel;
+    if(($check_model->checkUserName($name) == true) && ($check_model->checkuserEmail($email) == true)){
       // check通過
     } else {
       // checkアウト
     }
   }
 
-  public function putParam(){
+  public function putParam($user_id, $user_name, $user_email, $user_pass){
     $user_ary = array();
 
     $user_ary['user_id'] = $user_id;

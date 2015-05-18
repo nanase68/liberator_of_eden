@@ -52,7 +52,7 @@ abstract class AbstractDAO{
       if($i > 0){
         $sql .= ", ";
       }
-      $sql .= $table . "." . $column_ary[$i];
+      $sql .= $column_ary[$i];
     }
     $sql .= " FROM " . $table;
     return($sql);
@@ -96,8 +96,18 @@ abstract class AbstractDAO{
   }
 
   protected function exeSelectSql($sql){
-    $st = DBX::getPdo()->query($sql);
+    $st = DBX::getPdo()->prepare($sql);
+
+    //基本的にPDO::PARAM_STR 
+    //"NULL"を代入する場合もPDO::PARAM_STR
+    //たまにPDO::PARAM_INTも使用するが変数の型に注意
+    foreach($this->getInputAry() as $key => $value){
+      $st -> bindParam(":$key", $value, PDO::PARAM_STR);
+    }
+
     $st->execute();
+    //コミットすると適用される
+    DBX::getPdo() -> commit();
 
     $ary = array();
     while($row = $st->fetch(PDO::FETCH_ASSOC)){
@@ -106,34 +116,26 @@ abstract class AbstractDAO{
     return($ary);
   }
 
-  protected function exeInsertSql($sql, $column_ary){
+  protected function exeInsertSql($sql){
     $st = DBX::getPdo()->prepare($sql);
     
-    //基本的にPDO::PARAM_STR 
-    //"NULL"を代入する場合もPDO::PARAM_STR
-    //たまにPDO::PARAM_INTも使用するが変数の型に注意
-    foreach($this->getColumnAry() as $value){
-      $st -> bindParam(":$value", $this->popInputAry($value), PDO::PARAM_STR);
+    foreach($this->getInputAry() as $key => $value){
+      $st -> bindParam(":$key", $value, PDO::PARAM_STR);
     }
-   
+  
     $st -> execute();
-    //コミットすると適用される
     DBX::getPdo() -> commit();
   }
 
 
-  protected function exeDeleteSql($sql, $column_ary){
+  protected function exeDeleteSql($sql){
     $st = DBX::getPdo()->prepare($sql);
     
-    //基本的にPDO::PARAM_STR 
-    //"NULL"を代入する場合もPDO::PARAM_STR
-    //たまにPDO::PARAM_INTも使用するが変数の型に注意
-    foreach($this->getColumnAry() as $value){
-      $st -> bindParam(":$value", $this->popInputAry($value), PDO::PARAM_STR);
+    foreach($this->getInputAry() as $key => $value){
+      $st -> bindParam(":$key", $value, PDO::PARAM_STR);
     }
-   
+  
     $st -> execute();
-    //コミットすると適用される
     DBX::getPdo() -> commit();
   }
 

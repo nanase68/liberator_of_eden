@@ -6,6 +6,7 @@ $(function(){
 			$(this).parent().children(".alert_text").text("空白です");
 			flgAttr($(this),false);
 		}else{
+			
 			if($(this).attr("id") == "u_ma"){
 				if(!$(this).val().match(/^([a-zA-Z0-9])+([a-zA-Z0-9\._-])*@([a-zA-Z0-9_-])+([a-zA-Z0-9\._-]+)+$/)){
 					flgAttr($(this),false);
@@ -51,16 +52,40 @@ $(function(){
 	$n = $(this).parent().children(".alert_text").attr("data");
 	$text = $(this).parent().children("label").text();
 		if(!lengthCheck($(this).val(), $n)){
-		
 			$(this).parent().children(".alert_text").text($text+"は"+ $n +"文字以上必要です。");
 			flgAttr($(this),false);
 		}else{
+		
+		
+		
+		if($(this).attr("id") == "u_id"){
+			var url = "http://www3268uf.sakura.ne.jp/next_c/index.php";
+			$.ajax({
+				type:"POST",
+				url: url,
+				data:{
+					"user_id": $(this).val()
+				},
+			}).done(function(data){
+//				alert(data);
+			}).fail(function(data){
+				alert('error!!!');
+console.log(data);
+			});
+		}
+		
+		
+		
+		
+		
+		
 			$(this).parent().children(".alert_text").text("");
 			flgAttr($(this),true);
 		}
 		
 		
 	});
+	
 	
 	$("input").bind("keyup blur", function(event){
 		var flg = true;
@@ -76,7 +101,6 @@ $(function(){
 		}
 		
 		if(flg){
-			alert("POSTだー！");
 			$("input[type='submit']").css(
 			"back-ground: #fff"
 			);

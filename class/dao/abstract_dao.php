@@ -128,7 +128,7 @@ abstract class AbstractDAO{
   public function setInputAry($arg){
     $this->input_ary = $arg;
   }
-  public function getInputAry($arg){
+  public function getInputAry(){
     return $this->input_ary;
   }
   public function setReturnAry($arg){

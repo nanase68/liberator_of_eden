@@ -1,17 +1,19 @@
-<?php require_once(dirname(__FILE__) . '/../class/model/mutter_select_model.php')	?>
+<?php require_once(dirname(__FILE__) . '/../class/model/mutter_select_model.php');
 
+$model = new MutterSelectModel;
+$mutter_id = $_GET['id'];
+$model -> setMutterId($mutter_id);
+$mutterAry = $model -> getMutterAry();
+?>
 <article id="main_content" class="bottom">
 	<div id="content_wrapper">
 		<section id="mutter_wrapper">
 			
+		<?php if(empty($mutterAry)){ ?>
+			<p>指定されたコンテンツは存在しません。</p>
+		<?php }else{ ?> 
 			<h2>呟きを確認</h2>
 			
-			<?php 
-				$model = new MutterSelectModel;
-				$mutter_id = $_GET['id'];
-				$model -> setMutterId($mutter_id);
-				$mutterAry = $model -> getMutterAry();
-			?>
 			<h3><?php echo $mutterAry[0]['mutter_title']; ?></h3><!--OK?-->
 		
 			<div class="mutter_content">
@@ -31,6 +33,7 @@
 					</div>
 					<div class="clear"></div>
 				</div>
+		<?php } ?>
 		</section>
 		<div class="clear"></div>	
 	</div>

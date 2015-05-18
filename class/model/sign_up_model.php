@@ -30,6 +30,13 @@ class SignUpModel{
   }
 
   public function putParam($user_id, $user_name, $user_email, $user_pass){
+    // エスケープ処理
+    $user_id = htmlspecialchars($user_id);
+    $user_name = htmlspecialchars($user_name);
+    $user_email = htmlspecialchars($user_email);
+    $user_pass = htmlspecialchars($user_pass);
+
+    // 各パラメータの正当性チェック
     $this->checkParam($user_id, $user_email, $user_pass);
     $user_ary = array();
 

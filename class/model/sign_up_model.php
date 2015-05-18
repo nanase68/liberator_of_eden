@@ -38,7 +38,7 @@ class SignUpModel{
     $user_ary['user_email'] = $user_email;
     $user_ary['user_pass_tmp'] = NULL;
     $user_ary['user_pass'] = md5($user_pass);
-    $user_ary['user_last_login'] = NOW_TIME;
+    $user_ary['user_last_login'] = NOW_DATE;
 
     $this->insert_dao->setInputAry($user_ary);
   }

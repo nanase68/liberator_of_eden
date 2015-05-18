@@ -33,8 +33,8 @@ $mutterAry = $model -> getMutterAry();
 					</div>
 					<div class="clear"></div>
 				</div>
+		<?php } ?>
 		</section>
 		<div class="clear"></div>	
 	</div>
 </article>
-<?php } ?>

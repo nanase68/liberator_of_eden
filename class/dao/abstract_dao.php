@@ -82,6 +82,19 @@ abstract class AbstractDAO{
     return($sql);
   }
 
+  protected function makeDeleteSql($table, $column_ary){
+    $sql = "";
+    $sql .= "DELETE FROM";
+    $sql .= " " . DBNAME . ".$table"; 
+    $sql .= " WHERE ";
+    $i = 0;
+    foreach ($column_ary as $col_name) {
+      $sql .= $col_name . "= :" . $col_name . " AND ";
+    }
+    $sql = rtrim($sql, " AND ");
+    return($sql);
+  }
+
   protected function exeSelectSql($sql){
     $st = DBX::getPdo()->query($sql);
     $st->execute();
@@ -94,6 +107,22 @@ abstract class AbstractDAO{
   }
 
   protected function exeInsertSql($sql, $column_ary){
+    $st = DBX::getPdo()->prepare($sql);
+    
+    //基本的にPDO::PARAM_STR 
+    //"NULL"を代入する場合もPDO::PARAM_STR
+    //たまにPDO::PARAM_INTも使用するが変数の型に注意
+    foreach($this->getColumnAry() as $value){
+      $st -> bindParam(":$value", $this->popInputAry($value), PDO::PARAM_STR);
+    }
+   
+    $st -> execute();
+    //コミットすると適用される
+    DBX::getPdo() -> commit();
+  }
+
+
+  protected function exeDeleteSql($sql, $column_ary){
     $st = DBX::getPdo()->prepare($sql);
     
     //基本的にPDO::PARAM_STR 

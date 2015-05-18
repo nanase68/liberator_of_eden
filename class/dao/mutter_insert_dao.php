@@ -28,3 +28,17 @@ class MutterInsertDAO extends AbstractDAO{
     $this->exeInsertSql($sql, $this->getColumnAry());
   }
 }
+
+
+//$model = new MutterInsertDAO;
+//$mutter_ary = array();
+//$mutter_ary['user_id'] = 'kanzakiranko';
+//$mutter_ary['mutter_detail'] = "華蕾夢ミル狂詩曲～魂ノ導～";
+//$mutter_ary['mutter_date'] = NOW_TIME;
+//var_dump($mutter_ary);
+
+//$model->setInputAry($mutter_ary);
+//$model->getInputAry();
+
+//$model->accessDB();
+//$model->getReturnAry();

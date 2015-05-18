@@ -1,4 +1,4 @@
-<?php require("./common/common.php")?>
+<?php require("./common/common.php");?>
 <!DOCTYPE html>
 <html lang="ja">
 <head>

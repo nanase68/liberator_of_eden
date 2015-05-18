@@ -1,5 +1,5 @@
 <?php
-include(dirname(__FILE__) . '/../../common/get_user_id.php');
+require_once(dirname(__FILE__) . '/../../common/get_user_id.php');
 require_once(dirname(__FILE__) . '/../../common/common.php');
 require_once(dirname(__FILE__) . '/../dao/mutter_insert_dao.php');
 

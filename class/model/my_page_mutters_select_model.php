@@ -1,5 +1,5 @@
 <?php
-include(dirname(__FILE__) . '/../../common/get_user_id.php');
+require_once(dirname(__FILE__) . '/../../common/get_user_id.php');
 require_once(dirname(__FILE__) . '/../dao/my_page_mutters_select_dao.php');
 
 class MyPageMuttersSelectModel{

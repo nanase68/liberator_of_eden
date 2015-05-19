@@ -95,7 +95,8 @@ abstract class AbstractDAO{
     return($sql);
   }
 
-  protected function singleWhereSql($where_ary){
+  // PHP5.6以降の書き方 エディタによってはエラーが出るかも
+  protected function singleWhereSql(...$where_ary){
     $sql = "";
 
     $first_flag = true;
@@ -121,7 +122,7 @@ abstract class AbstractDAO{
     //"NULL"を代入する場合もPDO::PARAM_STR
     //たまにPDO::PARAM_INTも使用するが変数の型に注意
     foreach($this->getInputAry() as $key => $value){
-      $st -> bindParam(":$key", $value, PDO::PARAM_STR);
+      $st -> bindValue(":$key", $value, PDO::PARAM_STR);
     }
 
     $st->execute();
@@ -138,8 +139,8 @@ abstract class AbstractDAO{
   protected function exeInsertSql($sql){
     $st = DBX::getPdo()->prepare($sql);
     
-    foreach($this->getInputAry() as $key => &$value){
-      $st -> bindParam(":$key", $value, PDO::PARAM_STR);
+    foreach($this->getInputAry() as $key => $value){
+      $st -> bindValue(":$key", $value, PDO::PARAM_STR);
     }
   
     $st -> execute();
@@ -150,8 +151,8 @@ abstract class AbstractDAO{
   protected function exeDeleteSql($sql){
     $st = DBX::getPdo()->prepare($sql);
     
-    foreach($this->getInputAry() as $key => &$value){
-      $st -> bindParam(":$key", $value, PDO::PARAM_STR);
+    foreach($this->getInputAry() as $key => $value){
+      $st -> bindValue(":$key", $value, PDO::PARAM_STR);
     }
   
     $st -> execute();

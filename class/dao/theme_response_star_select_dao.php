@@ -22,7 +22,7 @@ class ThemeResponseStarSelectDAO extends AbstractDAO{
 
     $ary = $this->exeSelectSql($sql);
 
-    $this->data_ary = $ary;
+    $this->setReturnAry($ary);
   }
 
   public function setResponseId($theme_response_id){
@@ -34,10 +34,9 @@ class ThemeResponseStarSelectDAO extends AbstractDAO{
   }
 }
 
-/*
-$theme = new StarSelectDAO;
-$theme->setUserId("root");
-$theme->setResponseId("1");
-$theme->accessDB();
- */
-// print_r($theme->getDataAry());
+// $star = new ThemeResponseStarSelectDAO;
+// $star->setUserId("root");
+// $star->setResponseId("1");
+// $star->accessDB();
+// print_r($star->getReturnAry());
+

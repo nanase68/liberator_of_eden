@@ -16,6 +16,7 @@ class ThemeSelectDAO extends AbstractDAO{
     $sql = $this->makeSelectSql();
     // WHERE文を追記
     $sql .= $this->singleWhereSql('user_id', 'theme_id');
+    echo $sql;
 
     $ary = $this->exeSelectSql($sql);
 
@@ -32,9 +33,10 @@ class ThemeSelectDAO extends AbstractDAO{
 
 }
 
-
-//$dao = new ThemeSelectDao;
-//$dao->setUserId(""); //user_idやtheme_idをwhere文で指定できる
-//$dao->setThemeId(1);
-//$dao->accessDB();
-//seprint_r($dao->getReturnAry());
+/*
+$dao = new ThemeSelectDao;
+$dao->setUserId("root"); //user_idやtheme_idをwhere文で指定できる
+$dao->setThemeId(1);
+$dao->accessDB();
+print_r($dao->getReturnAry());
+*/

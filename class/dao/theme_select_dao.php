@@ -2,9 +2,6 @@
 require_once(dirname(__FILE__) . '/abstract_dao.php');
 
 class ThemeSelectDAO extends AbstractDAO{
-  private $user_id;
-  private $theme_id;
-
   function __construct(){
     $this->setTable("T_THEME");
     $this->setColumnAry(array(
@@ -33,3 +30,11 @@ class ThemeSelectDAO extends AbstractDAO{
   }
 
 }
+
+/*
+$model = new ThemeSelectDao;
+//$model->setUserId("root");
+$model->setThemeId(1);
+$model->accessDB();
+print_r($model->getReturnAry());
+*/

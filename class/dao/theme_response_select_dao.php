@@ -18,15 +18,25 @@ class ThemeResponseDAO extends AbstractDAO{
   public function execute(){
     $sql = $this->makeSelectSql();
     // WHERE文を追記
-    $sql .= $this->singleWhereSql('theme_response_id');
+    $sql .= $this->singleWhereSql('theme_response_id','theme_id');
 
     $ary = $this->exeSelectSql($sql);
 
     $this->setReturnAry($ary);
   }
 
+  public function setThemeId($theme_id){
+    $this->putInputAry('theme_id', $theme_id);
+  }
+
   public function setThemeResponseId($theme_response_id){
     $this->putInputAry('theme_response_id', $theme_response_id);
   }
 }
+
+$dao = new ThemeResponseDAO;
+$dao->setThemeId(1); //user_idやtheme_idをwhere文で指定できる
+$dao->setThemeResponseId(1);
+$dao->accessDB();
+print_r($dao->getReturnAry());
 

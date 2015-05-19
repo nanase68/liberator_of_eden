@@ -28,15 +28,15 @@ class ThemeInsertDAO extends AbstractDAO{
 }
 
 
-//$model = new ThemeInsertDAO;
-//$theme_ary = array();
-//$theme_ary['user_id'] = 'root';
-//$theme_ary['theme_title'] = "【議論】中二と厨二の違い";
-//$theme_ary['theme_create_date'] = NOW_TIME;
-//var_dump($theme_ary);
+$model = new ThemeInsertDAO;
+$theme_ary = array();
+$theme_ary['user_id'] = 'root';
+$theme_ary['theme_title'] = "ぬるぽ";
+$theme_ary['theme_create_date'] = NOW_TIME;
+var_dump($theme_ary);
 
-//$model->setInputAry($theme_ary);
-//print_r($model->getInputAry());
+$model->setInputAry($theme_ary);
+print_r($model->getInputAry());
 
-//$model->accessDB();
-//print_r($model->getReturnAry());
+$model->accessDB();
+print_r($model->getReturnAry());

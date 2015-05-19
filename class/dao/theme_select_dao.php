@@ -15,7 +15,7 @@ class ThemeSelectDAO extends AbstractDAO{
   public function execute(){
     $sql = $this->makeSelectSql();
     // WHERE文を追記
-    //FIXME:: DOUBLE:WHEREが実装され
+    //FIXME:: 抽象クラスにDOUBLE:WHEREが実装されたら書き直す
     if(!empty($this->user_id) AND !empty($this->theme_id)){ //userとtheme両方が指定
       $sql .= " WHERE user_id = " . "'$this->user_id'"
                . "AND theme_id = " . "'$this->theme_id'";

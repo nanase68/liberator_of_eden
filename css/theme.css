@@ -1,4 +1,4 @@
-#mutter_wrapper{
+#theme_wrapper{
 	width: 100%;
 }
 
@@ -10,7 +10,7 @@
 	padding: 0 20px;
 }
 
-.mutter_content{
+.theme_content{
 	padding: 20px;
 	border-radius: 5px;
 	background: rgba(255,255,255,0.2);
@@ -62,7 +62,7 @@
 	font-size: 12px;
 }
 
-#star{
+.star{
 	width: 145px;
 }
 
@@ -76,4 +76,68 @@
 #okiniiri:hover{
 	background: url("../images/okiniiri2.png");
 		background-size: cover;
+}
+
+.response_area{
+	margin-bottom: 20px;
+	float: right;
+	background: rgba(0,0,0,0.2);
+	border: 1px solid rgba(0,0,0,0.2);
+	min-width: 600px;
+	padding: 10px;
+	
+}
+.response_area p{
+	width: 600px;
+}
+
+.response_area_user{
+	display: table;
+	height: 25px;
+	padding: 10px 20px;
+}
+
+.response_area_user img{
+	width: 25px;
+	height: 25px;
+	display: table-cell;
+}
+.response_area_user span{
+	display: table-cell;
+	vertical-align: middle;
+	font-size: 12px;
+}
+
+#response_area{
+	background: rgba(0,0,0,0.2);
+	width: 622px;
+	margin-left: 228px;
+	margin-bottom: 10px;
+}
+#response_area form label{
+	display: table-cell;
+	width: 100px;
+	vertical-align: middle;
+}
+#response_area form > div{
+	display: table;
+}
+#r_title{
+	display: table-cell;
+	height: 25px;
+	width: 498px;
+	margin-top: 5px;
+}
+
+#r_detail{
+	display: table-cell;
+	height: 100px;
+	width: 502px;
+	background: #fff;
+}
+
+#response_area form input[type="submit"]{
+	width: 502px;
+	height: 40px;
+	margin-left: 100px;
 }

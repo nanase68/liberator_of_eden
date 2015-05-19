@@ -1,6 +1,7 @@
 $(function(){
 $.fn.raty.defaults.path = "./js/jquery.raty/stars";
 	$('#star').raty({
+		readOnly: true,
 		score: function(){
 			return $(this).attr('data');
 		},

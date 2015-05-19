@@ -12,8 +12,8 @@ $rank_ary = $mutter_ranking -> getRankingAry();
 					<p class="uploader">投稿者: <a href="#"><?php echo $rank_ary[0]['USER_ID']; ?></a></p>
 				</div>
 				<div class="top_phrase">
-					<h4> <a href="./parts/mutter_content.php?id=1"><?php echo $rank_ary[0]['MUTTER_TITLE']; ?> </a></h4>
-					<p> <a href="./parts/mutter_content.php?id=1"><?php echo $rank_ary[0]['MUTTER_DETAIL']; ?> </a></p>
+					<h4> <a href= <?php echo "mutter.php?id=" . $rank_ary[0]['MUTTER_ID']; ?> ><?php echo $rank_ary[0]['MUTTER_TITLE']; ?> </a></h4>
+					<p> <a href= <?php echo "mutter.php?id=" . $rank_ary[0]['MUTTER_ID']; ?> ><?php echo $rank_ary[0]['MUTTER_DETAIL']; ?> </a></p>
 				</div>
 				<div class="clear"></div>
 			</section>
@@ -43,17 +43,17 @@ $rank_ary = $mutter_ranking -> getRankingAry();
 				
 				<div class="micro_content">
 					<!--<img src="$ranl_ary[3]['MUTTER_IMG']">-->
-					<p class="micro_content_text"> <a href="./parts/mutter_content.php?id=2"><?php echo $rank_ary[1]['MUTTER_DETAIL'] ?> </a></p>
+					<p class="micro_content_text"> <a href= <?php echo "mutter.php?id=" . $rank_ary[1]['MUTTER_ID']; ?>><?php echo $rank_ary[1]['MUTTER_TITLE'] ?> </a></p>
 					<p class="uploader">投稿者： <a href="#"><?php echo $rank_ary[1]['USER_ID'] ?> </a></p>
 				</div>
 				
 				<div class="micro_content">
-					<p class="micro_content_text"> <a href="./parts/mutter_content.php?id=3"><?php echo $rank_ary[2]['MUTTER_DETAIL'] ?> </a></p>
+					<p class="micro_content_text"> <a href=<?php echo "mutter.php?id=" . $rank_ary[2]['MUTTER_ID']; ?>><?php echo $rank_ary[2]['MUTTER_TITLE'] ?> </a></p>
 					<p class="uploader">投稿者： <a href="#"><?php echo $rank_ary[2]['USER_ID'] ?></a></p>
 				</div>
 				
 				<div class="micro_content">
-					<p class="micro_content_text"> <a href="./parts/mutter_content.php?id=4"><?php echo $rank_ary[3]['MUTTER_DETAIL'] ?> </a></p>
+					<p class="micro_content_text"> <a href=<?php echo "mutter.php?id=" . $rank_ary[3]['MUTTER_ID']; ?>><?php echo $rank_ary[3]['MUTTER_TITLE'] ?> </a></p>
 					<p class="uploader">投稿者： <a href="#"><?php echo $rank_ary[3]['USER_ID'] ?></a></p>
 				</div>
 				<div class="clear"></div>

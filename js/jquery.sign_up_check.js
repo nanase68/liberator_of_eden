@@ -49,41 +49,50 @@ $(function(){
 	
 	
 	$(".len_check").bind("keyup blur", function(event){
-	$n = $(this).parent().children(".alert_text").attr("data");
-	$text = $(this).parent().children("label").text();
+		$n = $(this).parent().children(".alert_text").attr("data");
+		$text = $(this).parent().children("label").text();
 		if(!lengthCheck($(this).val(), $n)){
 			$(this).parent().children(".alert_text").text($text+"は"+ $n +"文字以上必要です。");
 			flgAttr($(this),false);
-		}else{
-		
-		
-		
-		if($(this).attr("id") == "u_id"){
-			var url = "http://www3268uf.sakura.ne.jp/next_c/index.php";
-			$.ajax({
-				type:"POST",
-				url: url,
-				data:{
-					"user_id": $(this).val()
-				},
-			}).done(function(data){
-//				alert(data);
+		}else if($(this).attr("id") == "u_id" || $(this).attr("id") == "u_mat" ){
+			var thisObj = $(this);
+			var url = "http://www3268uf.sakura.ne.jp/next_c/class/model/sign_up_check_model.php";
+			var postName = "";
+			$ajaxConnection = "";
+			if($(this).attr("id") == "u_id"){
+				$ajaxConnection = $.ajax({
+					type:"POST",
+					url: url,
+					data:{
+						"user_id": $(this).val()
+					}
+				});
+			}else if($(this).attr("id") == "u_mat"){
+				$ajaxConnection = $.ajax({
+					type:"POST",
+					url: url,
+					data:{
+						"user_email": $(this).val()
+					}
+				});
+			}
+			
+			$ajaxConnection.done(function(data){
+				if(data == "ng"){
+					thisObj.parent().children(".alert_text").text("既に使用されている" + thisObj.parent().children("label").text() + "です。");
+					flgAttr(thisObj,false);
+				}else{
+					thisObj.parent().children(".alert_text").text("");
+					flgAttr(thisObj,true);
+				}
 			}).fail(function(data){
+				flgAttr(thisObj,true);
 				alert('error!!!');
-console.log(data);
 			});
+		}else{
+			thisObj.parent().children(".alert_text").text("");
+			flgAttr(thisObj,true);
 		}
-		
-		
-		
-		
-		
-		
-			$(this).parent().children(".alert_text").text("");
-			flgAttr($(this),true);
-		}
-		
-		
 	});
 	
 	

@@ -1,7 +1,7 @@
 <?php
 require_once(dirname(__FILE__) . '/abstract_dao.php');
 
-class ThemeResponseDAO extends AbstractDAO{
+class ThemeResponseSelectDAO extends AbstractDAO{
 
   function __construct(){
     $this->setTable("T_THEME_RESPONSE");
@@ -34,9 +34,9 @@ class ThemeResponseDAO extends AbstractDAO{
   }
 }
 
-$dao = new ThemeResponseDAO;
+/*$dao = new ThemeResponseSelectDAO;
 $dao->setThemeId(1); //user_idやtheme_idをwhere文で指定できる
 $dao->setThemeResponseId(1);
 $dao->accessDB();
-print_r($dao->getReturnAry());
+print_r($dao->getReturnAry());*/
 

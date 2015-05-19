@@ -138,7 +138,7 @@ abstract class AbstractDAO{
   protected function exeInsertSql($sql){
     $st = DBX::getPdo()->prepare($sql);
     
-    foreach($this->getInputAry() as $key => $value){
+    foreach($this->getInputAry() as $key => &$value){
       $st -> bindParam(":$key", $value, PDO::PARAM_STR);
     }
   
@@ -150,7 +150,7 @@ abstract class AbstractDAO{
   protected function exeDeleteSql($sql){
     $st = DBX::getPdo()->prepare($sql);
     
-    foreach($this->getInputAry() as $key => $value){
+    foreach($this->getInputAry() as $key => &$value){
       $st -> bindParam(":$key", $value, PDO::PARAM_STR);
     }
   

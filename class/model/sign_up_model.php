@@ -23,6 +23,24 @@ class SignUpModel{
       Common::goToError();
     }
 
+    // idの正当性チェック
+    $pattern = "/^([a-zA-Z0-9\._-])+$/";
+    if(!preg_match($pattern, $id)){
+      Common::goToError();
+    }
+
+    // Emailの正当性チェック
+    $pattern = "/^([a-zA-Z0-9])+([a-zA-Z0-9\._-])*@([a-zA-Z0-9_-])+([a-zA-Z0-9\._-]+)+$/";
+    if(!preg_match($pattern, $email)){
+      Common::goToError();
+    }
+
+    // passの正当性チェック
+    $pattern = "/^([a-zA-Z0-9\._-])+$/";
+    if(!preg_match($pattern, $pass)){
+      Common::goToError();
+    }
+
     // 文字数チェック
     if(strlen($pass) < 8){
       Common::goToError();
@@ -31,15 +49,15 @@ class SignUpModel{
 
   public function putParam($user_id, $user_name, $user_email, $user_pass){
     // エスケープ処理
-    $user_id = htmlspecialchars($user_id);
-    $user_name = htmlspecialchars($user_name);
-    $user_email = htmlspecialchars($user_email);
-    $user_pass = htmlspecialchars($user_pass);
+    $user_id = htmlspecialchars($user_id, ENT_QUOTES);
+    $user_name = htmlspecialchars($user_name, ENT_QUOTES);
+    $user_email = htmlspecialchars($user_email, ENT_QUOTES);
+    $user_pass = htmlspecialchars($user_pass, ENT_QUOTES);
 
     // 各パラメータの正当性チェック
     $this->checkParam($user_id, $user_email, $user_pass);
-    $user_ary = array();
 
+    $user_ary = array();
     $user_ary['user_id'] = $user_id;
     $user_ary['user_name'] = $user_name;
     $user_ary['user_email'] = $user_email;

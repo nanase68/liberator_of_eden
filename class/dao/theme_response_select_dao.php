@@ -2,7 +2,6 @@
 require_once(dirname(__FILE__) . '/abstract_dao.php');
 
 class ThemeResponseDAO extends AbstractDAO{
-  private $theme_response_id = "";
 
   function __construct(){
     $this->setTable("T_THEME_RESPONSE");
@@ -17,11 +16,9 @@ class ThemeResponseDAO extends AbstractDAO{
   }
 
   public function execute(){
-    $sql = $this->makeSelectSql($this->getTable(), $this->getColumnAry());
+    $sql = $this->makeSelectSql();
     // WHERE文を追記
-    if(!empty($this->theme_response_id)){
-      $sql .= " WHERE " . "theme_response_id=" . "'$this->theme_response_id'";
-    }
+    $sql .= $this->singleWhereSql('theme_response_id');
 
     $ary = $this->exeSelectSql($sql);
 
@@ -29,7 +26,7 @@ class ThemeResponseDAO extends AbstractDAO{
   }
 
   public function setThemeResponseId($theme_response_id){
-    $this->theme_response_id = $theme_response_id;
+    $this->putInputAry('theme_response_id', $theme_response_id);
   }
 }
 

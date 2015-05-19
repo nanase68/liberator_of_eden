@@ -3,7 +3,6 @@ require_once(dirname(__FILE__) . '/abstract_dao.php');
 require_once(dirname(__FILE__) . '/../../common/common.php');
 
 class MutterInsertDAO extends AbstractDAO{
-  private $user_id = "";
 
   function __construct(){
     $this->setTable("T_MUTTER");
@@ -23,9 +22,9 @@ class MutterInsertDAO extends AbstractDAO{
 
 
   public function execute(){
-    $sql = $this->makeInsertSql($this->getTable(), $this->getColumnAry());
+    $sql = $this->makeInsertSql();
 
-    $this->exeInsertSql($sql, $this->getColumnAry());
+    $this->exeInsertSql($sql);
   }
 }
 

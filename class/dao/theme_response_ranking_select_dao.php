@@ -2,7 +2,6 @@
 require_once(dirname(__FILE__) . '/abstract_dao.php');
 
 class ThemeResponseRankingDAO extends AbstractDAO{
-  private $theme_id = "";
 
   public function execute(){
     $sql = "SELECT T_THEME_RESPONSE.THEME_RESPONSE_ID,
@@ -13,8 +12,8 @@ class ThemeResponseRankingDAO extends AbstractDAO{
             FROM T_THEME_RESPONSE, T_THEME_RESPONSE_STAR
             WHERE T_THEME_RESPONSE.THEME_RESPONSE_ID = T_THEME_RESPONSE_STAR.THEME_RESPONSE_ID";
     //theme_idでランキングを表示したいテーマを指定する
-    if(!empty($this->theme_id)){
-      $sql .= " AND " . "theme_id=" . "'$this->theme_id'";
+    if(!empty($this->popInputAry('theme_id'))){
+      $sql .= " AND " . "theme_id=" . ":theme_id";
     }
     $sql .= " GROUP BY T_THEME_RESPONSE.THEME_RESPONSE_ID
             ORDER BY STARS DESC";
@@ -27,7 +26,7 @@ class ThemeResponseRankingDAO extends AbstractDAO{
     $this->setReturnAry($ary);
   }
   public function setThemeId($theme_id){
-    $this->theme_id = $theme_id;
+    $this->putInputAry('theme_id', $theme_id);
   }
 }
 

@@ -20,8 +20,8 @@ class UserInsertDAO extends AbstractDAO{
   }
 
   public function execute(){
-    $sql = $this->makeInsertSql($this->getTable(), $this->getColumnAry());
+    $sql = $this->makeInsertSql();
 
-    $this->exeInsertSql($sql, $this->getColumnAry());
+    $this->exeInsertSql($sql);
   }
 }

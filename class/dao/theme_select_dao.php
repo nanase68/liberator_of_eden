@@ -2,8 +2,6 @@
 require_once(dirname(__FILE__) . '/abstract_dao.php');
 
 class ThemeSelectDAO extends AbstractDAO{
-  private $theme_id = "";
-
   function __construct(){
     $this->setTable("T_THEME");
     $this->setColumnAry(array(
@@ -15,8 +13,9 @@ class ThemeSelectDAO extends AbstractDAO{
   }
 
   public function execute(){
-    $sql = $this->makeSelectSql($this->getTable(), $this->getColumnAry());
+    $sql = $this->makeSelectSql();
     // WHERE文を追記
+    //FIXME:: DOUBLE:WHEREが実装され
     if(!empty($this->user_id) AND !empty($this->theme_id)){ //userとtheme両方が指定
       $sql .= " WHERE user_id = " . "'$this->user_id'"
                . "AND theme_id = " . "'$this->theme_id'";
@@ -32,11 +31,11 @@ class ThemeSelectDAO extends AbstractDAO{
   }
 
   public function setUserId($user_id){
-    $this->user_id = $user_id;
+    $this->putInputAry('user_id', $user_id);
   }
 
   public function setThemeId($theme_id){
-    $this->theme_id = $theme_id;
+    $this->putInputAry('theme_id', $theme_id);
   }
 
 }

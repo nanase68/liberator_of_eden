@@ -15,9 +15,7 @@ class LoginDAO extends AbstractDAO{
   public function execute(){
     $sql = $this->makeSelectSql($this->getTable(), $this->getColumnAry());
     // WHERE文を追記
-    if(!empty($this->popInputAry('user_id')) && !empty($this->popInputAry('user_pass'))){
-      $sql .= " WHERE " . "user_id=" . ":user_id" . " AND " . "user_pass=" . ":user_pass";
-    }
+    $sql .= $this->singleWhereSql('user_id', 'user_pass');
 
     $ary = $this->exeSelectSql($sql);
 

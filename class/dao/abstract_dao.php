@@ -10,6 +10,7 @@ require_once(dirname(__FILE__) . '/../../common/connection.php');
  * コンストラクタで$tableと$column_aryを指定する。
  * execute()を定義し、
  * データベースにアクセスしたいタイミングでaccessDB()を呼び出す。
+ * execute()はaccessDB()内で自動的に呼ばれる。
  *
  * @access public
  * @author shima

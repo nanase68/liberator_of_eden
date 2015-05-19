@@ -16,7 +16,7 @@ class MyPageMuttersSelectDAO extends AbstractDAO{
   }
 
   public function execute(){
-    $sql = $this->makeSelectSql($this->getTable(), $this->getColumnAry());
+    $sql = $this->makeSelectSql();
     // WHERE文を追記
     $sql .= $this->singleWhereSql('user_id');
 

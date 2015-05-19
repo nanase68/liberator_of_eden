@@ -44,60 +44,78 @@ abstract class AbstractDAO{
     }
   }
 
-  protected function makeSelectSql($table, $column_ary){
+  protected function makeSelectSql(){
     $sql = "";
     $sql .= "SELECT ";
 
-    for($i=0; $i < count($column_ary); $i++){
+    for($i=0; $i < count($this->getColumnAry()); $i++){
       if($i > 0){
         $sql .= ", ";
       }
-      $sql .= $table . "." . $column_ary[$i];
+      $sql .= $this->getColumnAry()[$i];
     }
-    $sql .= " FROM " . $table;
+    $sql .= " FROM " . $this->getTable();
     return($sql);
   }
 
-  protected function makeInsertSql($table, $column_ary){
+  protected function makeInsertSql(){
     $sql = "";
     $sql .= "INSERT ";
-    $sql .= "INTO " . DBNAME . ".$table"; 
+    $sql .= "INTO " . DBNAME . ".$this->getTable()"; 
     $sql .= " (";
-    for($i=0; $i < count($column_ary); $i++){
+    for($i=0; $i < count($this->getColumnAry()); $i++){
       if($i > 0){
         $sql .= ", ";
       }
-      $sql .= $column_ary[$i];
+      $sql .= $this->getColumnAry()[$i];
     }
     $sql .= ")";
     $sql .= " VALUES";
     $sql .= " (";
-    for($i=0; $i < count($column_ary); $i++){
+    for($i=0; $i < count($this->getColumnAry()); $i++){
       if($i > 0){
         $sql .= ", ";
       }
-      $sql .= ":" .$column_ary[$i];
+      $sql .= ":" .$this->getColumnAry()[$i];
     }
     $sql .= ")";
     return($sql);
   }
 
-  protected function makeDeleteSql($table, $column_ary){
+  protected function makeDeleteSql(){
     $sql = "";
     $sql .= "DELETE FROM";
-    $sql .= " " . DBNAME . ".$table"; 
+    $sql .= " " . DBNAME . ".$this->getTable()"; 
     $sql .= " WHERE ";
     $i = 0;
-    foreach ($column_ary as $col_name) {
+    foreach ($this->getColumnAry() as $col_name) {
       $sql .= $col_name . "= :" . $col_name . " AND ";
     }
     $sql = rtrim($sql, " AND ");
     return($sql);
   }
 
+  protected function singleWhereSql($column){
+    if(!empty($this->popInputAry($column))){
+      return(" WHERE " . "${column}=" . ":${column}");
+    } else {
+      return('');
+    }
+  }
+
   protected function exeSelectSql($sql){
-    $st = DBX::getPdo()->query($sql);
+    $st = DBX::getPdo()->prepare($sql);
+
+    //基本的にPDO::PARAM_STR 
+    //"NULL"を代入する場合もPDO::PARAM_STR
+    //たまにPDO::PARAM_INTも使用するが変数の型に注意
+    foreach($this->getInputAry() as $key => $value){
+      $st -> bindParam(":$key", $value, PDO::PARAM_STR);
+    }
+
     $st->execute();
+    //コミットすると適用される
+    DBX::getPdo() -> commit();
 
     $ary = array();
     while($row = $st->fetch(PDO::FETCH_ASSOC)){
@@ -106,34 +124,26 @@ abstract class AbstractDAO{
     return($ary);
   }
 
-  protected function exeInsertSql($sql, $column_ary){
+  protected function exeInsertSql($sql){
     $st = DBX::getPdo()->prepare($sql);
     
-    //基本的にPDO::PARAM_STR 
-    //"NULL"を代入する場合もPDO::PARAM_STR
-    //たまにPDO::PARAM_INTも使用するが変数の型に注意
-    foreach($this->getColumnAry() as $value){
-      $st -> bindParam(":$value", $this->popInputAry($value), PDO::PARAM_STR);
+    foreach($this->getInputAry() as $key => $value){
+      $st -> bindParam(":$key", $value, PDO::PARAM_STR);
     }
-   
+  
     $st -> execute();
-    //コミットすると適用される
     DBX::getPdo() -> commit();
   }
 
 
-  protected function exeDeleteSql($sql, $column_ary){
+  protected function exeDeleteSql($sql){
     $st = DBX::getPdo()->prepare($sql);
     
-    //基本的にPDO::PARAM_STR 
-    //"NULL"を代入する場合もPDO::PARAM_STR
-    //たまにPDO::PARAM_INTも使用するが変数の型に注意
-    foreach($this->getColumnAry() as $value){
-      $st -> bindParam(":$value", $this->popInputAry($value), PDO::PARAM_STR);
+    foreach($this->getInputAry() as $key => $value){
+      $st -> bindParam(":$key", $value, PDO::PARAM_STR);
     }
-   
+  
     $st -> execute();
-    //コミットすると適用される
     DBX::getPdo() -> commit();
   }
 

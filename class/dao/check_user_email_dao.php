@@ -2,7 +2,6 @@
 require_once(dirname(__FILE__) . '/abstract_dao.php');
 
 class CheckUserEmailDAO extends AbstractDAO{
-  private $select = "";
 
   function __construct(){
     $this->setTable("M_USER");
@@ -14,16 +13,14 @@ class CheckUserEmailDAO extends AbstractDAO{
   public function execute(){
     $sql = $this->makeSelectSql($this->getTable(), $this->getColumnAry());
     // WHERE文を追記
-    if(!empty($this->select)){
-      $sql .= " WHERE " . "user_email=" . "'$this->select'";
-    }
+    $sql .= $this->singleWhereSql('user_id');
 
     $ary = $this->exeSelectSql($sql);
 
     $this->setReturnAry($ary);
   }
 
-  public function setUserEmail($select){
-    $this->select = $select;
+  public function setUserEmail($email){
+    $this->putInputAry('user_email', $email);
   }
 }

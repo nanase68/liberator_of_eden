@@ -2,7 +2,6 @@
 require_once(dirname(__FILE__) . '/abstract_dao.php');
 
 class MutterSelectDAO extends AbstractDAO{
-  private $mutter_id = "";
 
   function __construct(){
     $this->setTable("T_MUTTER");
@@ -17,11 +16,9 @@ class MutterSelectDAO extends AbstractDAO{
   }
 
   public function execute(){
-    $sql = $this->makeSelectSql($this->getTable(), $this->getColumnAry());
+    $sql = $this->makeSelectSql();
     // WHERE文を追記
-    if(!empty($this->mutter_id)){
-      $sql .= " WHERE " . "mutter_id=" . "'$this->mutter_id'";
-    }
+    $sql .= $this->singleWhereSql('mutter_id');
 
     $ary = $this->exeSelectSql($sql);
 
@@ -29,6 +26,6 @@ class MutterSelectDAO extends AbstractDAO{
   }
 
   public function setMutterId($mutter_id){
-    $this->mutter_id = $mutter_id;
+    $this->putInputAry('mutter_id', $mutter_id);
   }
 }

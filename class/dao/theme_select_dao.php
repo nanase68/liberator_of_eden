@@ -2,7 +2,6 @@
 require_once(dirname(__FILE__) . '/abstract_dao.php');
 
 class ThemeDAO extends AbstractDAO{
-  private $theme_id = "";
 
   function __construct(){
     $this->setTable("T_THEME");
@@ -15,11 +14,9 @@ class ThemeDAO extends AbstractDAO{
   }
 
   public function execute(){
-    $sql = $this->makeSelectSql($this->getTable(), $this->getColumnAry());
+    $sql = $this->makeSelectSql();
     // WHERE文を追記
-    if(!empty($this->theme_id)){
-      $sql .= " WHERE " . "theme_id=" . "'$this->theme_id'";
-    }
+    $sql .= $this->singleWhereSql('theme_id');
 
     $ary = $this->exeSelectSql($sql);
 
@@ -27,7 +24,7 @@ class ThemeDAO extends AbstractDAO{
   }
 
   public function setThemeId($theme_id){
-    $this->theme_id = $theme_id;
+    $this->putInputAry('theme_id', $theme_id);
   }
 }
 

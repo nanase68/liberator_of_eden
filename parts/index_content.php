@@ -24,7 +24,6 @@ $new_mutter_ary = $new_mutter -> getNewMutterAry();
 			
 			<section class="item">
 				<h3>新着</h3>
-				
 				<div class="micro_content">
 					<p class="micro_content_text"> <a href= <?php echo "mutter.php?id=" . $new_mutter_ary[0]['MUTTER_ID']; ?>><?php echo $new_mutter_ary[0]['MUTTER_TITLE']; ?></a></p>
 					<p class="uploader">投稿者： <a href="#"> <?php echo $new_mutter_ary[0]['USER_ID'];?></a></p>

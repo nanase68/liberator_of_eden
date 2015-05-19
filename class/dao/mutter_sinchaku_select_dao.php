@@ -8,7 +8,7 @@ class NewMutterDAO extends AbstractDAO{
             T_MUTTER.MUTTER_TITLE, T_MUTTER.MUTTER_DETAIL,
             T_MUTTER.MUTTER_DATE, T_MUTTER.MUTTER_IMG
             FROM T_MUTTER
-            ORDER BY T_MUTTER.MUTTER_ID ";
+            ORDER BY T_MUTTER.MUTTER_ID DESC";
 
     //20件のデータを取得
     $sql .= " LIMIT 20";

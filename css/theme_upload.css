@@ -1,4 +1,4 @@
-#mutter_wrapper{
+#theme_wrapper{
 	width: 100%;
 }
 
@@ -10,7 +10,7 @@
 	padding: 0 20px;
 }
 
-.mutter_content{
+.theme_content{
 	padding: 20px;
 	border-radius: 5px;
 	background: rgba(255,255,255,0.2);
@@ -37,7 +37,7 @@
 	float: left;
 	background: rgba(0,0,0,0.2);
 	border: 1px solid rgba(0,0,0,0.2);
-	min-width: 600px;
+	width: 600px;
 	padding: 10px;
 	
 }
@@ -57,23 +57,28 @@
 	display: table-cell;
 }
 .content_area_user span{
-	display: table-cell;
 	vertical-align: middle;
 	font-size: 12px;
 }
 
-#star{
-	width: 145px;
+input[type="text"]{
+	height: 50px;
+	font-size: 30px;
+	width: 498px;
+	margin-top: 5px;
+	margin: 0 auto;
 }
 
-#okiniiri{
-	height: 25px;
-	width: 75px;
-	background: url("../images/okiniiri.png");
-	background-size: cover;
-	cursor: pointer;
+textarea{
+	height: 100px;
+	width: 502px;
+	background: #fff;
+	margin: 0 atuo;
 }
-#okiniiri:hover{
-	background: url("../images/okiniiri2.png");
-		background-size: cover;
+
+input[type="submit"]{
+	width: 502px;
+	height: 40px;
+	margin: 0 auto;
 }
+

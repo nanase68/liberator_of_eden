@@ -8,10 +8,6 @@ $fuc -> setDirPath("./test_files_directory/");
 $fuc -> setFileName("test_image");
 
 $imgFlg = true;
-if(!$fuc -> isImage()){
-	$imgFlg = false;
-}
-
 ?>
 <!DOCTYPE html>
 <html>
@@ -72,7 +68,7 @@ foreach($_FILES['files'] as $key => $value){
 	<tr><td>getFileMimeName()</td><td><?php echo $fuc -> getFileMimeName()?></td></tr>
 	
 	<tr><td>getFileSize()</td><td><?php echo $fuc -> getFileSize()?></td></tr>
-	<tr><td>isImage()</td><td><?php if($fuc -> isImage()){echo "true";}else{echo "false";}?></td></tr>
+	<tr><td>isImage()</td><td><?php if($fuc -> isImage()){echo "true";}else{echo "false";$imgFlg = false;}?></td></tr>
 	<?php if($imgFlg){?><tr><td>&lt;a href="&lt;?php=getMovePath()?&gt;"&gt;</td><td><img src="<?php echo $fuc -> getMovePath()?>"></td></tr><?php }?>
 
 </table>

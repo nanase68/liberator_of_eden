@@ -2,7 +2,6 @@
 require_once(dirname(__FILE__) . '/abstract_dao.php');
 
 class UserSelectDAO extends AbstractDAO{
-  private $user_id = "";
 
   function __construct(){
     $this->setTable("M_USER");
@@ -17,10 +16,10 @@ class UserSelectDAO extends AbstractDAO{
   }
 
   public function execute(){
-    $sql = $this->makeSelectSql($this->getTable(), $this->getColumnAry());
+    $sql = $this->makeSelectSql();
     // WHERE文を追記
-    if(!empty($this->user_id)){
-      $sql .= " WHERE " . "user_id=" . "'$this->user_id'";
+    if(!empty($this->popInputAry('user_id'))){
+      $sql .= " WHERE " . "user_id=" . ":user_id";
     }
 
     $ary = $this->exeSelectSql($sql);
@@ -29,7 +28,7 @@ class UserSelectDAO extends AbstractDAO{
   }
 
   public function setUserId($user_id){
-    $this->user_id = $user_id;
+    $this->putInputAry('user_id', $user_id);
   }
 }
 

@@ -2,8 +2,6 @@
 require_once(dirname(__FILE__) . '/abstract_dao.php');
 
 class LoginDAO extends AbstractDAO{
-  private $user_id = "";
-  private $user_pass = "";
 
   function __construct(){
     $this->setTable("M_USER");
@@ -17,8 +15,8 @@ class LoginDAO extends AbstractDAO{
   public function execute(){
     $sql = $this->makeSelectSql($this->getTable(), $this->getColumnAry());
     // WHERE文を追記
-    if(!empty($this->user_id)){
-      $sql .= " WHERE " . "user_id=" . "'$this->user_id'" . " AND " . "user_pass=" . "'$this->user_pass'";
+    if(!empty($this->popInputAry('user_id')) && !empty($this->popInputAry('user_pass'))){
+      $sql .= " WHERE " . "user_id=" . ":user_id" . " AND " . "user_pass=" . ":user_pass";
     }
 
     $ary = $this->exeSelectSql($sql);
@@ -27,11 +25,11 @@ class LoginDAO extends AbstractDAO{
   }
 
   public function setUserId($user_id){
-    $this->user_id = $user_id;
+    $this->putInputAry('user_id', $user_id);
   }
 
   public function setUserPass($user_pass){
-    $this->user_pass = $user_pass;
+    $this->putInputAry('user_pass', $user_pass);
   }
 }
 

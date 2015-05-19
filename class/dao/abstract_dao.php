@@ -44,51 +44,51 @@ abstract class AbstractDAO{
     }
   }
 
-  protected function makeSelectSql($table, $column_ary){
+  protected function makeSelectSql(){
     $sql = "";
     $sql .= "SELECT ";
 
-    for($i=0; $i < count($column_ary); $i++){
+    for($i=0; $i < count($this->getColumnAry()); $i++){
       if($i > 0){
         $sql .= ", ";
       }
-      $sql .= $column_ary[$i];
+      $sql .= $this->getColumnAry()[$i];
     }
-    $sql .= " FROM " . $table;
+    $sql .= " FROM " . $this->getTable();
     return($sql);
   }
 
-  protected function makeInsertSql($table, $column_ary){
+  protected function makeInsertSql(){
     $sql = "";
     $sql .= "INSERT ";
-    $sql .= "INTO " . DBNAME . ".$table"; 
+    $sql .= "INTO " . DBNAME . ".$this->getTable()"; 
     $sql .= " (";
-    for($i=0; $i < count($column_ary); $i++){
+    for($i=0; $i < count($this->getColumnAry()); $i++){
       if($i > 0){
         $sql .= ", ";
       }
-      $sql .= $column_ary[$i];
+      $sql .= $this->getColumnAry()[$i];
     }
     $sql .= ")";
     $sql .= " VALUES";
     $sql .= " (";
-    for($i=0; $i < count($column_ary); $i++){
+    for($i=0; $i < count($this->getColumnAry()); $i++){
       if($i > 0){
         $sql .= ", ";
       }
-      $sql .= ":" .$column_ary[$i];
+      $sql .= ":" .$this->getColumnAry()[$i];
     }
     $sql .= ")";
     return($sql);
   }
 
-  protected function makeDeleteSql($table, $column_ary){
+  protected function makeDeleteSql(){
     $sql = "";
     $sql .= "DELETE FROM";
-    $sql .= " " . DBNAME . ".$table"; 
+    $sql .= " " . DBNAME . ".$this->getTable()"; 
     $sql .= " WHERE ";
     $i = 0;
-    foreach ($column_ary as $col_name) {
+    foreach ($this->getColumnAry() as $col_name) {
       $sql .= $col_name . "= :" . $col_name . " AND ";
     }
     $sql = rtrim($sql, " AND ");

@@ -1,7 +1,11 @@
-<?php require_once(dirname(__FILE__) . '/../class/model/mutter_ranking_select_model.php');
-
+<?php 
+require_once(dirname(__FILE__) . '/../class/model/mutter_ranking_select_model.php');
+require_once(dirname(__FILE__) . '/../class/model/mutter_sinchaku_select_model.php');
 $mutter_ranking = new MutterRankingModel;
 $rank_ary = $mutter_ranking -> getRankingAry();
+
+$new_mutter = new NewMutterModel;
+$new_mutter_ary = $new_mutter -> getNewMutterAry();
 ?>
 	<article id="main_content" class="bottom">
 		<div id="content_wrapper">
@@ -20,20 +24,19 @@ $rank_ary = $mutter_ranking -> getRankingAry();
 			
 			<section class="item">
 				<h3>新着</h3>
-				
 				<div class="micro_content">
-					<img src="./images/sample.png">
-					<p class="uploader">投稿者： <a href="#">BattoMan</a></p>
+					<p class="micro_content_text"> <a href= <?php echo "mutter.php?id=" . $new_mutter_ary[0]['MUTTER_ID']; ?>><?php echo $new_mutter_ary[0]['MUTTER_TITLE']; ?></a></p>
+					<p class="uploader">投稿者： <a href="#"> <?php echo $new_mutter_ary[0]['USER_ID'];?></a></p>
 				</div>
 				
 				<div class="micro_content">
-					<p class="micro_content_txt">厨二厨二厨二厨二厨二厨二厨二厨二厨二厨二厨二厨二厨二厨二厨二厨二厨二厨二厨二厨二厨二厨二厨二厨二厨二厨二厨二厨二</p>
-					<p class="uploader">投稿者： <a href="#">BattoMan</a></p>
+					<p class="micro_content_text"> <a href= <?php echo "mutter.php?id=" . $new_mutter_ary[1]['MUTTER_ID']; ?>> <?php echo $new_mutter_ary[1]['MUTTER_TITLE']; ?></a></p>
+					<p class="uploader">投稿者： <a href="#"><?php echo $new_mutter_ary[1]['USER_ID'];?></a></p>
 				</div>
 				
 				<div class="micro_content">
-					<img src="./images/sample.png">
-					<p class="uploader">投稿者： <a href="#">BattoMan</a></p>
+					<p class="micro_content_text"> <a href= <?php echo "mutter.php?id=" . $new_mutter_ary[2]['MUTTER_ID']; ?>> <?php echo $new_mutter_ary[2]['MUTTER_TITLE']; ?></a></p> 
+					<p class="uploader">投稿者： <a href="#"><?php echo $new_mutter_ary[2]['USER_ID'];?></a></p>
 				</div>
 				<div class="clear"></div>
 			</section>
@@ -42,7 +45,7 @@ $rank_ary = $mutter_ranking -> getRankingAry();
 				<h3>人気の投稿</h3>
 				
 				<div class="micro_content">
-					<!--<img src="$ranl_ary[3]['MUTTER_IMG']">-->
+					<!--<img src="$rank_ary[3]['MUTTER_IMG']">-->
 					<p class="micro_content_text"> <a href= <?php echo "mutter.php?id=" . $rank_ary[1]['MUTTER_ID']; ?>><?php echo $rank_ary[1]['MUTTER_TITLE'] ?> </a></p>
 					<p class="uploader">投稿者： <a href="#"><?php echo $rank_ary[1]['USER_ID'] ?> </a></p>
 				</div>
@@ -59,7 +62,6 @@ $rank_ary = $mutter_ranking -> getRankingAry();
 				<div class="clear"></div>
 			</section>
 			
-			
 			<section class="item">
 				<h3>項目サンプル</h3>
 				<div class="micro_content">
@@ -73,7 +75,6 @@ $rank_ary = $mutter_ranking -> getRankingAry();
 				</div>
 				<div class="clear"></div>
 			</section>
-
 
 			<section class="item">
 				<h3>項目サンプル</h3>

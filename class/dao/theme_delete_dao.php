@@ -1,15 +1,13 @@
 <?php
 require_once(dirname(__FILE__) . '/abstract_dao.php');
 
-class MutterFavoritesDeleteDAO extends AbstractDAO{
-  private $user_id = "";
-
+class ThemeDeleteDAO extends AbstractDAO{
   function __construct(){
     $this->setTable("T_MUTTER_FAVORITES");
     $this->setColumnAry(array(
       "theme_id",
       "user_id",
-      "theme_title",
+      //"theme_title",
       //"theme_create_date",
     ));
   }
@@ -20,16 +18,14 @@ class MutterFavoritesDeleteDAO extends AbstractDAO{
   }
 }
 
-/*
-$model = new MutterFavoritesDeleteDAO;
-$mutter_ary = array();
-$mutter_ary['user_id'] = 'root';
-$mutter_ary['mutter_id'] = 3;
-//var_dump($mutter_ary);
 
-$model->setInputAry($mutter_ary);
-//$model->getInputAry();
+$model = new ThemeDeleteDAO;
+$theme_ary = array();
+$theme_ary['theme_id'] = 9;
+//$theme_ary['user_id'] = 'root';
+//var_dump($theme_ary);
+
+$model->setInputAry($theme_ary);
+print_r($model->getInputAry());
 
 $model->accessDB();
-$model->getReturnAry();
-*/

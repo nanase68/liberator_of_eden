@@ -25,3 +25,23 @@ class UserInsertDAO extends AbstractDAO{
     $this->exeInsertSql($sql);
   }
 }
+
+/*
+$model = new UserInsertDAO;
+$user_ary = array();
+$user_ary['user_id'] = 'void';
+$user_ary['user_name'] = '天使長ボイド';
+$user_ary['user_email'] = "void@gmail.jp";
+$user_ary['user_pass'] = 'void';
+$user_ary['user_last_login'] = NOW_TIME;
+//var_dump($theme_ary);
+print_r($user_ary);
+echo "<br>";
+
+$model->setInputAry($user_ary);
+print_r($model->getInputAry());
+echo "<br>";
+
+$model->accessDB();
+//print_r($model->getReturnAry());
+*/

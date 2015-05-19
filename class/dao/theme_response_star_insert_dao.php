@@ -1,7 +1,7 @@
 <?php
 require_once(dirname(__FILE__) . '/abstract_dao.php');
 
-class StarSelectDAO extends AbstractDAO{
+class ThemeResponseStarInsertDAO extends AbstractDAO{
 
   function __construct(){
     $this->setTable("T_THEME_RESPONSE_STAR");

@@ -95,6 +95,14 @@ abstract class AbstractDAO{
     return($sql);
   }
 
+  protected function singleWhereSql($column){
+    if(!empty($this->popInputAry($column))){
+      return(" WHERE " . "${column}=" . ":${column}");
+    } else {
+      return('');
+    }
+  }
+
   protected function exeSelectSql($sql){
     $st = DBX::getPdo()->prepare($sql);
 

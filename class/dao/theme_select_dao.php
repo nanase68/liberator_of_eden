@@ -1,14 +1,13 @@
 <?php
 require_once(dirname(__FILE__) . '/abstract_dao.php');
 
-class ThemeDAO extends AbstractDAO{
-
+class ThemeSelectDAO extends AbstractDAO{
   function __construct(){
     $this->setTable("T_THEME");
     $this->setColumnAry(array(
       "theme_id",
       "user_id",
-      "theme_response_detail",
+      "theme_title",
       "theme_create_date",
     ));
   }
@@ -16,15 +15,34 @@ class ThemeDAO extends AbstractDAO{
   public function execute(){
     $sql = $this->makeSelectSql();
     // WHERE文を追記
-    $sql .= $this->singleWhereSql('theme_id');
+    //FIXME:: DOUBLE:WHEREが実装され
+    if(!empty($this->user_id) AND !empty($this->theme_id)){ //userとtheme両方が指定
+      $sql .= " WHERE user_id = " . "'$this->user_id'"
+               . "AND theme_id = " . "'$this->theme_id'";
+    } elseif(!empty($this->user_id)){
+      $sql .= " WHERE user_id = " . "'$this->user_id'";
+    } elseif(!empty($this->theme_id)){
+      $sql .= " WHERE theme_id = " . "'$this->theme_id'";
+    }
 
     $ary = $this->exeSelectSql($sql);
 
     $this->setReturnAry($ary);
   }
 
+  public function setUserId($user_id){
+    $this->putInputAry('user_id', $user_id);
+  }
+
   public function setThemeId($theme_id){
     $this->putInputAry('theme_id', $theme_id);
   }
+
 }
 
+
+//$dao = new ThemeSelectDao;
+//$dao->setUserId(""); //user_idやtheme_idをwhere文で指定できる
+//$dao->setThemeId(1);
+//$dao->accessDB();
+//seprint_r($dao->getReturnAry());

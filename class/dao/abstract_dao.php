@@ -122,7 +122,7 @@ abstract class AbstractDAO{
     //"NULL"を代入する場合もPDO::PARAM_STR
     //たまにPDO::PARAM_INTも使用するが変数の型に注意
     foreach($this->getInputAry() as $key => $value){
-      $st -> bindParam(":$key", $value, PDO::PARAM_STR);
+      $st -> bindValue(":$key", $value, PDO::PARAM_STR);
     }
 
     $st->execute();
@@ -140,7 +140,7 @@ abstract class AbstractDAO{
     $st = DBX::getPdo()->prepare($sql);
     
     foreach($this->getInputAry() as $key => $value){
-      $st -> bindParam(":$key", $value, PDO::PARAM_STR);
+      $st -> bindValue(":$key", $value, PDO::PARAM_STR);
     }
   
     $st -> execute();
@@ -152,7 +152,7 @@ abstract class AbstractDAO{
     $st = DBX::getPdo()->prepare($sql);
     
     foreach($this->getInputAry() as $key => $value){
-      $st -> bindParam(":$key", $value, PDO::PARAM_STR);
+      $st -> bindValue(":$key", $value, PDO::PARAM_STR);
     }
   
     $st -> execute();

@@ -23,7 +23,7 @@ $rank_ary = $mutter_ranking->getRankingAry();
 					$ranknum+=1;
 				?>
 					<div class="image_area">
-						<a href="mutter.php">
+						<a href= <?php echo ("mutter.php?id=" . $row['MUTTER_ID']); ?> >
 							<?php 
 							if(!empty($row['MUTTER_IMG'])){
 								//echo "<img src='./images/content_sample.jpg'>"; //mutterの画像を出力する
@@ -34,14 +34,14 @@ $rank_ary = $mutter_ranking->getRankingAry();
 						</a>
 					</div>
 					<div class="content_area">
-						<h5><a href="#"><?php echo $row['MUTTER_TITLE']; ?></a></h5>
-						
+						<h5><a href= <?php echo ("mutter.php?id=" . $row['MUTTER_ID']); ?> ><?php echo $row['MUTTER_TITLE']; ?></a></h5>
+
 						<a href="my_page.php" class="content_area_user">
 							<img src="./images/batman.jpg">
 							<span><?php echo $row['USER_NAME'] ;?></span>
 						</a>
 						
-						<a href="mutter.php" class="content_area_detail ellipsis">
+						<a href= <?php echo("mutter.php?id=" . $row['MUTTER_ID']); ?> class="content_area_detail ellipsis">
 							<?php echo $row['MUTTER_DETAIL']; ?>
 						</a>
 					</div>

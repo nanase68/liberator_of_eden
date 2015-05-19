@@ -2,7 +2,6 @@
 require_once(dirname(__FILE__) . '/abstract_dao.php');
 
 class MutterFavoritesDeleteDAO extends AbstractDAO{
-  private $user_id = "";
 
   function __construct(){
     $this->setTable("T_MUTTER_FAVORITES");
@@ -15,8 +14,8 @@ class MutterFavoritesDeleteDAO extends AbstractDAO{
   }
 
   public function execute(){
-    $sql = $this->makeDeleteSql($this->getTable(), $this->getColumnAry());
-    $this->exeDeleteSql($sql, $this->getColumnAry());
+    $sql = $this->makeDeleteSql();
+    $this->exeDeleteSql($sql);
   }
 }
 

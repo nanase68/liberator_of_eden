@@ -2,7 +2,6 @@
 require_once(dirname(__FILE__) . '/abstract_dao.php');
 
 class ThemeFavoritesDAO extends AbstractDAO{
-  private $theme_favorites_id = "";
 
   function __construct(){
     $this->setTable("T_THEME_FAVORITES");
@@ -15,11 +14,9 @@ class ThemeFavoritesDAO extends AbstractDAO{
   }
 
   public function execute(){
-    $sql = $this->makeSelectSql($this->getTable(), $this->getColumnAry());
+    $sql = $this->makeSelectSql();
     // WHERE文を追記
-    if(!empty($this->theme_id)){
-      $sql .= " WHERE " . "theme_favorites_id=" . "'$this->theme_favorites_id'";
-    }
+    $sql .= $this->singleWhereSql('theme_favorites_id');
 
     $ary = $this->exeSelectSql($sql);
 
@@ -27,7 +24,7 @@ class ThemeFavoritesDAO extends AbstractDAO{
   }
 
   public function setThemeFavoritesId($theme_favorites_id){
-    $this->theme_favorites_id = $theme_favorites_id;
+    $this->putInputAry('theme_favorites_id', $theme_favorites_id);
   }
 }
 

@@ -2,7 +2,6 @@
 require_once(dirname(__FILE__) . '/abstract_dao.php');
 
 class ThemeResponseCommentDAO extends AbstractDAO{
-  private $theme_response_comment_id = "";
 
   function __construct(){
     $this->setTable("T_THEME_RESPONSE_COMMENT");
@@ -16,11 +15,9 @@ class ThemeResponseCommentDAO extends AbstractDAO{
   }
 
   public function execute(){
-    $sql = $this->makeSelectSql($this->getTable(), $this->getColumnAry());
+    $sql = $this->makeSelectSql();
     // WHERE文を追記
-    if(!empty($this->theme_response_comment_id)){
-      $sql .= " WHERE " . "theme_response_comment_id=" . "'$this->theme_response_comment_id'";
-    }
+    $sql .= $this->singleWhereSql('theme_response_comment_id');
 
     $ary = $this->exeSelectSql($sql);
 
@@ -28,7 +25,7 @@ class ThemeResponseCommentDAO extends AbstractDAO{
   }
 
   public function setThemeResponseCommentId($theme_response_comment_id){
-    $this->theme_response_comment_id = $theme_response_comment_id;
+    $this->putInputAry('theme_response_comment_id', $theme_response_comment_id);
   }
 }
 

@@ -2,9 +2,6 @@
 require_once(dirname(__FILE__) . '/abstract_dao.php');
 
 class MutterFavoritesSelectDao extends AbstractDAO{
-  private $mutter_favorites_id = "";
-  private $mutter_id = "";
-  private $user_id = "";
 
   function __construct(){
     $this->setTable("T_MUTTER_FAVORITES");
@@ -17,17 +14,17 @@ class MutterFavoritesSelectDao extends AbstractDAO{
   }
 
   public function execute(){
-    $sql = $this->makeSelectSql($this->getTable(), $this->getColumnAry());
+    $sql = $this->makeSelectSql();
     // WHERE文を追記
     $sql .= " WHERE";
-    if(!empty($this->mutter_favorites_id)){
-      $sql .= " mutter_favorites_id='$this->mutter_favorites_id' AND";
+    if(!empty($this->popInputAry('mutter_favorites_id'))){
+      $sql .= " mutter_favorites_id=:mutter_favorites_id AND";
     }
-    if(!empty($this->mutter_id)){
-      $sql .= " mutter_id='$this->mutter_id' AND";
+    if(!empty($this->popInputAry('mutter_id'))){
+      $sql .= " mutter_id=:mutter_id AND";
     }
-    if(!empty($this->user_id)){
-      $sql .= " user_id='$this->user_id'";
+    if(!empty($this->popInputAry('user_id'))){
+      $sql .= " user_id=:user_id";
     }
 
     //SQL文の末尾にANDやWHEREが存在する場合、削除
@@ -40,15 +37,15 @@ class MutterFavoritesSelectDao extends AbstractDAO{
   }
 
   public function setMutterFavoritesId($mutter_favorites_id){
-    $this->mutter_favorites_id = $mutter_favorites_id;
+    $this->putInputAry('mutter_favorites_id', $mutter_favorites_id);
   }
 
   public function setMutterId($mutter_id){
-    $this->mutter_id = $mutter_id;
+    $this->putInputAry('mutter_id', $mutter_id);
   }
 
   public function setUserId($user_id){
-    $this->user_id = $user_id;
+    $this->putInputAry('user_id', $user_id);
   }
 }
 

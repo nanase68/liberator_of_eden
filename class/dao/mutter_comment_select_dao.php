@@ -2,7 +2,6 @@
 require_once(dirname(__FILE__) . './abstract_dao.php');
 
 class MutterCommentDAO extends AbstractDAO{
-  private $mutter_comment_id = "";
 
   function __construct(){
     $this->setTable("T_MUTTER_COMMENT");
@@ -16,11 +15,9 @@ class MutterCommentDAO extends AbstractDAO{
   }
 
   public function execute(){
-    $sql = $this->makeSelectSql($this->getTable(), $this->getColumnAry());
+    $sql = $this->makeSelectSql();
     // WHERE文を追記
-    if(!empty($this->mutter_comment_id)){
-      $sql .= " WHERE " . "mutter_comment_id=" . "'$this->mutter_comment_id'";
-    }
+    $sql .= $this->singleWhereSql('mutter_comment_id');
 
     $ary = $this->exeSelectSql($sql);
 
@@ -28,6 +25,6 @@ class MutterCommentDAO extends AbstractDAO{
   }
 
   public function setMutterCommentId($mutter_comment_id){
-    $this->mutter_comment_id = $mutter_comment_id;
+    $this->putInputAry('mutter_comment_id', $mutter_comment_id);
   }
 }

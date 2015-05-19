@@ -16,10 +16,8 @@ class StarSelectDAO extends AbstractDAO{
 
   public function execute(){
     $sql = $this->makeSelectSql($this->table, $this->column_ary);
-    // WHERE文を追記
-    if(!empty($this->user_id)){
-      $sql .= " WHERE " . "user_id=" . "'$this->user_id'";
-    }
+    // WHERE文を追記user_id
+    $sql .= $this->singleWhereSql('user_id');
 
     $ary = $this->exeSelectSql($sql);
 
@@ -30,7 +28,7 @@ class StarSelectDAO extends AbstractDAO{
     $this->user_id = $user_id;
   }
   public function setResponseId($theme_response_id){
-    $this->theme_response_id = $theme_response_id;
+    $this->putInputAry('theme_response_id', $theme_response_id);
   }
   public function getDataAry(){
     return $this->data_ary;
@@ -43,9 +41,10 @@ class StarSelectDAO extends AbstractDAO{
   }
 }
 
-
+/*
 $theme = new StarSelectDAO;
 $theme->setUserId("root");
 $theme->setResponseId("1");
 $theme->accessDB();
+ */
 print_r($theme->getDataAry());

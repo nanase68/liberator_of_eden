@@ -16,20 +16,7 @@ class MutterFavoritesSelectDao extends AbstractDAO{
   public function execute(){
     $sql = $this->makeSelectSql();
     // WHERE文を追記
-    $sql .= " WHERE";
-    if(!empty($this->popInputAry('mutter_favorites_id'))){
-      $sql .= " mutter_favorites_id=:mutter_favorites_id AND";
-    }
-    if(!empty($this->popInputAry('mutter_id'))){
-      $sql .= " mutter_id=:mutter_id AND";
-    }
-    if(!empty($this->popInputAry('user_id'))){
-      $sql .= " user_id=:user_id";
-    }
-
-    //SQL文の末尾にANDやWHEREが存在する場合、削除
-    $sql = rtrim($sql , " AND");
-    $sql = rtrim($sql , " WHERE");
+    $sql .= $this->singleWhereSql('mutter_favorites_id', 'mutter_id', 'user_id');
 
     $ary = $this->exeSelectSql($sql);
 

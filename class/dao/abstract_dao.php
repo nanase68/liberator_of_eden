@@ -61,7 +61,7 @@ abstract class AbstractDAO{
   protected function makeInsertSql(){
     $sql = "";
     $sql .= "INSERT ";
-    $sql .= "INTO " . DBNAME . ".$this->getTable()"; 
+    $sql .= "INTO " . DBNAME . "." . $this->getTable(); 
     $sql .= " (";
     for($i=0; $i < count($this->getColumnAry()); $i++){
       if($i > 0){
@@ -85,7 +85,7 @@ abstract class AbstractDAO{
   protected function makeDeleteSql(){
     $sql = "";
     $sql .= "DELETE FROM";
-    $sql .= " " . DBNAME . ".$this->getTable()"; 
+    $sql .= " " . DBNAME . "." .$this->getTable(); 
     $sql .= " WHERE ";
     $i = 0;
     foreach ($this->getColumnAry() as $col_name) {
@@ -95,12 +95,23 @@ abstract class AbstractDAO{
     return($sql);
   }
 
-  protected function singleWhereSql($column){
-    if(!empty($this->popInputAry($column))){
-      return(" WHERE " . "${column}=" . ":${column}");
-    } else {
-      return('');
+  protected function singleWhereSql($where_ary){
+    $sql = "";
+
+    $first_flag = true;
+    foreach($where_ary as $column){
+      if(!empty($this->popInputAry($column))){
+        if($first_flag){
+          $sql .= " WHERE ";
+          $first_flag = false;
+        } else {
+          $sql .= " AND ";
+        }
+
+        $sql .=  "${column}=" . ":${column}";
+      }
     }
+    return($sql);
   }
 
   protected function exeSelectSql($sql){

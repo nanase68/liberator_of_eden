@@ -1,5 +1,5 @@
 $(function(){
-var url = "../../../class/";
+var url = "../../../class/model/theme_response_star_insert_model.php";
 $.fn.raty.defaults.path = "./js/jquery.raty/stars";
 	$('.star').raty({
 		score: function(){

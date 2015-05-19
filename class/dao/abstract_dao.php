@@ -95,7 +95,8 @@ abstract class AbstractDAO{
     return($sql);
   }
 
-  protected function singleWhereSql($where_ary){
+  // PHP5.6以降の書き方 エディタによってはエラーが出るかも
+  protected function singleWhereSql(...$where_ary){
     $sql = "";
 
     $first_flag = true;

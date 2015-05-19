@@ -1,6 +1,7 @@
 <?php
 require_once(dirname(__FILE__) . '/abstract_dao.php');
 
+/* :FIXME 古いので使うとき書きなおしてください */
 class StarSelectDAO extends AbstractDAO{
   private $user_id = "";
   private $data_ary = "";

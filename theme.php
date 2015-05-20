@@ -1,4 +1,5 @@
 <?php require("./common/common.php")?>
+<?php require("./class/api/check.php");?>
 <!DOCTYPE html>
 <html lang="ja">
 <head>

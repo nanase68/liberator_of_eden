@@ -1,7 +1,7 @@
 <?php
 require_once(dirname(__FILE__) . '/abstract_dao.php');
 
-class ThemeResponseStarSelectDAO extends AbstractDAO{
+class ThemeResponseStarUpdateDAO extends AbstractDAO{
 
   function __construct(){
     $this->setTable("T_THEME_RESPONSE_STAR");
@@ -16,13 +16,11 @@ class ThemeResponseStarSelectDAO extends AbstractDAO{
 
 
   public function execute(){
-    $sql = $this->makeSelectSql();
+    $sql = $this->makeUpdateSql('t_theme_response_star_point');
     // WHERE文を追記user_id
     $sql .= $this->singleWhereSql('theme_response_id', 'user_id');
 
-    $ary = $this->exeSelectSql($sql);
-
-    $this->setReturnAry($ary);
+    $this->exeUpdateSql($sql);
   }
 
   public function setResponseId($theme_response_id){
@@ -32,11 +30,10 @@ class ThemeResponseStarSelectDAO extends AbstractDAO{
   public function setUserId($user_id){
     $this->putInputAry('user_id', $user_id);
   }
+
+  public function setStarPoint($star_point){
+    $this->putInputAry('t_theme_response_star_point', $star_point);
+  }
 }
 
-// $star = new ThemeResponseStarSelectDAO;
-// $star->setUserId("root");
-// $star->setResponseId("1");
-// $star->accessDB();
-// print_r($star->getReturnAry());
 

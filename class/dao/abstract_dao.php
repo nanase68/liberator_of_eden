@@ -83,6 +83,29 @@ abstract class AbstractDAO{
     return($sql);
   }
 
+  // 注意：Update文は必ずwhereを併用すること
+  protected function makeUpdateSql(...$update_ary){
+    $sql = "";
+    $sql .= "UPDATE ";
+    $sql .= DBNAME . "." . $this->getTable(); 
+
+    $first_flag = true;
+    foreach($update_ary as $column){
+      if(!empty($this->popInputAry($column))){
+        if($first_flag){
+          $sql .= " SET ";
+          $first_flag = false;
+        } else {
+          $sql .= ", ";
+        }
+
+        $sql .=  "${column}=" . ":${column}";
+      }
+    }
+
+    return($sql);
+  }
+
   protected function makeDeleteSql(){
     $sql = "";
     $sql .= "DELETE FROM";
@@ -148,17 +171,14 @@ abstract class AbstractDAO{
     DBX::getPdo() -> commit();
   }
 
+  protected function exeUpdateSql($sql){
+    $this->exeInsertSql($sql);
+  }
 
   protected function exeDeleteSql($sql){
-    $st = DBX::getPdo()->prepare($sql);
-    
-    foreach($this->getInputAry() as $key => $value){
-      $st -> bindValue(":$key", $value, PDO::PARAM_STR);
-    }
-  
-    $st -> execute();
-    DBX::getPdo() -> commit();
+    $this->exeInsertSql($sql);
   }
+
 
   /*
    * getter / setter

@@ -1,18 +1,17 @@
 <?php
 // require_once(dirname(__FILE__) . '/../../common/get_user_id.php');
 require_once(dirname(__FILE__) . '/../../common/common.php');
-require_once(dirname(__FILE__) . '/../dao/theme_response_star_insert_dao');
+require_once(dirname(__FILE__) . '/../dao/theme_response_star_insert_dao.php');
 
 // このモデルはユーザーサイドのajaxからのPOSTで起動する
 $model = new ThemeResponseStarInsertModel;
 
-if(isset($_POST['theme_response_id'])
-  &&(isset($_POST['t_theme_response_star_point']))
+if(isset($_POST['response_id'])
+  &&(isset($_POST['star_score']))
   &&(isset($_POST['user_id']))){
   // ajaxからpostされる
-  $model->putParam($_POST['theme_response_id'], $_POST['t_theme_response_star_point'], $_POST['user_id']);
+  $model->putParam($_POST['response_id'], $_POST['star_score'], $_POST['user_id']);
   $model->printHtml();
-  // echo($return);
 }
 
 class ThemeResponseStarInsertModel{
@@ -43,7 +42,6 @@ class ThemeResponseStarInsertModel{
 
   private function exeDao(){
     $this->insert_dao->accessDB();
-    $this->data_ary = $this->insert_dao->getReturnAry();
   }
 
   private function makeHtml(){

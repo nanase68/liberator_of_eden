@@ -3,6 +3,13 @@ require_once(dirname(__FILE__) . '/../class/model/theme_select_model.php');
 require_once(dirname(__FILE__) . '/../class/model/theme_response_select_model.php');
 require_once(dirname(__FILE__) . '/../class/model/theme_response_comment_select_model.php');
 
+//idがセットされていない場合、エラー文を表示する
+if(!isset($_GET['id']) or !is_string($_GET['id'])){
+	echo "<p>指定したコンテンツは存在しません</p>";
+	exit;
+} 
+
+//themeのidを指定
 $theme_id = $_GET['id'];
 
 //テーマの配列を取得
@@ -10,6 +17,12 @@ $theme_model = new ThemeSelectModel;
 $theme_model->setThemeId($theme_id);
 $themeArray = $theme_model->getThemeAry();
 //print_r($themeArray);
+
+//idの値が不正な場合、エラー文を表示
+if(empty($themeArray)){
+	echo "<p>指定したコンテンツは存在しません</p>";
+	exit;
+}
 
 //テーマへのレスポンスの配列を取得
 $response_model = new ThemeResponseSelectModel;
@@ -27,6 +40,7 @@ function getCommentAry($theme_response_id){
 }
 
 ?>
+
 	<article id="main_content" class="bottom">
 		<div id="content_wrapper">
 			<section id="theme_wrapper">

@@ -3,16 +3,15 @@ require_once(dirname(__FILE__) . '/../dao/mutter_select_dao.php');
 
 class MutterSelectModel{
 	private $mutter_select_dao; //クラスインスタンス
-	private $user_select_dao;
 	private $data_ary = "";
-	private $mutter_id;
+	//private $mutter_id;
+	//private $user_id;
 
 	function __construct(){
 		$this->mutter_select_dao = new MutterSelectDao;
 	}
 
 	public function getMutterAry(){
-    	$this->mutter_select_dao -> setMutterId($this->mutter_id);
 		$this->exeDao();
 		return($this->data_ary);
 	}
@@ -23,12 +22,17 @@ class MutterSelectModel{
 	}
 
 	public function setMutterId($mutter_id){
-		$this->mutter_id = $mutter_id;
+		$this->mutter_select_dao -> setMutterId($mutter_id);
+	}
+
+	public function setUserId($user_id){
+		$this->mutter_select_dao -> setUserId($user_id);
 	}
 }
 
-//$model = new MutterSelectModel;
-//$mutter_id = $_GET['id'];
-//$model->setMutterId($mutter_id);
-//print_r($model->getMutterAry());
-
+/*
+$model = new MutterSelectModel;
+//$model->setUserId('kanzakiranko');
+$model->setMutterId(1);
+print_r($model->getMutterAry());
+*/

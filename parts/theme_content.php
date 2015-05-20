@@ -1,17 +1,17 @@
 <?php
+require_once(dirname(__FILE__) . '/../class/model/theme_select_model.php');
 require_once(dirname(__FILE__) . '/../class/model/theme_response_select_model.php');
 
-$model = new ThemeResponseSelectModel;
-$model->setThemeId(5);
-$themeArray = $model->getThemeResponseAry();
+$model = new ThemeSelectModel;
+$theme_id = $_GET['id'];
+$model->setThemeId($theme_id);
+$theme_ary = $model->getThemeAry();
 ?>
 	<article id="main_content" class="bottom">
 		<div id="content_wrapper">
 			<section id="theme_wrapper">
 				
-				<h2>呟きを確認</h2>
-				
-				<h3>授業中にテロリストが</h3>
+				<h2><?php echo $theme_ary[0]['theme_title']; ?></h2>
 			
 				<div class="theme_content">
 					<div class="image_area">

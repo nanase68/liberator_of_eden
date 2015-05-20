@@ -30,6 +30,5 @@ class ThemeResponseCommentSelectModel{
 $model = new ThemeResponseCommentSelectModel;
 $response_id = 1;
 $model->setThemeResponseId($response_id);
-echo "unko<br>";
 print_r($model->getThemeResponseCommentAry());
-*/
+/**/

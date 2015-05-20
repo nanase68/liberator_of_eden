@@ -13,10 +13,16 @@ class ThemeSelectDAO extends AbstractDAO{
   }
 
   public function execute(){
-    $sql = $this->makeSelectSql();
+    //$sql = $this->makeSelectSql();
+    $sql = "SELECT T_THEME.theme_id, T_THEME.user_id,
+            T_THEME.theme_title, T_THEME.theme_create_date,
+            M_USER.user_name";
+    $sql .= " FROM T_THEME" . " INNER JOIN M_USER";
+    $sql .= " ON T_THEME.user_id = M_USER.user_id";
+    //echo $sql;
     // WHERE文を追記
     $sql .= $this->singleWhereSql('user_id', 'theme_id');
-    echo $sql;
+    //echo $sql;
 
     $ary = $this->exeSelectSql($sql);
 

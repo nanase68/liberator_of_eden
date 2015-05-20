@@ -20,7 +20,7 @@ $theme_ary = $theme_list->getThemeAry();
 					//echo "<div class='rank'>" . $ranknum . "位</div>";
 					$ranknum+=1;
 				?>
-					<div class="content_area">
+					<div class="theme_list">
 						<h5><a href= <?php echo "theme.php?id=" . $row['theme_id']; ?>><?php echo $row['theme_title']; ?></a></h5>
 
 						<a href="my_page.php" class="content_area_user">

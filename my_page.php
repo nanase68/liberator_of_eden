@@ -5,6 +5,7 @@
 	<title><?php echo PAGE_TITLE?>:TOPページ</title>
 	<?php require("./parts/common_head.php");?>
 	<link rel="stylesheet" href="./css/my_page.css">
+	<link rel="stylesheet" href="./css/theme.css">
 </head>
 <body>
 <div id="wrapper">

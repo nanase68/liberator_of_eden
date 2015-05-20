@@ -30,4 +30,3 @@ class ThemeSelectModel{
 //$theme_id = 1;//$_GET['id'];
 //$model->setThemeId($theme_id);
 //print_r($model->getThemeAry());
-

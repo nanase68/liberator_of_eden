@@ -2,17 +2,18 @@
 require_once(dirname(__FILE__) . '/../class/model/theme_select_model.php');
 require_once(dirname(__FILE__) . '/../class/model/theme_response_select_model.php');
 require_once(dirname(__FILE__) . '/../class/model/theme_response_comment_select_model.php');
-//require_once(dirname(__FILE__) . '/../class/model/user_select_model.php');
+
+$theme_id = $_GET['id'];
 
 //テーマの配列を取得
 $theme_model = new ThemeSelectModel;
-$theme_model->setThemeId(1);
+$theme_model->setThemeId($theme_id);
 $themeArray = $theme_model->getThemeAry();
 //print_r($themeArray);
 
 //テーマへのレスポンスの配列を取得
 $response_model = new ThemeResponseSelectModel;
-$response_model->setThemeId(1);
+$response_model->setThemeId($theme_id);
 $responseArray = $response_model->getThemeResponseAry();
 //print_r($responseArray);
 
@@ -29,7 +30,7 @@ function getCommentAry($theme_response_id){
 	<article id="main_content" class="bottom">
 		<div id="content_wrapper">
 			<section id="theme_wrapper">
-				
+
 				<h2>テーマページ</h2>
 				
 				<h3><?php echo $themeArray[0]['theme_title']; ?></h3>

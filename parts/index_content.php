@@ -26,42 +26,39 @@ echo('<img src="'. $rank_ary[0]['MUTTER_IMG']) . '"'; ?>
 			
 			<section class="item">
 				<h3>新着</h3>
+<?php $i=0;
+foreach($new_mutter_ary as $mutter){ 
+
+if($i >= 6){
+  break;
+}
+$i++;
+?>
 				<div class="micro_content">
-					<p class="micro_content_text"> <a href= <?php echo "mutter.php?id=" . $new_mutter_ary[0]['MUTTER_ID']; ?>><?php echo $new_mutter_ary[0]['MUTTER_TITLE']; ?></a></p>
-					<p class="uploader">投稿者： <a href="#"> <?php echo $new_mutter_ary[0]['USER_ID'];?></a></p>
+					<p class="micro_content_text"> <a href= <?php echo "mutter.php?id=" . $mutter['MUTTER_ID']; ?>><?php echo $mutter['MUTTER_TITLE']; ?></a></p>
+					<p class="uploader">投稿者： <a href="#"> <?php echo $mutter['USER_ID'];?></a></p>
 				</div>
-				
-				<div class="micro_content">
-					<p class="micro_content_text"> <a href= <?php echo "mutter.php?id=" . $new_mutter_ary[1]['MUTTER_ID']; ?>> <?php echo $new_mutter_ary[1]['MUTTER_TITLE']; ?></a></p>
-					<p class="uploader">投稿者： <a href="#"><?php echo $new_mutter_ary[1]['USER_ID'];?></a></p>
-				</div>
-				
-				<div class="micro_content">
-					<p class="micro_content_text"> <a href= <?php echo "mutter.php?id=" . $new_mutter_ary[2]['MUTTER_ID']; ?>> <?php echo $new_mutter_ary[2]['MUTTER_TITLE']; ?></a></p> 
-					<p class="uploader">投稿者： <a href="#"><?php echo $new_mutter_ary[2]['USER_ID'];?></a></p>
-				</div>
-				<div class="clear"></div>
+<?php } ?>
+
+							<div class="clear"></div>
 			</section>
 			
 			<section class="item">
 				<h3>人気の投稿</h3>
+<?php for($i=1; $i < count($rank_ary); $i++){ 
+if($i >6){
+  break;
+}
 				
+?>
 				<div class="micro_content">
 					<!--<img src="$rank_ary[3]['MUTTER_IMG']">-->
-					<p class="micro_content_text"> <a href= <?php echo "mutter.php?id=" . $rank_ary[1]['MUTTER_ID']; ?>><?php echo $rank_ary[1]['MUTTER_TITLE'] ?> </a></p>
-					<p class="uploader">投稿者： <a href="#"><?php echo $rank_ary[1]['USER_ID'] ?> </a></p>
+					<p class="micro_content_text"> <a href= <?php echo "mutter.php?id=" . $rank_ary[$i]['MUTTER_ID']; ?>><?php echo $rank_ary[$i]['MUTTER_TITLE'] ?> </a></p>
+					<p class="uploader">投稿者： <a href="#"><?php echo $rank_ary[$i]['USER_ID'] ?> </a></p>
 				</div>
-				
-				<div class="micro_content">
-					<p class="micro_content_text"> <a href=<?php echo "mutter.php?id=" . $rank_ary[2]['MUTTER_ID']; ?>><?php echo $rank_ary[2]['MUTTER_TITLE'] ?> </a></p>
-					<p class="uploader">投稿者： <a href="#"><?php echo $rank_ary[2]['USER_ID'] ?></a></p>
-				</div>
-				
-				<div class="micro_content">
-					<p class="micro_content_text"> <a href=<?php echo "mutter.php?id=" . $rank_ary[3]['MUTTER_ID']; ?>><?php echo $rank_ary[3]['MUTTER_TITLE'] ?> </a></p>
-					<p class="uploader">投稿者： <a href="#"><?php echo $rank_ary[3]['USER_ID'] ?></a></p>
-				</div>
-				<div class="clear"></div>
+<?php } ?>
+      
+        <div class="clear"></div>
 			</section>
 			
 		<div class="clear"></div>

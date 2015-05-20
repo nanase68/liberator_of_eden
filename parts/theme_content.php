@@ -5,9 +5,12 @@ require_once(dirname(__FILE__) . '/../class/model/theme_response_comment_select_
 
 //idがセットされていない場合、エラー文を表示する
 if(!isset($_GET['id']) or !is_string($_GET['id'])){
+	echo "<article id='main_content' class='bottom'>";
+	echo "<div id='content_wrapper'>";
+	echo "<section id='theme_wrapper'>";
 	echo "<p>指定したコンテンツは存在しません</p>";
-	exit;
-} 
+	echo "</section></div></article>";
+} else{ //タグは最後に閉じる
 
 //themeのidを指定
 $theme_id = $_GET['id'];
@@ -20,9 +23,12 @@ $themeArray = $theme_model->getThemeAry();
 
 //idの値が不正な場合、エラー文を表示
 if(empty($themeArray)){
+	echo "<article id='main_content' class='bottom'>";
+	echo "<div id='content_wrapper'>";
+	echo "<section id='theme_wrapper'>";
 	echo "<p>指定したコンテンツは存在しません</p>";
-	exit;
-}
+	echo "</section></div></article>";
+} else{ //タグは最後に閉じる
 
 //テーマへのレスポンスの配列を取得
 $response_model = new ThemeResponseSelectModel;
@@ -91,7 +97,8 @@ function getCommentAry($theme_response_id){
 					
 					
 					
-					<?php for($i = 0; count($responseArray) > $i; $i++){?>
+					<?php //RESPONSE表示のループ
+					for($i = 0; count($responseArray) > $i; $i++){ ?>
 					
 					<div class="response_area">
 						<h5><a href="#"><?php echo $responseArray[$i]["theme_response_title"]?></a></h5>
@@ -126,7 +133,7 @@ function getCommentAry($theme_response_id){
 						<?php } ?>
 						
 					</div>
-					<?php }?>
+					<?php } //RESPONSE表示のループ終わり ?>
 					<div class="clear"></div>
 				</div>
 			</section>
@@ -134,3 +141,4 @@ function getCommentAry($theme_response_id){
 			
 		</div>
 	</article>
+<?php }} ?>

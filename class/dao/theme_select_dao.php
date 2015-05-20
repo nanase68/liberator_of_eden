@@ -16,7 +16,7 @@ class ThemeSelectDAO extends AbstractDAO{
     $sql = $this->makeSelectSql();
     // WHERE文を追記
     $sql .= $this->singleWhereSql('user_id', 'theme_id');
-    echo $sql;
+    //echo $sql;
 
     $ary = $this->exeSelectSql($sql);
 

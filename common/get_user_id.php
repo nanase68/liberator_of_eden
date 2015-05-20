@@ -8,4 +8,4 @@ if(isset($_SESSION['user_id'])){
 }
 
 //stub
-$user_id_from_session = 'root';
+// $user_id_from_session = 'root';

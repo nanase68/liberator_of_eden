@@ -5,7 +5,7 @@
  * クラスの詳細
  * POSTされてきた$_FILESを処理するクラス。
  * ファイルアップロードからそのファイル情報の変更まで扱う。
- *Exceptionなぞない、全ては使用者の善意により成り立つ…
+ * Exceptionなぞない、全ては使用者の善意により成り立つ…
  *
  * @access public
  * @author HiroakiTatsumi <hatuusa@gmail.com>
@@ -141,8 +141,6 @@ class FileUploadClass{
 	public function getFileSize(){
 		return $this -> calcSize();
 	}
-	
-	
 	
 	
 	/**

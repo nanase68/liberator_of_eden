@@ -29,5 +29,3 @@ class ThemeResponseSelectModel{
 
 $model = new ThemeResponseSelectModel;
 $model->setThemeId(5);
-print_r($model->getThemeResponseAry());
-

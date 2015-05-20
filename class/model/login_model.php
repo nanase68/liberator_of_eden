@@ -31,6 +31,6 @@ if(isset($_POST["login_id"]) && isset($_POST["login_pass"])){
 }else{
 	//echo "string";
 }
-session_destroy();
+//session_destroy();
 ?>
 

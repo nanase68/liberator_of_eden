@@ -7,7 +7,7 @@
 				if(isset($_SESSION['user_id'])){
 			?>
 			
-			<a href="my_page.php" id="login"><?php echo $_SESSION['user_id']?>さん</a>
+			<a href="my_page.php?id=<?php echo $_SESSION['user_id'];?>" id="login"><?php echo $_SESSION['user_id']?>さん</a>
 			<?php } }else{?>
 			<a href="sign_up.php" id="header_sign_up">新規会員登録</a>
 			<a href="login.php" id="login">ログイン</a>

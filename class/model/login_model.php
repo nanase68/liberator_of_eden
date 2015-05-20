@@ -1,5 +1,4 @@
 <?php
-session_start();//セッションを開始
 
 require_once (dirname(__FILE__) . '/../dao/login_select_dao.php');
 

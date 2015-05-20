@@ -30,6 +30,8 @@ class ThemeResponseSelectDAO extends AbstractDAO{
     $sql .= "INNER JOIN M_USER ";
     $sql .= "ON T_THEME_RESPONSE.user_id = M_USER.user_id";
 
+    $sql .= $this->singleWhereSql('theme_id','theme_response_id');
+
     $ary = $this->exeSelectSql($sql);
 
     $this->setReturnAry($ary);
@@ -44,9 +46,10 @@ class ThemeResponseSelectDAO extends AbstractDAO{
   }
 }
 
-/*$dao = new ThemeResponseSelectDAO;
-$dao->setThemeId(1); //user_idやtheme_idをwhere文で指定できる
-$dao->setThemeResponseId(1);
+/*
+$dao = new ThemeResponseSelectDAO;
+$dao->setThemeId(3); //user_idやtheme_idをwhere文で指定できる
+//$dao->setThemeResponseId(1);
 $dao->accessDB();
-print_r($dao->getReturnAry());*/
-
+print_r($dao->getReturnAry());
+*/

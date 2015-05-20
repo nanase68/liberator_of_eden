@@ -3,7 +3,6 @@ require_once(dirname(__FILE__) . '/../dao/theme_select_dao.php');
 
 class ThemeSelectModel{
 	private $theme_select_dao; //クラスインスタンス
-	private $user_select_dao;
 	private $data_ary = "";
 	private $theme_id;
 
@@ -27,7 +26,7 @@ class ThemeSelectModel{
 	}
 }
 
-/*$model = new ThemeResponseSelectModel;
-$model->setThemeId(5);
-print_r($model->getThemeResponseAry());*/
-
+//$model = new ThemeSelectModel;
+//$theme_id = 1;//$_GET['id'];
+//$model->setThemeId($theme_id);
+//print_r($model->getThemeAry());

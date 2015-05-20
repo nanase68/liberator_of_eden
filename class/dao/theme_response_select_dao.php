@@ -16,9 +16,19 @@ class ThemeResponseSelectDAO extends AbstractDAO{
   }
 
   public function execute(){
-    $sql = $this->makeSelectSql();
-    // WHERE文を追記
-    $sql .= $this->singleWhereSql('theme_response_id','theme_id');
+    $sql = "SELECT ";
+    $sql .= "T_THEME_RESPONSE.theme_response_id, ";
+    $sql .= "T_THEME_RESPONSE.theme_id, ";
+    $sql .= "T_THEME_RESPONSE.theme_response_title, ";
+    $sql .= "T_THEME_RESPONSE.theme_response_detail, ";
+    $sql .= "T_THEME_RESPONSE.theme_response_date, ";
+    $sql .= "T_THEME_RESPONSE.theme_response_img, ";
+    $sql .= "M_USER.user_name ";
+    
+    $sql .= "FROM T_THEME_RESPONSE ";
+    
+    $sql .= "INNER JOIN M_USER ";
+    $sql .= "ON T_THEME_RESPONSE.user_id = M_USER.user_id";
 
     $ary = $this->exeSelectSql($sql);
 

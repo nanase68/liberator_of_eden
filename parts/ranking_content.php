@@ -3,7 +3,6 @@ require_once(dirname(__FILE__) . '/../class/model/mutter_ranking_select_model.ph
 $mutter_ranking = new MutterRankingModel;
 $rank_ary = $mutter_ranking->getRankingAry();
 ?>
-
 <article id="main_content" class="bottom">
 	<div id="content_wrapper">
 		<section id="ranking_wrapper">

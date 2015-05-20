@@ -133,7 +133,7 @@ $(function(){
 				//alert(rolls[i]);
 			}
 		}
-		alert(flg);
+		// alert(flg);
 		return flg;
 	});
 	

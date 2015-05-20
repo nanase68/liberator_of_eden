@@ -22,41 +22,33 @@ $rank_ary = $mutter_ranking->getRankingAry();
 					echo "<div class='rank'>" . $ranknum . "位</div>";
 					$ranknum+=1;
 				?>
-					<div class="image_area">
-						<a href= <?php echo ("mutter.php?id=" . $row['MUTTER_ID']); ?> >
-							<?php 
-							if(!empty($row['MUTTER_IMG'])){
-								//echo "<img src='./images/content_sample.jpg'>"; //mutterの画像を出力する
-							} else{
-								echo "<img src='./images/content_sample.jpg'>"; //テスト画像
-							} 
-							?>
-						</a>
-					</div>
-					<div class="content_area">
-						<h5><a href= <?php echo ("mutter.php?id=" . $row['MUTTER_ID']); ?> ><?php echo $row['MUTTER_TITLE']; ?></a></h5>
-
-						<a href="my_page.php" class="content_area_user">
-							<img src="./images/batman.jpg">
-							<span><?php echo $row['USER_NAME'] ;?></span>
-						</a>
-						
-						<a href= <?php echo("mutter.php?id=" . $row['MUTTER_ID']); ?> class="content_area_detail ellipsis">
-							<?php echo $row['MUTTER_DETAIL']; ?>
-						</a>
-					</div>
-					<div class="clear"></div>
+				<div class="image_area">
+					<a href= <?php echo ("mutter.php?id=" . $row['MUTTER_ID']); ?> >
+						<?php 
+						if(!empty($row['MUTTER_IMG'])){
+							//echo "<img src='./images/content_sample.jpg'>"; //mutterの画像を出力する
+						} else{
+							echo "<img src='./images/content_sample.jpg'>"; //テスト画像
+						} 
+						?>
+					</a>
 				</div>
-				
-				<?php }?>
-				
-				
-				
+				<div class="content_area">
+					<h5><a href= <?php echo ("mutter.php?id=" . $row['MUTTER_ID']); ?> ><?php echo $row['MUTTER_TITLE']; ?></a></h5>
+
+					<a href="my_page.php" class="content_area_user">
+						<img src="./images/batman.jpg">
+						<span><?php echo $row['USER_NAME'] ;?></span>
+					</a>
+					
+					<a href= <?php echo("mutter.php?id=" . $row['MUTTER_ID']); ?> class="content_area_detail ellipsis">
+						<?php echo $row['MUTTER_DETAIL']; ?>
+					</a>
+				</div>
+				<div class="clear"></div>
 			</div>
 			
-			
-			
-
+			<?php }?>
 		</section>
 		<div class="clear"></div>
 		

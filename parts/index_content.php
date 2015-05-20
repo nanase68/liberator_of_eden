@@ -11,10 +11,12 @@ $new_mutter_ary = $new_mutter -> getNewMutterAry();
 		<div id="content_wrapper">
 			<section class="item" id="con01">
 				<h3>今週の一押しフレーズ</h3>
-				<div class="top_image">
-					<img src="$rank_ary[0]['MUTTER_IMG']">
+<?php if(!empty($rank_ary[0]['MUTTER_IMG'])){
+echo('<div class="top_image">');
+echo('<img src="'. $rank_ary[0]['MUTTER_IMG']) . '"'; ?>
 					<p class="uploader">投稿者: <a href="#"><?php echo $rank_ary[0]['USER_ID']; ?></a></p>
 				</div>
+<?php } ?>
 				<div class="top_phrase">
 					<h4> <a href= <?php echo "mutter.php?id=" . $rank_ary[0]['MUTTER_ID']; ?> ><?php echo $rank_ary[0]['MUTTER_TITLE']; ?> </a></h4>
 					<p> <a href= <?php echo "mutter.php?id=" . $rank_ary[0]['MUTTER_ID']; ?> ><?php echo $rank_ary[0]['MUTTER_DETAIL']; ?> </a></p>
@@ -62,33 +64,6 @@ $new_mutter_ary = $new_mutter -> getNewMutterAry();
 				<div class="clear"></div>
 			</section>
 			
-			<section class="item">
-				<h3>項目サンプル</h3>
-				<div class="micro_content">
-					<img src="./images/sample.png">
-					<p class="uploader">SAMPLE: <a href="#">BattoMan</a></p>
-				</div>
-				
-				<div class="micro_content">
-					<img src="./images/sample.png">
-					<p class="uploader">SAMPLE: <a href="#">BattoMan</a></p>
-				</div>
-				<div class="clear"></div>
-			</section>
-
-			<section class="item">
-				<h3>項目サンプル</h3>
-				<div class="micro_content">
-					<img src="./images/sample.png">
-					<p class="uploader">SAMPLE: <a href="#">BattoMan</a></p>
-				</div>
-				
-				<div class="micro_content">
-					<img src="./images/sample.png">
-					<p class="uploader">SAMPLE: <a href="#">BattoMan</a></p>
-				</div>
-				<div class="clear"></div>
-			</section>
-			<div class="clear"></div>
+		<div class="clear"></div>
 		</div>
 	</article>

@@ -20,30 +20,30 @@ class SignUpModel{
     $check_model = new SignUpCheckModel;
     // 重複チェック
     if(($check_model->checkUserId($id) == "ng") || ($check_model->checkuserEmail($email) == "ng")){
-      Common::goToError();
+      Common::goToError('idまたはemailがすでに存在します。');
     }
 
     // idの正当性チェック
     $pattern = "/^([a-zA-Z0-9\._-])+$/";
     if(!preg_match($pattern, $id)){
-      Common::goToError();
+      Common::goToError('idが不正です。');
     }
 
     // Emailの正当性チェック
     $pattern = "/^([a-zA-Z0-9])+([a-zA-Z0-9\._-])*@([a-zA-Z0-9_-])+([a-zA-Z0-9\._-]+)+$/";
     if(!preg_match($pattern, $email)){
-      Common::goToError();
+      Common::goToError('emailが不正です。');
     }
 
     // passの正当性チェック
     $pattern = "/^([a-zA-Z0-9\._-])+$/";
     if(!preg_match($pattern, $pass)){
-      Common::goToError();
+      Common::goToError('パスワードが不正です。');
     }
 
     // 文字数チェック
     if(strlen($pass) < 8){
-      Common::goToError();
+      Common::goToError('パスワードが８文字未満です。');
     }
   }
 

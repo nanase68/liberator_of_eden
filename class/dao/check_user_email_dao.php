@@ -13,7 +13,7 @@ class CheckUserEmailDAO extends AbstractDAO{
   public function execute(){
     $sql = $this->makeSelectSql($this->getTable(), $this->getColumnAry());
     // WHERE文を追記
-    $sql .= $this->singleWhereSql('user_id');
+    $sql .= $this->singleWhereSql('user_email');
 
     $ary = $this->exeSelectSql($sql);
 

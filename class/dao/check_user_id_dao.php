@@ -24,3 +24,8 @@ class CheckUserIdDAO extends AbstractDAO{
     $this->putInputAry('user_id', $user_id);
   }
 }
+
+// $o = new CheckUserIdDAO;
+// $o->setUserId('root');
+// $o->accessDB();
+

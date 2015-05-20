@@ -14,7 +14,7 @@ $new_mutter_ary = $new_mutter -> getNewMutterAry();
 <?php if(!empty($rank_ary[0]['MUTTER_IMG'])){
 echo('<div class="top_image">');
 echo('<img src="'. $rank_ary[0]['MUTTER_IMG']) . '"'; ?>
-					<p class="uploader">投稿者: <a href="#"><?php echo $rank_ary[0]['USER_ID']; ?></a></p>
+					<p class="uploader">投稿者: <a href="#"><?php echo $rank_ary[0]['USER_NAME']; ?></a></p>
 				</div>
 <?php } ?>
 				<div class="top_phrase">
@@ -36,7 +36,7 @@ $i++;
 ?>
 				<div class="micro_content">
 					<p class="micro_content_text"> <a href= <?php echo "mutter.php?id=" . $mutter['MUTTER_ID']; ?>><?php echo $mutter['MUTTER_TITLE']; ?></a></p>
-					<p class="uploader">投稿者： <a href="#"> <?php echo $mutter['USER_ID'];?></a></p>
+					<p class="uploader">投稿者： <a href="#"> <?php echo $mutter['USER_NAME'];?></a></p>
 				</div>
 <?php } ?>
 
@@ -54,7 +54,7 @@ if($i >6){
 				<div class="micro_content">
 					<!--<img src="$rank_ary[3]['MUTTER_IMG']">-->
 					<p class="micro_content_text"> <a href= <?php echo "mutter.php?id=" . $rank_ary[$i]['MUTTER_ID']; ?>><?php echo $rank_ary[$i]['MUTTER_TITLE'] ?> </a></p>
-					<p class="uploader">投稿者： <a href="#"><?php echo $rank_ary[$i]['USER_ID'] ?> </a></p>
+					<p class="uploader">投稿者： <a href="#"><?php echo $rank_ary[$i]['USER_NAME'] ?> </a></p>
 				</div>
 <?php } ?>
       

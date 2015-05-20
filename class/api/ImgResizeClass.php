@@ -1,27 +1,5 @@
 <?php
 /**
-*@hiroaki 20150218
-*@画像サイズのセッター
-*public setImageParth(INT)		:input(INT) +
-*@画像パスのセッター
-*public setUri(STRING, STRING)	:input(STRING, STRING)
-*@画像の最大横幅のセッター
-*public setMaxWidth(INT)		:input(INT)
-*@画像の最大縦幅のセッター
-*public setMaxHeight(INT)		:input(INT)
-*@画像の保存と保存可否のゲッター、exportImage()を呼ぶ
-*public getImage()				:return(BOOLEAN)
-*
-*@画像の縦横幅計算関数の引数(横,縦)
-*private calculationAspect(INT, INT)	:input(INT, INT)
-*@画像の縦横幅計算関数の戻値(Array(縦,横))
-*private calculationAspect(INT, INT)	:return (Array(INT, INT))
-*@画像の保存と保存可否を返す: 保存成功=true :保存失敗=false
-*private exportImage()					:return(BOOLEAN)
-*
-**/
-
-/**
  * [API]画像リサイズ関連をまとめたクラス
  *
  * クラスの詳細

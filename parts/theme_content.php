@@ -18,7 +18,7 @@ $theme_ary = $model->getThemeAry();
 						<img src="./images/content_sample.jpg">
 					</div>
 					<div class="content_area">
-						<h5><a href="#">授業中にテロリストが</a></h5>
+						<h5><a href="#"><?php echo $theme_ary[0]['theme_title']; ?></a></h5>
 						
 						<a href="my_page.php" class="content_area_user">
 							<img src="./images/batman.jpg">

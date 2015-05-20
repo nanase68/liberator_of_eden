@@ -25,7 +25,7 @@ $theme_ary = $theme_list->getThemeAry();
 
 						<a href="my_page.php" class="content_area_user">
 							<img src="./images/batman.jpg">
-							<span><?php echo $row['user_id'] ;?></span>
+							<span><?php echo $row['user_id']; ?></span>
 						</a>
 					</div>
 					<div class="clear"></div>

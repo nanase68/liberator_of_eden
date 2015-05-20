@@ -9,7 +9,7 @@ class MutterInsertDAO extends AbstractDAO{
     $this->setColumnAry(array(
       // "mutter_id",
       "user_id",
-      // "mutter_title",
+      "mutter_title",
       "mutter_detail",
       "mutter_date",
       // "mutter_img",

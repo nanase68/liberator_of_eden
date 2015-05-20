@@ -9,6 +9,7 @@ require_once(dirname(__FILE__) . '/../dao/mutter_favorites_select_dao.php');
 class MutterFavoritesModel{
   private $mutter_fav_insert_dao; //クラスインスタンス
   private $mutter_fav_select_dao;
+  private $mutter_fav_delete_dao;
   private $data_ary = "";
   private $is_exist_on_DB; //既にお気に入りが存在するかのフラグ
 

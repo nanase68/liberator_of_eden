@@ -3,13 +3,13 @@ require_once(dirname(__FILE__) . '/../class/model/my_page_mutters_select_model.p
 $my_page_mutters_select_model = new MyPageMuttersSelectModel;
 
 // if((isset($_POST['mutter_title'])) && (isset($_POST['mutter_detail']))){
-if(isset($_POST['mutter_detail'])){
+if(isset($_POST['mutter_title'])){
   require_once(dirname(__FILE__) . '/../class/model/mutter_insert_model.php');
   $mutter_insert_model = new MutterInsertModel;
   //投稿ボタンを押されてリダイレクト
-  // $title = $_POST['mutter_title'];
+  $title = $_POST['mutter_title'];
   $detail = $_POST['mutter_detail'];
-  $mutter_insert_model->putParam($detail);
+  $mutter_insert_model->putParam($title, $detail);
   $mutter_insert_model->printHtml();
 }
 ?>
@@ -20,37 +20,29 @@ if(isset($_POST['mutter_detail'])){
 				
 				
 				<h3>呟きを投稿する</h3>
-				
-				<form action="#" method="POST">
-					<div>
-						<input type="text" name="mutter_detail">
-						<input type="submit" value="投稿する">
+						
+					<div id="response_area">
+						<form action= "#" method="POST" enctype="multipart/form-data" accept-charset="UTF-8">
+							<div>
+								<label for="r_title">タイトル</label>
+								<input type="text" name="mutter_title" id="r_title">
+							</div>
+							<div>
+								<label for="r_detail">内容</label>
+								<textarea name="mutter_detail" id="r_detail"></textarea>
+                            </div>
+<!--
+                            <div>
+                                <label for="r_image">画像を添付する</label>
+                                <input type="file" name="files" id="r_image" accept="image/*">
+                            </div>
+ // -->
+							<div><input type="submit" value="投稿する"></div>
+						</form>
 					</div>
-				</form>
-				
 			</section>
-			<section class="item">
-				<h3>コメントのついた呟き</h3>
-				
-				<div class="micro_content">
-					<img src="./images/sample.png">
-					<p class="uploader">SAMPLE: <a href="#">BattoMan</a></p>
-				</div>
-				
-				<div class="micro_content">
-					<img src="./images/sample.png">
-					<p class="uploader">SAMPLE: <a href="#">BattoMan</a></p>
-				</div>
-				
-				<div class="micro_content">
-					<img src="./images/sample.png">
-					<p class="uploader">SAMPLE: <a href="#">BattoMan</a></p>
-				</div>
-				<div class="clear"></div>
-			</section>
-			
-			
-			<section class="item">
+
+		<section class="item">
         <h3>投稿した呟き</h3>
 <?php
 echo($my_page_mutters_select_model->printHtml());

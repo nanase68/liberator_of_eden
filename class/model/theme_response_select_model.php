@@ -26,3 +26,8 @@ class ThemeResponseSelectModel{
 		$this->theme_id = $theme_id;
 	}
 }
+
+/*$model = new ThemeResponseSelectModel;
+$model->setThemeId(5);
+print_r($model->getThemeResponseAry());*/
+

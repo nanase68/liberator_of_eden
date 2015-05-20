@@ -33,7 +33,7 @@ class MyPageMuttersSelectModel{
   private function makeHtml(){
     $html = "";
     foreach($this->data_ary as $row){
-      $html .= "<div class='micro_content'>";
+      $html .= "<a href='./mutter.php?id=".$row['mutter_id']."'><div class='micro_content'>";
       if(empty($row['mutter_img'])){
         $html .= "<p class='micro_content_txt'>${row['mutter_detail']}</p>";
       } else {
@@ -41,7 +41,7 @@ class MyPageMuttersSelectModel{
         $html .= "<img src='./images/sample.png'>";
       }
       $html .= "<p class='uploader'>${row['mutter_title']}</p>";
-      $html .= "</div>";
+      $html .= "</div></a>";
       $html .= "\n";
     }
     return($html);

@@ -16,13 +16,13 @@ class MutterInsertModel{
     return($this->makeHtml());
   }
 
-  public function putParam($detail){
+  public function putParam($title, $detail){
     $mutter_ary = array();
 
     //common/get_id.php
     global $user_id_from_session;
     $mutter_ary['user_id'] = $user_id_from_session;
-    // $mutter_ary['mutter_title'] = $title;
+    $mutter_ary['mutter_title'] = $title;
     $mutter_ary['mutter_detail'] = $detail;
     $mutter_ary['mutter_date'] = NOW_TIME;
     // $mutter_ary['mutter_img'] = NULL;

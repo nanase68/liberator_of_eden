@@ -2,6 +2,8 @@
 // require_once(dirname(__FILE__) . '/../../common/get_user_id.php');
 require_once(dirname(__FILE__) . '/../../common/common.php');
 require_once(dirname(__FILE__) . '/../dao/theme_response_star_insert_dao.php');
+require_once(dirname(__FILE__) . '/../dao/theme_response_star_select_dao.php');
+require_once(dirname(__FILE__) . '/../dao/theme_response_star_update_dao.php');
 
 // このモデルはユーザーサイドのajaxからのPOSTで起動する
 $model = new ThemeResponseStarInsertModel;
@@ -16,10 +18,14 @@ if(isset($_POST['response_id'])
 
 class ThemeResponseStarInsertModel{
   private $insert_dao; //クラスインスタンス
+  private $select_dao;
+  private $update_dao;
   private $data_ary = "";
 
   function __construct(){
     $this->insert_dao = new ThemeResponseStarInsertDao;
+    $this->select_dao = new ThemeResponseStarSelectDao;
+    $this->update_dao = new ThemeResponseStarUpdateDao;
   }
 
   public function printHtml(){
@@ -38,10 +44,22 @@ class ThemeResponseStarInsertModel{
     $star_ary["user_id"] = $user_id;
  
     $this->insert_dao->setInputAry($star_ary);
+
+    $this->select_dao->setResponseId($theme_response_id);
+    $this->select_dao->setUserId($user_id);
+
+    $this->update_dao->setResponseId($theme_response_id);
+    $this->update_dao->setUserId($user_id);
+    $this->update_dao->setStarPoint($star_point);
   }
 
   private function exeDao(){
-    $this->insert_dao->accessDB();
+    $this->select_dao->accessDB();
+    if(empty($this->select_dao->getReturnAry())){
+      $this->insert_dao->accessDB();
+    } else {
+      $this->update_dao->accessDB();
+    }
   }
 
   private function makeHtml(){

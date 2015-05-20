@@ -84,16 +84,25 @@ abstract class AbstractDAO{
   }
 
   // 注意：Update文は必ずwhereを併用すること
-  protected function makeUpdateSql(){
+  protected function makeUpdateSql(...$update_ary){
     $sql = "";
     $sql .= "UPDATE ";
     $sql .= DBNAME . "." . $this->getTable(); 
-    for($i=0; $i < count($this->getInputAry()); $i++){
-      if($i > 0){
-        $sql .= ", ";
+
+    $first_flag = true;
+    foreach($update_ary as $column){
+      if(!empty($this->popInputAry($column))){
+        if($first_flag){
+          $sql .= " SET ";
+          $first_flag = false;
+        } else {
+          $sql .= ", ";
+        }
+
+        $sql .=  "${column}=" . ":${column}";
       }
-      $sql .= $this->getInputAry()[$i] . " = :" . $this->getInputAry()[$i];
     }
+
     return($sql);
   }
 

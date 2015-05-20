@@ -18,7 +18,7 @@ class MutterSelectDAO extends AbstractDAO{
   public function execute(){
     $sql = $this->makeSelectSql();
     // WHERE文を追記
-    $sql .= $this->singleWhereSql('mutter_id');
+    $sql .= $this->singleWhereSql('mutter_id','user_id');
 
     $ary = $this->exeSelectSql($sql);
 
@@ -28,4 +28,16 @@ class MutterSelectDAO extends AbstractDAO{
   public function setMutterId($mutter_id){
     $this->putInputAry('mutter_id', $mutter_id);
   }
+
+  public function setUserId($user_id){
+    $this->putInputAry('user_id', $user_id);
+  }
 }
+
+/*
+$dao = new MutterSelectDAO;
+//$dao->setUserId('kanzakiranko');
+$dao->setMutterId(1);
+$dao->accessDB();
+print_r($dao->getReturnAry());
+*/

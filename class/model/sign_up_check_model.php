@@ -1,14 +1,15 @@
 <?php
 ini_set( 'display_errors', 1 );
 // このモデルはユーザーサイドのajaxからのPOSTで起動する
-$model = new SignUpCheckModel;
 
 if(isset($_POST['user_id'])){
   // ajaxからpostされる
+  $model = new SignUpCheckModel;
   $return = $model->checkUserId($_POST['user_id']);
   echo($return);
 } else if(isset($_POST['user_email'])){
   // ajaxからpostされる
+  $model = new SignUpCheckModel;
   $return = $model->checkUserEmail($_POST['user_email']);
   echo($return);
 }
@@ -44,4 +45,7 @@ class SignUpCheckModel{
     }
   }
 }
-?>
+
+// $check_model = new SignUpCheckModel;
+// print_r($check_model->checkUserId('root') == "ng");
+// print_r($check_model->checkUserEmail('root'));

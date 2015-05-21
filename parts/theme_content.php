@@ -62,7 +62,7 @@ function getCommentAry($theme_response_id){
 					<div class="content_area">
 						<h5><a href="#"><?php echo $themeArray[0]['theme_title']; ?></a></h5>
 						
-						<a href="my_page.php" class="content_area_user">
+						<a href=<?php echo "my_page.php?id=" . $themeArray[0]['user_id']; ?> class="content_area_user">
 							<img src="./images/batman.jpg">
 							<span><?php echo $themeArray[0]['user_name']; ?></span>
 						</a>
@@ -103,7 +103,7 @@ function getCommentAry($theme_response_id){
 					<div class="response_area">
 						<h5><a href="#"><?php echo $responseArray[$i]["theme_response_title"]?></a></h5>
 						
-						<a href="my_page.php" class="content_area_user">
+						<a href=<?php echo "my_page.php?id=" . $responseArray[0]['user_id']; ?> class="content_area_user">
 							<img src="./images/batman.jpg">
 							<span><?php echo $responseArray[$i]["user_name"]?></span>
 						</a>
@@ -124,7 +124,7 @@ function getCommentAry($theme_response_id){
 						$commentAry = getCommentAry($responseArray[$i]["theme_response_id"]);
 						foreach ($commentAry as $comment_elem) { ?>
 							<div class="response_comment">
-								<a href="my_page.php" class="response_comment_area_user">
+								<a href=<?php echo "my_page.php?id=" . $comment_elem['user_id']; ?> class="response_comment_area_user">
 									<img src="./images/batman.jpg">
 									<span><?php echo $comment_elem['user_name']; ?></span>
 								</a>

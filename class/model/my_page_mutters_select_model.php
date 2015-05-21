@@ -2,6 +2,18 @@
 require_once(dirname(__FILE__) . '/../../common/get_user_id.php');
 require_once(dirname(__FILE__) . '/../dao/my_page_mutters_select_dao.php');
 
+/**
+ * [Model] 
+ *
+ * クラスの詳細
+ * マイページの自分のつぶやきを表示させるモデル
+ *
+ * @access public
+ * @author Shima Yusuke <mashi4729@gmail.com>
+ * @copyright Shima Yusuke All Rights Reserved
+ * @category カテゴリー（処理系）
+ * @package Model
+ */
 class MyPageMuttersSelectModel{
   private $dao; //クラスインスタンス
   private $data_ary = "";

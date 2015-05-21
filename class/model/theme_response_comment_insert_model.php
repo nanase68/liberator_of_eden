@@ -1,4 +1,8 @@
 <?php
+require_once(dirname(__FILE__) . '/../../common/get_user_id.php');
+require_once(dirname(__FILE__) . '/../../common/common.php');
+require_once(dirname(__FILE__) . '/../dao/theme_response_comment_insert_dao.php');
+
 /**
  * [MODEL]ThemeのResponseのCommentをDBに書き込むクラス。
  *
@@ -13,11 +17,6 @@
  * @category カテゴリー（処理系）
  * @package Model
  */
-
-require_once(dirname(__FILE__) . '/../../common/get_user_id.php');
-require_once(dirname(__FILE__) . '/../../common/common.php');
-require_once(dirname(__FILE__) . '/../dao/theme_response_comment_insert_dao.php');
-
 class ThemeResponseCommentInsertModel{
   private $comment_insert_dao; //クラスインスタンス
   private $data_ary = "";

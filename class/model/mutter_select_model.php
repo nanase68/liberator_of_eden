@@ -1,4 +1,6 @@
 <?php 
+require_once(dirname(__FILE__) . '/../dao/mutter_select_dao.php');
+
 /**
  * [MODEL]mutterを取得するクラス。
  *
@@ -12,8 +14,6 @@
  * @category カテゴリー（処理系）
  * @package Model
  */
-require_once(dirname(__FILE__) . '/../dao/mutter_select_dao.php');
-
 class MutterSelectModel{
 	private $mutter_select_dao; //クラスインスタンス
 	private $data_ary = "";

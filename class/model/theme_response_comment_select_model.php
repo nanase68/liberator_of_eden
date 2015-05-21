@@ -1,4 +1,6 @@
 <?php 
+require_once(dirname(__FILE__) . '/../dao/theme_response_comment_select_dao.php');
+
 /**
  * [MODEL]ThemeのResponseのCommentを取得するクラス。
  *
@@ -12,8 +14,6 @@
  * @category カテゴリー（処理系）
  * @package Model
  */
-require_once(dirname(__FILE__) . '/../dao/theme_response_comment_select_dao.php');
-
 class ThemeResponseCommentSelectModel{
 	private $comment_select_dao; //クラスインスタンス
 	private $data_ary = "";

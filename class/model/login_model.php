@@ -1,5 +1,4 @@
 <?php
-
 require_once (dirname(__FILE__) . '/../dao/login_select_dao.php');
 
 if(isset($_POST["login_id"]) && isset($_POST["login_pass"])){

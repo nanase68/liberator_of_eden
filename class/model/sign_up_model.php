@@ -3,6 +3,18 @@ require_once(dirname(__FILE__) . '/../../common/common.php');
 require_once(dirname(__FILE__) . '/../dao/user_insert_dao.php');
 require_once(dirname(__FILE__) . '/sign_up_check_model.php');
 
+/**
+ * [Model] 
+ *
+ * クラスの詳細
+ * サインアップの処理を行うモデル
+ *
+ * @access public
+ * @author Shima Yusuke <mashi4729@gmail.com>
+ * @copyright Shima Yusuke All Rights Reserved
+ * @category カテゴリー（処理系）
+ * @package Model
+ */
 class SignUpModel{
   private $insert_dao; //クラスインスタンス
   private $data_ary = "";

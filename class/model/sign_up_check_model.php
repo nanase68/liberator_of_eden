@@ -14,6 +14,20 @@ if(isset($_POST['user_id'])){
   echo($return);
 }
 
+/**
+ * [Model] 
+ *
+ * クラスの詳細
+ * サインアップ処理でidとemailが登録済みかどうかを調べるクラス
+ * ユーザーサイドからのajaxからのPOSTで呼ばれる
+ * また、sign_up_modelからも呼ばれる
+ *
+ * @access public
+ * @author Shima Yusuke <mashi4729@gmail.com>
+ * @copyright Shima Yusuke All Rights Reserved
+ * @category カテゴリー（処理系）
+ * @package Model
+ */
 class SignUpCheckModel{
   public function checkUserId($user_id){
     require_once(dirname(__FILE__) . '/../dao/check_user_id_dao.php');

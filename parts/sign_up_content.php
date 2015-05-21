@@ -12,7 +12,7 @@ if((isset($_POST['user_id'])) && (isset($_POST['user_name'])) && (isset($_POST['
 		<div id="content_wrapper">
 			<section id="sign_up_wrapper">
 
-				<h2>ログインページ</h2>
+				<h2>新規会員登録ページ</h2>
 				
 				<div id="sign_up">
 					<div class="sign_up_content">

@@ -16,6 +16,18 @@ if(isset($_POST['response_id'])
   $model->printHtml();
 }
 
+/**
+ * [Model] 
+ *
+ * クラスの詳細
+ * テーマへのレスポンスへの☆付けをデータベースに登録するモデル
+ *
+ * @access public
+ * @author Shima Yusuke <mashi4729@gmail.com>
+ * @copyright Shima Yusuke All Rights Reserved
+ * @category カテゴリー（処理系）
+ * @package Model
+ */
 class ThemeResponseStarInsertModel{
   private $insert_dao; //クラスインスタンス
   private $select_dao;

@@ -9,6 +9,18 @@ if(isset($_POST['theme_response_id'])){
   echo($return);
 }
 
+/**
+ * [Model] 
+ *
+ * クラスの詳細
+ * テーマへのレスポンスへの☆を呼び出すモデル
+ *
+ * @access public
+ * @author Shima Yusuke <mashi4729@gmail.com>
+ * @copyright Shima Yusuke All Rights Reserved
+ * @category カテゴリー（処理系）
+ * @package Model
+ */
 class ThemeResponseStarSelectModel{
   private $select_dao; //クラスインスタンス
 

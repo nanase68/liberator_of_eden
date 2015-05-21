@@ -30,8 +30,8 @@ class ThemeInsertDAO extends AbstractDAO{
 /*
 $model = new ThemeInsertDAO;
 $theme_ary = array();
-$theme_ary['user_id'] = 'root';
-$theme_ary['theme_title'] = "test";
+$theme_ary['user_id'] = 'kanzakiranko';
+$theme_ary['theme_title'] = "アニメの中二病キャラ";
 $theme_ary['theme_create_date'] = NOW_TIME;
 //var_dump($theme_ary);
 print_r($theme_ary);

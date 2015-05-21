@@ -86,12 +86,12 @@ if(isset($_POST['mutter_title'])){
     foreach($mutter_ary as $row){
     	echo "<a href='./mutter.php?id=".$row['mutter_id']."'><div class='micro_content'>";
     	if(empty($row['mutter_img'])){
-    		echo "<p class='micro_content_txt'>${row['mutter_detail']}</p>";
+    		echo "<p class='micro_content_txt'>${row['mutter_title']}</p>";
     	} else {
     		// :TODO スタブ
         	echo "<img src='./images/sample.png'>";
 		}
-		echo "<p class='uploader'>${row['mutter_title']}</p>";
+		echo "<p class='uploader'>${row['mutter_detail']}</p>";
 		echo "</div></a>";
 	}
 ?>

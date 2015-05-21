@@ -22,7 +22,7 @@ $mutterAry = $model -> getMutterAry();
 				</div>
 				<div class="content_area">
 					<h5><a href="#"><?php echo $mutterAry[0]['mutter_title']; ?> </a></h5><!--OK?-->
-					<a href="my_page.php" class="content_area_user">
+					<a href=<?php echo "my_page.php?id=" . $mutterAry[0]['user_id']; ?> class="content_area_user">
 						<img src="./images/batman.jpg">
 						<span> <?php echo $mutterAry[0]['user_id']; ?> </span>
 					</a>

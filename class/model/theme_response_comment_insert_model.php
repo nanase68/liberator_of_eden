@@ -1,4 +1,19 @@
 <?php
+/**
+ * [MODEL]ThemeのResponseのCommentをDBに書き込むクラス。
+ *
+ * クラスの詳細
+ * ThemeのResponseのCommentをDBに書き込むクラス。
+ * ログインしているユーザーのuser_idと現在時刻を取得し、
+ * response_idと書き込み内容(detail)を指定できる。
+ *
+ * @access public
+ * @author NinomiyaTakeshi <sci.and.eng@gmail.com>
+ * @copyright NinomiyaTakeshi All Rights Reserved
+ * @category カテゴリー（処理系）
+ * @package Model
+ */
+
 require_once(dirname(__FILE__) . '/../../common/get_user_id.php');
 require_once(dirname(__FILE__) . '/../../common/common.php');
 require_once(dirname(__FILE__) . '/../dao/theme_response_comment_insert_dao.php');

@@ -1,4 +1,17 @@
 <?php 
+/**
+ * [MODEL]mutterを取得するクラス。
+ *
+ * クラスの詳細
+ * mutterを連想配列として取得するクラス。
+ * user_idとmutter_idを指定することができる
+ *
+ * @access public
+ * @author NinomiyaTakeshi <sci.and.eng@gmail.com>
+ * @copyright NinomiyaTakeshi All Rights Reserved
+ * @category カテゴリー（処理系）
+ * @package Model
+ */
 require_once(dirname(__FILE__) . '/../dao/mutter_select_dao.php');
 
 class MutterSelectModel{

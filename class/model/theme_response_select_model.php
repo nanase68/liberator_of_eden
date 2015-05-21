@@ -1,4 +1,17 @@
 <?php 
+/**
+ * [MODEL]ThemeのResponseを取得するクラス。
+ *
+ * クラスの詳細
+ * ThemeのResponseを連想配列として取得するクラス。
+ * theme_idを指定することができる。
+ *
+ * @access public
+ * @author NinomiyaTakeshi <sci.and.eng@gmail.com>
+ * @copyright NinomiyaTakeshi All Rights Reserved
+ * @category カテゴリー（処理系）
+ * @package Model
+ */
 require_once(dirname(__FILE__) . '/../dao/theme_response_select_dao.php');
 
 class ThemeResponseSelectModel{

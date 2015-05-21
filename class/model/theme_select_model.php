@@ -1,4 +1,16 @@
 <?php 
+/**
+ * [API]投稿されたテーマをDBから取得するクラス
+ *
+ * クラスの詳細
+ * DAOで投稿されたすべてのテーマに関するデータをDBから取得するクラス
+ *
+ *　@access public
+ * @author ShinyaKudo <shinya.k930@gmail.com>
+ * @copyright ShinyaKudo All Rights Reserved
+ * @category カテゴリー（処理系）
+ * @package Model
+ */
 require_once(dirname(__FILE__) . '/../dao/theme_select_dao.php');
 
 class ThemeSelectModel{

@@ -23,7 +23,7 @@ $theme_ary = $theme_list->getThemeAry();
 					<div class="theme_list">
 						<h5><a href= <?php echo "theme.php?id=" . $row['theme_id']; ?>><?php echo $row['theme_title']; ?></a></h5>
 
-						<a href="my_page.php" class="content_area_user">
+						<a href=<?php echo "my_page.php?id=" . $row['user_id']; ?> class="content_area_user">
 							<img src="./images/batman.jpg">
 							<span><?php echo $row['user_name']; ?></span>
 						</a>

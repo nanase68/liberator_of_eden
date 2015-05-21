@@ -35,7 +35,7 @@ $rank_ary = $mutter_ranking->getRankingAry();
 				<div class="content_area">
 					<h5><a href= <?php echo ("mutter.php?id=" . $row['MUTTER_ID']); ?> ><?php echo $row['MUTTER_TITLE']; ?></a></h5>
 
-					<a href="my_page.php" class="content_area_user">
+					<a href=<?php echo "my_page.php?id=" . $row['USER_ID']; ?> class="content_area_user">
 						<img src="./images/batman.jpg">
 						<span><?php echo $row['USER_NAME'] ;?></span>
 					</a>

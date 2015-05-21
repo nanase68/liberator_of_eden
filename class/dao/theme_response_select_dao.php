@@ -23,6 +23,7 @@ class ThemeResponseSelectDAO extends AbstractDAO{
     $sql .= "T_THEME_RESPONSE.theme_response_detail, ";
     $sql .= "T_THEME_RESPONSE.theme_response_date, ";
     $sql .= "T_THEME_RESPONSE.theme_response_img, ";
+    $sql .= "T_THEME_RESPONSE.user_id, ";
     $sql .= "M_USER.user_name ";
     
     $sql .= "FROM T_THEME_RESPONSE ";
